@@ -1,0 +1,43 @@
+[[cv]]
+  name = "Programming Languages"
+  path = "Programming_Languages.html"
+
+  [[cv.item]]
+  	title="Java"
+  	rank = 5
+  	
+  [[cv.item]]
+  	title="C"
+  	rank =4	
+	
+  [[cv.item]]
+  	title: "GoLang"
+	rank: 5
+  [[cv.item]]
+
+  [[cv.item]]
+
+  [[cv.item]]
+        
+  [[cv.item]]
+  
+  [[cv.item]]
+  
+  
+
+[[cv]]
+  name = "Operating Systems"
+  path = "Operating_Systems.html"
+    
+  [[cv.item]]
+  	title="Linux"
+  	rank = 5	
+ 
+
+
+	
+
+	
+
+		
+  
