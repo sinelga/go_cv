@@ -2,22 +2,15 @@ package toml_parser
 
 import (
 	"domains"
-	"fmt"
+//	"fmt"
 	 "io/ioutil"
 	 "github.com/naoina/toml"
 	"os"
 )
 
-func Parse(file string) {
+func Parse(file string) domains.Config{
 
 	var cv domains.Config
-//
-//	if _, err := toml.DecodeFile(file, &cv); err != nil {
-//		fmt.Println(err)
-//		return
-//	}
-////	fmt.Printf("Title: %s\n", cv.Items)
-//	fmt.Println(cv)
 
 	f, err := os.Open(file)
     if err != nil {
@@ -33,7 +26,9 @@ func Parse(file string) {
         panic(err)
     }
 
-	fmt.Println(cv);
+//	fmt.Println(cv);
+	
+	return cv
 	
 
 }

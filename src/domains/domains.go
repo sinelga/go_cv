@@ -18,32 +18,6 @@ type Config struct {
 }
 
 
-
-
-
-type Cv struct {
-	Title string
-//	Items []Item 
-		
-}
-
-type Item struct {
-	
-	Title string
-//	Path string
-	Details []Detail
-			
-}
-
-type Detail struct {
-	 Title string
-	 Rank int
-	
-	
-}
-
-
-
 //type Pages struct {
 //	//	Version string   `xml:"version,attr"`
 //	XMLName xml.Name `xml:"urlset"`
