@@ -1,4 +1,4 @@
 #! /bin/bash
 
-cd /home/juno/git/cv
+cd /home/juno/git/go_cv
 bin/app
