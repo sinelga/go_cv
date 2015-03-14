@@ -1,60 +1,118 @@
 [[cv]]
 name = "Programming Languages"
-path = "Programming_Languages.html"
+path = "Programming-languages.html"
 
   [[cv.item]]
   	title="Java"
   	rank = 5
+  	duration = 1
+  	link =""
+  	extra="in production"
+  	img="assets/images/programming2.png" 
   	
   [[cv.item]]
   	title="C"
-  	rank =4	
+  	rank =4
+  	duration = 1
+  	link =""	
+  	extra="in production" 
+  	img="assets/images/programming2.png" 
+  	
 	
   [[cv.item]]
   	title="GoLang"
 	rank=5
+  	duration = 1
+  	link =""		
+  	extra="in production" 
+  	img="assets/images/programming2.png" 
+  	
 	
   [[cv.item]]
   	title="JavaScript"
 	rank=4
-	
+  	duration = 1
+  	link =""
+  	extra="in production" 
+  	img="assets/images/programming2.png" 
+  	
+  		
   [[cv.item]]
   	title="Dart"
 	rank= 3
-	
+  	duration = 1
+  	link =""
+  	extra="in production" 
+  	img="assets/images/programming2.png" 
+  	
+  		
   [[cv.item]]
    	title="Ruby"
 	rank=3
+  	duration = 1
+  	link =""	
+  	extra="in production" 
+  	img="assets/images/programming2.png" 
+  	
 	       
   [[cv.item]]
   	title="Python"
 	rank=2
-	 
+  	duration = 1
+  	link =""	
+  	extra="in production" 
+  	img="assets/images/programming2.png" 
+  	
+  		 
   [[cv.item]]
     title="PHP"
 	rank= 1
-					 
+  	duration = 1
+  	link =""					 
+  	extra="in production" 
+  	img="assets/images/programming2.png" 
+  	
 	   
 [[cv]]
 name = "Operating Systems"
-path = "Operating_Systems.html"
+path = "Operating-systems.html"
     
   [[cv.item]]
   	title="Linux"
   	rank = 5
+  	duration = 1
+  	link =""	
+  	extra="in production" 
+  	img="assets/images/programming2.png" 
+  	
  
   [[cv.item]]
   	title="FreeBsd"
   	rank = 3
-
+  	duration = 1
+  	link =""	
+  	extra="in production" 
+  	img="assets/images/programming2.png" 
+  	
+ 
   [[cv.item]]
   	title="Solaris"
   	rank = 2
-	
+  	duration = 1
+  	link =""	
+  	extra="in production" 
+  	img="assets/images/programming2.png" 
+  	
+ 	
   [[cv.item]]
   	title="Cisko IOS"
   	rank = 2
-
+  	duration = 1
+  	link =""	
+  	extra="in production" 
+  	img="assets/images/programming2.png" 
+  	
+ 
 [[cv]]
 name = "Data Bases"
 path = "Data-bases.html"
@@ -62,23 +120,45 @@ path = "Data-bases.html"
   [[cv.item]]
   	title="Mysql"
   	rank = 5	
-
+  	duration = 1
+  	link =""	
+  	extra="in production" 
+  	img="assets/images/programming2.png" 
+  	
+ 
   [[cv.item]]
   	title="Redis"
   	rank = 4
+  	duration = 1
+  	link =""	
+  	extra="in production" 
+  	img="assets/images/programming2.png" 
   	
+   	
    [[cv.item]]
   	title="Sqlite"
   	rank = 3
+   	duration = 1
+  	link =""	
+  	extra="in production" 
+  	img="assets/images/programming2.png" 
+  	
   	
    [[cv.item]]
   	title="Postegress"
   	rank = 4	
+  	extra="in production" img="assets/images/programming2.png" 
+  	
   
    [[cv.item]]
   	title="Oracle"
   	rank = 2
+  	duration = 1
+  	link =""	
+   	extra="in production" 
+   	img="assets/images/programming2.png" 
   	
+   	
 [[cv]]
 name = "Telecommunication Application"
 path = "Telecommunication-application.html"
@@ -86,18 +166,37 @@ path = "Telecommunication-application.html"
    [[cv.item]]
   	title="Asterisk"
   	rank = 5
-  	
+  	duration = 1
+  	link =""	
+   	extra="in production" 
+   	img="assets/images/programming2.png"
+   	  	
    [[cv.item]]
   	title="Kamailio"
   	rank = 3
+  	duration = 1
+  	link =""	
+   	extra="in production" 
+   	img="assets/images/programming2.png"
+   	  	
   	
    [[cv.item]]
   	title="Cisko"
   	rank = 2
+  	duration = 1
+  	link =""	
+   	extra="in production" 
+   	img="assets/images/programming2.png"
+   	  	
   	
    [[cv.item]]
   	title="Kannel"
   	rank = 4
+  	duration = 1
+  	link =""	
+   	extra="in production" 
+   	img="assets/images/programming2.png"
+   	  	
   	
   	
 [[cv]]
@@ -107,22 +206,46 @@ path = "WebApplication-development.html"
    [[cv.item]]
   	title="Angularjs"
   	rank = 5
+  	duration = 1
+  	link =""	
+   	extra="in production" 
+   	img="assets/images/programming2.png"
+   	  	
   	
    [[cv.item]]
   	title="Dart"
   	rank = 4
+  	duration = 1
+  	link =""	
+   	extra="in production" 
+   	img="assets/images/programming2.png"
+   	  	
   	
    [[cv.item]]
   	title="Google Web Toolkit"
   	rank = 3
+  	duration = 1
+  	link =""	
+   	extra="in production" img="assets/images/programming2.png"
+   	  	
   	
    [[cv.item]]
   	title="Ruby on Rails"
   	rank = 3
+  	duration = 1
+  	link =""	
+   	extra="in production" 
+   	img="assets/images/programming2.png"
+   	  	
   	
    [[cv.item]]
   	title="PHP"
   	rank = 2
+   	duration = 1
+  	link =""	
+   	extra="in production" 
+   	img="assets/images/programming2.png"
+   	  	
   	
 [[cv]]
 name = "Coud Computing"
@@ -131,14 +254,29 @@ path = "Cloud-computing.html"
    [[cv.item]]
   	title="Digital Ocean"
   	rank = 5
+  	duration = 1
+  	link =""	
+   	extra="in production" 
+   	img="assets/images/programming2.png"
+   	  	
   	
    [[cv.item]]
   	title="AWS"
   	rank = 5
+  	duration = 1
+  	link =""	
+   	extra="in production" 
+   	img="assets/images/programming2.png"
+   	  	
   	
    [[cv.item]]
   	title="Rackspace"
   	rank = 4 	  	  	
+   	duration = 1
+  	link =""	
+   	extra="in production" 
+   	img="assets/images/programming2.png"
+   	  	
   	 	   	  	 	 	  	
   	
   		 			

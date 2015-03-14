@@ -27,6 +27,9 @@ func main() {
 	goji.Options("/echo/json", handlers.Echojson)
 	goji.Get("/api", handlers.MhandleAll)
 	goji.Options("/api", handlers.MhandleAll)
+	goji.Get("/api/:id", handlers.MhandleAll)
+	goji.Options("/api/:id", handlers.MhandleAll)	
+	
 	
 	
 		

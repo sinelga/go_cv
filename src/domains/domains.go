@@ -12,6 +12,10 @@ type Config struct {
         Item []struct {
             Title string
             Rank int
+            Duration int
+            Link string
+            Extra string
+            Img string
         }
 
     }
