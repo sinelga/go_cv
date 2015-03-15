@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 	"log/syslog"
-//	"github.com/rs/cors"
+	"github.com/rs/cors"
 	"github.com/zenazn/goji"
 	"handlers"
 )
@@ -17,10 +17,10 @@ func main() {
 		log.Fatal("error writing syslog!!")
 	}
 	
-//	c := cors.New(cors.Options{
-//		AllowedOrigins: []string{"*"},AllowedHeaders: []string{"hashbang"},AllowedMethods:[]string{"*"}, 
-//	})
-//	goji.Use(c.Handler)
+	c := cors.New(cors.Options{
+		AllowedOrigins: []string{"*"}, 
+	})
+	goji.Use(c.Handler)
 
 
 	goji.Get("/echo/json", handlers.Echojson)
