@@ -278,6 +278,34 @@ path = "Cloud-computing.html"
    	img="assets/images/programming2.png"
    	  	
   	 	   	  	 	 	  	
+[[cv]]
+name = "SEO Computing"
+path = "Seo-computing.html"
+
+   [[cv.item]]
+  	title="Organic optimization"
+  	rank = 5
+  	duration = 10
+  	link =""	
+   	extra="in production" 
+   	img="assets/images/programming2.png"
+   	  	
   	
+   [[cv.item]]
+  	title="AdWords"
+  	rank = 5
+  	duration = 3
+  	link =""	
+   	extra="in production" 
+   	img="assets/images/programming2.png"
+   	  	
+  	
+   [[cv.item]]
+  	title="AdSense"
+  	rank = 3 	  	  	
+   	duration = 1
+  	link =""	
+   	extra="in production" 
+   	img="assets/images/programming2.png"  	
   		 			
   
