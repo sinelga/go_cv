@@ -15,18 +15,32 @@ import (
 	//	"net"
 	//	"strings"
 //	"fmt"
-	"log"
+//	"log"
 	"toml_parser"
+	"log"	
+	"log/syslog"
 	//	"strings"
 )
 
 func MhandleAll(c web.C, w http.ResponseWriter, r *http.Request) {
+	
+	var err error
+	
+	golog, err := syslog.New(syslog.LOG_ERR, "golog")	
+
+	defer golog.Close()
+	if err != nil {
+		log.Fatal("error writing syslog!!")
+	}
 
 	var jcv []byte
-	var err error
+//	var err error
 	var bcv domains.Config
 
 	//	fmt.Println(r.RequestURI)
+	
+	golog.Info("UserAgent "+r.UserAgent()+" Host "+r.Host+" RequestURI "+ r.RequestURI)
+	
 
 	if r.Method == "GET" {
 
