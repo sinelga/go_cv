@@ -14,67 +14,74 @@ import (
 	//	"net/url"
 	//	"net"
 	//	"strings"
-//	"fmt"
-//	"log"
-	"toml_parser"
-	"log"	
+	//	"fmt"
+	//	"log"
+	"log"
 	"log/syslog"
+	"startones"
+	"toml_parser"
 	//	"strings"
 )
 
 func MhandleAll(c web.C, w http.ResponseWriter, r *http.Request) {
-	
+
 	var err error
-	
-	golog, err := syslog.New(syslog.LOG_ERR, "golog")	
 
-	defer golog.Close()
-	if err != nil {
-		log.Fatal("error writing syslog!!")
-	}
-
-	var jcv []byte
-//	var err error
-	var bcv domains.Config
+	//	golog, err := syslog.New(syslog.LOG_ERR, "golog")
+	//
+	//	defer golog.Close()
+	//	if err != nil {
+	//		log.Fatal("error writing syslog!!")
+	//	}
+	//
+	//	var jcv []byte
+	//	var err error
+	//	var bcv domains.Config
 
 	//	fmt.Println(r.RequestURI)
-	
-	golog.Info("UserAgent "+r.UserAgent()+" Host "+r.Host+" RequestURI "+ r.RequestURI+" r.RemoteAddr "+r.RemoteAddr+" referer "+r.Referer() )
-	
 
-	if r.Method == "GET" {
+	golog.Info("UserAgent " + r.UserAgent() + " Host " + r.Host + " RequestURI " + r.RequestURI + " r.RemoteAddr " + r.RemoteAddr + " referer " + r.Referer())
 
-		//	log.Println("method",method)
+	startOnce.Do(func() {
+		golog, jcv = startones.Start()
+		
+		golog.info("MhandleAll:Start Ones) 
 
-		bcv = toml_parser.Parse("/home/juno/git/go_cv/cv.toml")
+	})
 
-		if jcv, err = json.Marshal(bcv.Cv); err != nil {
+	//	if r.Method == "GET" {
+	//
+	//		//	log.Println("method",method)
+	//
+	//		bcv = toml_parser.Parse("/home/juno/git/go_cv/cv.toml")
+	//
+	//		if jcv, err = json.Marshal(bcv.Cv); err != nil {
+	//
+	//			log.Fatal(err.Error())
+	//
+	//		}
+	//
+	//	}
 
-			log.Fatal(err.Error())
-
-		}
-
-	}
-
-	if c.URLParams["id"] != "" {
-
-		id := c.URLParams["id"]
-
-		for _, item := range bcv.Cv {
-
-			if item.Path == id {
-
-				if jcv, err = json.Marshal(item); err != nil {
-
-					log.Fatal(err.Error())
-
-				}
-
-			}
-
-		}
-
-	}
+	//	if c.URLParams["id"] != "" {
+	//
+	//		id := c.URLParams["id"]
+	//
+	//		for _, item := range bcv.Cv {
+	//
+	//			if item.Path == id {
+	//
+	//				if jcv, err = json.Marshal(item); err != nil {
+	//
+	//					log.Fatal(err.Error())
+	//
+	//				}
+	//
+	//			}
+	//
+	//		}
+	//
+	//	}
 
 	if origin := r.Header.Get("Origin"); origin != "" {
 		w.Header().Set("Access-Control-Allow-Origin", origin)
