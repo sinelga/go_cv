@@ -29,10 +29,7 @@ func main() {
 	goji.Options("/api", handlers.MhandleAll)
 	goji.Get("/api/:id", handlers.MhandleAll)
 	goji.Options("/api/:id", handlers.MhandleAll)	
-	
-	
-	
-		
+			
 	goji.Serve()
 	
 

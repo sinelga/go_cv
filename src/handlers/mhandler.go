@@ -1,8 +1,8 @@
 package handlers
 
 import (
-	"domains"
-	"encoding/json"
+//	"domains"
+//	"encoding/json"
 	"github.com/zenazn/goji/web"
 	//	"github.com/garyburd/redigo/redis"
 	//	"handlers/getAll"
@@ -16,52 +16,30 @@ import (
 	//	"strings"
 	//	"fmt"
 	//	"log"
-	"log"
+//	"log"
 	"log/syslog"
 	"startones"
-	"toml_parser"
+//	"toml_parser"
+	"sync"
 	//	"strings"
 )
 
+var startOnce sync.Once
+
+var golog syslog.Writer
+var jcv []byte
+
 func MhandleAll(c web.C, w http.ResponseWriter, r *http.Request) {
 
-	var err error
+//	var err error
 
-	//	golog, err := syslog.New(syslog.LOG_ERR, "golog")
-	//
-	//	defer golog.Close()
-	//	if err != nil {
-	//		log.Fatal("error writing syslog!!")
-	//	}
-	//
-	//	var jcv []byte
-	//	var err error
-	//	var bcv domains.Config
-
-	//	fmt.Println(r.RequestURI)
-
-	golog.Info("UserAgent " + r.UserAgent() + " Host " + r.Host + " RequestURI " + r.RequestURI + " r.RemoteAddr " + r.RemoteAddr + " referer " + r.Referer()+" Method "+r.Method)
+	golog.Info("UserAgent " + r.UserAgent() + " Host " + r.Host + " RequestURI " + r.RequestURI + " RemoteAddr " + r.RemoteAddr + " referer " + r.Referer()+" Method "+r.Method)
 
 	startOnce.Do(func() {
 		golog, jcv = startones.Start()
-		
-		golog.info("MhandleAll:Start Ones) 
 
 	})
-
-	//	if r.Method == "GET" {
-	//
-	//		//	log.Println("method",method)
-	//
-	//		bcv = toml_parser.Parse("/home/juno/git/go_cv/cv.toml")
-	//
-	//		if jcv, err = json.Marshal(bcv.Cv); err != nil {
-	//
-	//			log.Fatal(err.Error())
-	//
-	//		}
-	//
-	//	}
+	
 
 	//	if c.URLParams["id"] != "" {
 	//

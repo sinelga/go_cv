@@ -5,7 +5,6 @@ import (
 	"encoding/json"
 	"log"
 	"log/syslog"
-	"startones"
 	"toml_parser"
 )
 
@@ -16,7 +15,7 @@ var bcv domains.Config
 var jcv []byte
 
 //func Start(golog syslog.Writer) ([]string,map[string]struct{}) {
-func Start() (syslog.Writer, domains.Config) {
+func Start() (syslog.Writer, []byte) {
 
 	golog, err := syslog.New(syslog.LOG_ERR, "golog")
 
@@ -48,6 +47,6 @@ func Start() (syslog.Writer, domains.Config) {
 	//
 	////	golog.Info(config.Database.ConStr)
 	//
-	return *golog, config
+	return *golog,jcv 
 
 }
