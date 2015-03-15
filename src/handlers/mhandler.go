@@ -39,7 +39,7 @@ func MhandleAll(c web.C, w http.ResponseWriter, r *http.Request) {
 
 	//	fmt.Println(r.RequestURI)
 	
-	golog.Info("UserAgent "+r.UserAgent()+" Host "+r.Host+" RequestURI "+ r.RequestURI)
+	golog.Info("UserAgent "+r.UserAgent()+" Host "+r.Host+" RequestURI "+ r.RequestURI+" r.RemoteAddr "+r.RemoteAddr+" referer "+r.Referer() )
 	
 
 	if r.Method == "GET" {
