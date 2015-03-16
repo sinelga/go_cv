@@ -1,6 +1,7 @@
 [[cv]]
 name = "Programming Languages"
 path = "Programming-languages.html"
+img="assets/images/"
 
   [[cv.item]]
   	title="Java"
@@ -8,7 +9,7 @@ path = "Programming-languages.html"
   	duration = 1
   	link =""
   	extra="in production"
-  	img="assets/images/programming2.png" 
+  	img="assets/images/java.jpg" 
   	
   [[cv.item]]
   	title="C"
@@ -16,7 +17,7 @@ path = "Programming-languages.html"
   	duration = 1
   	link =""	
   	extra="in production" 
-  	img="assets/images/programming2.png" 
+  	img="assets/images/c.png" 
   	
 	
   [[cv.item]]
@@ -25,7 +26,7 @@ path = "Programming-languages.html"
   	duration = 1
   	link =""		
   	extra="in production" 
-  	img="assets/images/programming2.png" 
+  	img="assets/images/golang.png" 
   	
 	
   [[cv.item]]
@@ -34,7 +35,7 @@ path = "Programming-languages.html"
   	duration = 1
   	link =""
   	extra="in production" 
-  	img="assets/images/programming2.png" 
+  	img="assets/images/javascript.png" 
   	
   		
   [[cv.item]]
@@ -43,7 +44,7 @@ path = "Programming-languages.html"
   	duration = 1
   	link =""
   	extra="in production" 
-  	img="assets/images/programming2.png" 
+  	img="assets/images/dart.png" 
   	
   		
   [[cv.item]]
@@ -52,7 +53,7 @@ path = "Programming-languages.html"
   	duration = 1
   	link =""	
   	extra="in production" 
-  	img="assets/images/programming2.png" 
+  	img="assets/images/ruby.jpg" 
   	
 	       
   [[cv.item]]
@@ -61,7 +62,7 @@ path = "Programming-languages.html"
   	duration = 1
   	link =""	
   	extra="in production" 
-  	img="assets/images/programming2.png" 
+  	img="assets/images/python.png" 
   	
   		 
   [[cv.item]]
@@ -70,12 +71,13 @@ path = "Programming-languages.html"
   	duration = 1
   	link =""					 
   	extra="in production" 
-  	img="assets/images/programming2.png" 
+  	img="assets/images/php.png" 
   	
 	   
 [[cv]]
 name = "Operating Systems"
 path = "Operating-systems.html"
+img="assets/images/"
     
   [[cv.item]]
   	title="Linux"
@@ -83,7 +85,7 @@ path = "Operating-systems.html"
   	duration = 1
   	link =""	
   	extra="in production" 
-  	img="assets/images/programming2.png" 
+  	img="assets/images/linux.png" 
   	
  
   [[cv.item]]
@@ -92,7 +94,7 @@ path = "Operating-systems.html"
   	duration = 1
   	link =""	
   	extra="in production" 
-  	img="assets/images/programming2.png" 
+  	img="assets/images/freebsd.png" 
   	
  
   [[cv.item]]
@@ -101,21 +103,22 @@ path = "Operating-systems.html"
   	duration = 1
   	link =""	
   	extra="in production" 
-  	img="assets/images/programming2.png" 
+  	img="assets/images/solaris.gif" 
   	
  	
   [[cv.item]]
-  	title="Cisko IOS"
+  	title="Cisco IOS"
   	rank = 2
   	duration = 1
   	link =""	
   	extra="in production" 
-  	img="assets/images/programming2.png" 
+  	img="assets/images/cisco.jpg" 
   	
  
 [[cv]]
 name = "Data Bases"
 path = "Data-bases.html"
+img="assets/images/"
   
   [[cv.item]]
   	title="Mysql"
@@ -123,7 +126,7 @@ path = "Data-bases.html"
   	duration = 1
   	link =""	
   	extra="in production" 
-  	img="assets/images/programming2.png" 
+  	img="assets/images/mysql.png" 
   	
  
   [[cv.item]]
@@ -132,7 +135,7 @@ path = "Data-bases.html"
   	duration = 1
   	link =""	
   	extra="in production" 
-  	img="assets/images/programming2.png" 
+  	img="assets/images/redis.png" 
   	
    	
    [[cv.item]]
@@ -141,13 +144,16 @@ path = "Data-bases.html"
    	duration = 1
   	link =""	
   	extra="in production" 
-  	img="assets/images/programming2.png" 
+  	img="assets/images/sqlite.png" 
   	
   	
    [[cv.item]]
-  	title="Postegress"
-  	rank = 4	
-  	extra="in production" img="assets/images/programming2.png" 
+  	title="Postgresql"
+  	rank = 4
+  	duration = 3
+  	link =""	
+  	extra="in production"  	
+  	img="assets/images/postgresql.png" 
   	
   
    [[cv.item]]
@@ -156,12 +162,13 @@ path = "Data-bases.html"
   	duration = 1
   	link =""	
    	extra="in production" 
-   	img="assets/images/programming2.png" 
+   	img="assets/images/oracle.png" 
   	
    	
 [[cv]]
 name = "Telecommunication Application"
 path = "Telecommunication-application.html"
+img="assets/images/"
   	
    [[cv.item]]
   	title="Asterisk"
@@ -169,7 +176,7 @@ path = "Telecommunication-application.html"
   	duration = 1
   	link =""	
    	extra="in production" 
-   	img="assets/images/programming2.png"
+   	img="assets/images/asterisk.png"
    	  	
    [[cv.item]]
   	title="Kamailio"
@@ -177,7 +184,7 @@ path = "Telecommunication-application.html"
   	duration = 1
   	link =""	
    	extra="in production" 
-   	img="assets/images/programming2.png"
+   	img="assets/images/kamailio.png"
    	  	
   	
    [[cv.item]]
@@ -186,7 +193,7 @@ path = "Telecommunication-application.html"
   	duration = 1
   	link =""	
    	extra="in production" 
-   	img="assets/images/programming2.png"
+   	img="assets/images/cisco.jpg"
    	  	
   	
    [[cv.item]]
@@ -195,13 +202,13 @@ path = "Telecommunication-application.html"
   	duration = 1
   	link =""	
    	extra="in production" 
-   	img="assets/images/programming2.png"
+   	img="assets/images/kannel.png"
    	  	
-  	
-  	
+  	  	
 [[cv]]
 name = "WebApplication Development"
 path = "WebApplication-development.html"
+img="assets/images/"
   	
    [[cv.item]]
   	title="Angularjs"
@@ -209,24 +216,15 @@ path = "WebApplication-development.html"
   	duration = 1
   	link =""	
    	extra="in production" 
-   	img="assets/images/programming2.png"
-   	  	
-  	
-   [[cv.item]]
-  	title="Dart"
-  	rank = 4
-  	duration = 1
-  	link =""	
-   	extra="in production" 
-   	img="assets/images/programming2.png"
-   	  	
+   	img="assets/images/angularjs.png"
+   	  	   	  	
   	
    [[cv.item]]
   	title="Google Web Toolkit"
   	rank = 3
   	duration = 1
   	link =""	
-   	extra="in production" img="assets/images/programming2.png"
+   	extra="in production" img="assets/images/gwt.png"
    	  	
   	
    [[cv.item]]
@@ -235,21 +233,14 @@ path = "WebApplication-development.html"
   	duration = 1
   	link =""	
    	extra="in production" 
-   	img="assets/images/programming2.png"
+   	img="assets/images/rubyonrails.png"
    	  	
-  	
-   [[cv.item]]
-  	title="PHP"
-  	rank = 2
-   	duration = 1
-  	link =""	
-   	extra="in production" 
-   	img="assets/images/programming2.png"
    	  	
   	
 [[cv]]
-name = "Coud Computing"
+name = "Cloud Computing"
 path = "Cloud-computing.html"
+img="assets/images/"
 
    [[cv.item]]
   	title="Digital Ocean"
@@ -257,38 +248,47 @@ path = "Cloud-computing.html"
   	duration = 1
   	link =""	
    	extra="in production" 
-   	img="assets/images/programming2.png"
+   	img="assets/images/digitalocean.png"
    	  	
   	
    [[cv.item]]
-  	title="AWS"
+  	title="Amazon Web Service"
   	rank = 5
-  	duration = 1
-  	link =""	
+  	duration = 6
+  	link ="http://aws.amazon.com/"	
    	extra="in production" 
-   	img="assets/images/programming2.png"
+   	img="assets/images/aws.gif"
+   	
+   [[cv.item]]
+  	title="Google App Engine"
+  	rank = 5
+  	duration = 6
+  	link ="https://cloud.google.com/appengine/docs/whatisgoogleappengine"	
+   	extra="in production" 
+   	img="assets/images/googleappengine.jpg"   	
    	  	
   	
    [[cv.item]]
   	title="Rackspace"
   	rank = 4 	  	  	
-   	duration = 1
+   	duration = 6
   	link =""	
    	extra="in production" 
-   	img="assets/images/programming2.png"
+   	img="assets/images/rackspace.png"
    	  	
   	 	   	  	 	 	  	
 [[cv]]
 name = "SEO Computing"
 path = "Seo-computing.html"
+img="assets/images/"
 
    [[cv.item]]
   	title="Organic optimization"
   	rank = 5
-  	duration = 10
+  	duration = 8
   	link =""	
    	extra="in production" 
-   	img="assets/images/programming2.png"
+   	img="assets/images/seo.jpg"
    	  	
   	
    [[cv.item]]
@@ -297,15 +297,15 @@ path = "Seo-computing.html"
   	duration = 3
   	link =""	
    	extra="in production" 
-   	img="assets/images/programming2.png"
+   	img="assets/images/adwords.png"
    	  	
   	
    [[cv.item]]
   	title="AdSense"
   	rank = 3 	  	  	
-   	duration = 1
+   	duration = 3
   	link =""	
    	extra="in production" 
-   	img="assets/images/programming2.png"  	
+   	img="assets/images/adsense.png"  	
   		 			
   

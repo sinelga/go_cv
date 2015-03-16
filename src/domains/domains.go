@@ -4,11 +4,11 @@ import (
 
 )
 
-
 type Config struct {
     Cv []struct {
         Name string
         Path string
+        Img string
         Item []struct {
             Title string
             Rank int
