@@ -6,35 +6,35 @@ img="assets/images/"
   [[cv.item]]
   	title="Java"
   	rank = 5
-  	duration = 1
+  	duration = 10
   	link =""
-  	extra="in production"
+  	extra="was used as main language in production in all areas"
   	img="assets/images/java.jpg" 
   	
   [[cv.item]]
   	title="C"
   	rank =4
-  	duration = 1
+  	duration = 3
   	link =""	
-  	extra="in production" 
+  	extra="was used in big communication application" 
   	img="assets/images/c.png" 
   	
 	
   [[cv.item]]
   	title="GoLang"
 	rank=5
-  	duration = 1
+  	duration = 2
   	link =""		
-  	extra="in production" 
+  	extra="actually used now in production as substitute for JAVA" 
   	img="assets/images/golang.png" 
   	
 	
   [[cv.item]]
   	title="JavaScript"
 	rank=4
-  	duration = 1
+  	duration = 2
   	link =""
-  	extra="in production" 
+  	extra="actually used as main language for Web Sites" 
   	img="assets/images/javascript.png" 
   	
   		
@@ -43,7 +43,7 @@ img="assets/images/"
 	rank= 3
   	duration = 1
   	link =""
-  	extra="in production" 
+  	extra="abandoned now in favor of Angularjs" 
   	img="assets/images/dart.png" 
   	
   		
@@ -52,7 +52,7 @@ img="assets/images/"
 	rank=3
   	duration = 1
   	link =""	
-  	extra="in production" 
+  	extra="abandoned now in favor of Golang" 
   	img="assets/images/ruby.jpg" 
   	
 	       
@@ -61,7 +61,7 @@ img="assets/images/"
 	rank=2
   	duration = 1
   	link =""	
-  	extra="in production" 
+  	extra="in some cases used in production but not widely" 
   	img="assets/images/python.png" 
   	
   		 
@@ -70,7 +70,7 @@ img="assets/images/"
 	rank= 1
   	duration = 1
   	link =""					 
-  	extra="in production" 
+  	extra="practically not used any more abandoned now in favor of JavaScript" 
   	img="assets/images/php.png" 
   	
 	   
@@ -82,9 +82,9 @@ img="assets/images/"
   [[cv.item]]
   	title="Linux"
   	rank = 5
-  	duration = 1
+  	duration = 22
   	link =""	
-  	extra="in production" 
+  	extra="99% used in production as main OS" 
   	img="assets/images/linux.png" 
   	
  
@@ -93,7 +93,7 @@ img="assets/images/"
   	rank = 3
   	duration = 1
   	link =""	
-  	extra="in production" 
+  	extra="was used in production abandoned now in favor of Linux" 
   	img="assets/images/freebsd.png" 
   	
  
@@ -102,7 +102,7 @@ img="assets/images/"
   	rank = 2
   	duration = 1
   	link =""	
-  	extra="in production" 
+  	extra="was used in production abandoned now in favor of Linux" 
   	img="assets/images/solaris.gif" 
   	
  	
@@ -111,7 +111,7 @@ img="assets/images/"
   	rank = 2
   	duration = 1
   	link =""	
-  	extra="in production" 
+  	extra="was used in production for VOIP abandoned now in favor of Linux" 
   	img="assets/images/cisco.jpg" 
   	
  
@@ -123,18 +123,18 @@ img="assets/images/"
   [[cv.item]]
   	title="Mysql"
   	rank = 5	
-  	duration = 1
+  	duration = 20
   	link =""	
-  	extra="in production" 
+  	extra="mostly used in production before NOSQL DB" 
   	img="assets/images/mysql.png" 
   	
  
   [[cv.item]]
   	title="Redis"
   	rank = 4
-  	duration = 1
+  	duration = 2
   	link =""	
-  	extra="in production" 
+  	extra="widely used in production especially in Clouds structure " 
   	img="assets/images/redis.png" 
   	
    	
@@ -143,7 +143,7 @@ img="assets/images/"
   	rank = 3
    	duration = 1
   	link =""	
-  	extra="in production" 
+  	extra="in some cases was used in production for small application" 
   	img="assets/images/sqlite.png" 
   	
   	
@@ -152,7 +152,7 @@ img="assets/images/"
   	rank = 4
   	duration = 3
   	link =""	
-  	extra="in production"  	
+  	extra="was use before MySQL as main DB"  	
   	img="assets/images/postgresql.png" 
   	
   
@@ -161,7 +161,7 @@ img="assets/images/"
   	rank = 2
   	duration = 1
   	link =""	
-   	extra="in production" 
+   	extra="was only tested as potential replacement for MySQL" 
    	img="assets/images/oracle.png" 
   	
    	
@@ -173,9 +173,9 @@ img="assets/images/"
    [[cv.item]]
   	title="Asterisk"
   	rank = 5
-  	duration = 1
+  	duration = 12
   	link =""	
-   	extra="in production" 
+   	extra="used as main application for production" 
    	img="assets/images/asterisk.png"
    	  	
    [[cv.item]]
@@ -183,7 +183,7 @@ img="assets/images/"
   	rank = 3
   	duration = 1
   	link =""	
-   	extra="in production" 
+   	extra="was only tested as potential replacement for Asterisk" 
    	img="assets/images/kamailio.png"
    	  	
   	
@@ -192,16 +192,16 @@ img="assets/images/"
   	rank = 2
   	duration = 1
   	link =""	
-   	extra="in production" 
+   	extra="was used in production" 
    	img="assets/images/cisco.jpg"
    	  	
   	
    [[cv.item]]
   	title="Kannel"
   	rank = 4
-  	duration = 1
+  	duration = 8
   	link =""	
-   	extra="in production" 
+   	extra="main application for SMS messages actually in use" 
    	img="assets/images/kannel.png"
    	  	
   	  	
@@ -215,7 +215,7 @@ img="assets/images/"
   	rank = 5
   	duration = 1
   	link =""	
-   	extra="in production" 
+   	extra="actually used in production" 
    	img="assets/images/angularjs.png"
    	  	   	  	
   	
@@ -224,7 +224,8 @@ img="assets/images/"
   	rank = 3
   	duration = 1
   	link =""	
-   	extra="in production" img="assets/images/gwt.png"
+   	extra="abandoned in favor of Angularjs" 
+   	img="assets/images/gwt.png"
    	  	
   	
    [[cv.item]]
@@ -232,7 +233,7 @@ img="assets/images/"
   	rank = 3
   	duration = 1
   	link =""	
-   	extra="in production" 
+   	extra="still in use but mostly abandoned in favor of Angularjs" 
    	img="assets/images/rubyonrails.png"
    	  	
    	  	
@@ -247,7 +248,7 @@ img="assets/images/"
   	rank = 5
   	duration = 1
   	link =""	
-   	extra="in production" 
+   	extra="actually used in production as main platform" 
    	img="assets/images/digitalocean.png"
    	  	
   	
@@ -256,7 +257,7 @@ img="assets/images/"
   	rank = 5
   	duration = 6
   	link ="http://aws.amazon.com/"	
-   	extra="in production" 
+   	extra="still main production based on AWS" 
    	img="assets/images/aws.gif"
    	
    [[cv.item]]
@@ -264,7 +265,7 @@ img="assets/images/"
   	rank = 5
   	duration = 6
   	link ="https://cloud.google.com/appengine/docs/whatisgoogleappengine"	
-   	extra="in production" 
+   	extra="still in use but abandoned in favor of Digital Ocean" 
    	img="assets/images/googleappengine.jpg"   	
    	  	
   	
@@ -273,7 +274,7 @@ img="assets/images/"
   	rank = 4 	  	  	
    	duration = 6
   	link =""	
-   	extra="in production" 
+   	extra="still in use but abandoned in favor of Digital Ocean" 
    	img="assets/images/rackspace.png"
    	  	
   	 	   	  	 	 	  	
@@ -287,7 +288,7 @@ img="assets/images/"
   	rank = 5
   	duration = 8
   	link =""	
-   	extra="in production" 
+   	extra="constantly monitored and studied" 
    	img="assets/images/seo.jpg"
    	  	
   	
@@ -296,7 +297,7 @@ img="assets/images/"
   	rank = 5
   	duration = 3
   	link =""	
-   	extra="in production" 
+   	extra="used in production" 
    	img="assets/images/adwords.png"
    	  	
   	
@@ -305,7 +306,7 @@ img="assets/images/"
   	rank = 3 	  	  	
    	duration = 3
   	link =""	
-   	extra="in production" 
+   	extra="used in production" 
    	img="assets/images/adsense.png"  	
   		 			
   
