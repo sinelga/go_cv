@@ -47,7 +47,7 @@ func main() {
 	pdf.AliasNbPages("")
 	pdf.AddPage()
 
-	w := []float64{35, 20, 115}
+	w := []float64{35, 15, 125}
 	wSum := 0.0
 	for _, v := range w {
 		wSum += v
@@ -85,8 +85,7 @@ func main() {
 		for _, item := range cv.Item {
 
 			pdf.CellFormat(w[0], 6, item.Title, "LR", 0, "", fill, 0, "")
-			pdf.CellFormat(w[1], 6, strconv.Itoa(item.Duration), "LR", 0, "R", fill, 0, "")
-			
+			pdf.CellFormat(w[1], 6, strconv.Itoa(item.Duration)+" y.", "LR", 0, "R", fill, 0, "")			
 			pdf.CellFormat(w[2], 6, item.Extra, "LR", 0, "", fill, 0, "")
 //			pdf.MultiCell(w[2], 6, item.Extra, "", "L", fill)
 			pdf.Ln(-1)
