@@ -32,11 +32,39 @@ func main() {
 
 	pdf := gofpdf.New("P", "mm", "A4", "fonts")
 	pdf.SetHeaderFunc(func() {
-		pdf.Image("/home/juno/git/cv/src/assets/images/aleksander_mazurov.jpg", 10, 6, 30, 0, false, "", 0, "")
+		pdf.Image("/home/juno/git/cv/src/assets/images/aleksander_mazurov.jpg", 10, 6, 40, 0, false, "", 0, "")
 		pdf.SetY(5)
 		pdf.SetFont("Arial", "B", 15)
 		pdf.Cell(80, 0, "")
-		pdf.CellFormat(70, 10, "Aleksander Mazurov CV", "B", 0, "C", false, 0, "")
+		pdf.CellFormat(70, 10, "Aleksander Mazurov CV", "", 0, "C", false, 0, "")
+		pdf.Ln(-1)
+		pdf.SetFont("Arial", "", 10)
+		pdf.SetX(95)
+		pdf.CellFormat(20, 6, "Phone:", "LRT", 0, "", false, 0, "")
+		pdf.CellFormat(65, 6, "+358451202801", "LRT", 0, "", false, 0, "")
+		pdf.Ln(-1)
+		pdf.SetX(95)
+		pdf.CellFormat(20, 6, "Email:", "LRT", 0, "", false, 0, "")
+		pdf.CellFormat(65, 6, "support@mazurov.eu", "LRT", 0, "", false, 0, "")
+		pdf.Ln(-1)
+		pdf.SetX(95)
+		pdf.CellFormat(20, 6, "Web:", "LRT", 0, "", false, 0, "")
+		pdf.CellFormat(65, 6, "http://mazurov.eu", "LRT", 0, "", false, 0, "")
+		pdf.Ln(-1)		
+		
+		pdf.SetX(95)
+		pdf.CellFormat(20, 6, "Skype:", "LRT", 0, "", false, 0, "")
+		pdf.CellFormat(65, 6, "mazurovfi", "LRT", 0, "", false, 0, "")
+		pdf.Ln(-1)
+		pdf.SetX(95)
+		pdf.CellFormat(20, 6, "Address:", "LRT", 0, "", false, 0, "")
+		pdf.CellFormat(65, 6, "Hogberginkuja 1", "LRT", 0, "", false, 0, "")
+		pdf.Ln(-1)
+		pdf.SetX(95)
+		pdf.CellFormat(20, 6, "", "LRB", 0, "", false, 0, "")
+		pdf.CellFormat(65, 6, "10820 Lappohja Finland", "LRB", 0, "", false, 0, "")		
+		
+		
 		pdf.Ln(20)
 	})
 	pdf.SetFooterFunc(func() {
@@ -48,16 +76,16 @@ func main() {
 	pdf.AddPage()
 
 	w := []float64{35, 15, 125}
-	wSum := 0.0
-	for _, v := range w {
-		wSum += v
-	}
+//	wSum := 0.0
+//	for _, v := range w {
+//		wSum += v
+//	}
 
 	// Color and font restoration
 
 	for _, cv := range bcv.Cv {
 		
-		if cv.Name =="Cloud Computing" {
+		if cv.Name =="WebApplication Development" {
 			
 			pdf.AddPage()
 		}
