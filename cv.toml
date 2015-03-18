@@ -277,7 +277,16 @@ img="assets/images/"
    	extra="still in use but abandoned in favor of Digital Ocean" 
    	img="assets/images/rackspace.png"
    	  	
-  	 	   	  	 	 	  	
+   [[cv.item]]
+  	title="Heroku"
+  	rank = 1 	  	  	
+   	duration = 1
+  	link ="https://www.heroku.com"	
+   	extra="only was tested" 
+   	img="assets/images/heroku.png"
+   	
+   	
+   	 	 	   	  	 	 	  	
 [[cv]]
 name = "SEO Computing"
 path = "Seo-computing.html"
