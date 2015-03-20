@@ -36,17 +36,7 @@ func Start() (syslog.Writer, []byte) {
 
 	}
 
-	//
-	//
-	//	err = gcfg.ReadFileInto(&config, "/home/juno/git/imagehoster_redis/config.ini")
-	//	if err != nil {
-	//
-	//		golog.Crit("cannot read configuration file config.ini" + err.Error())
-	//
-	//	}
-	//
-	////	golog.Info(config.Database.ConStr)
-	//
+
 	return *golog,jcv 
 
 }

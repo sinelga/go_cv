@@ -1,3 +1,6 @@
+
+maintitle ="Aleksander Mazurov CV"
+subtitle ="Professional Experience/Knowledge"  
 [[cv]]
 name = "Programming Languages"
 path = "Programming-languages.html"
@@ -16,7 +19,7 @@ img="assets/images/"
   	rank =4
   	duration = 3
   	link =""	
-  	extra="was used in big communication application" 
+  	extra="was used in a big communication project" 
   	img="assets/images/c.png" 
   	
 	
@@ -34,7 +37,7 @@ img="assets/images/"
 	rank=4
   	duration = 2
   	link =""
-  	extra="actually used as main language for Web Sites" 
+  	extra="actually used as main language for Web Application" 
   	img="assets/images/javascript.png" 
   	
   		
@@ -235,9 +238,16 @@ img="assets/images/"
   	link =""	
    	extra="still in use but mostly abandoned in favor of Angularjs" 
    	img="assets/images/rubyonrails.png"
+   	
+   [[cv.item]]
+  	title="Django"
+  	rank = 2
+  	duration = 1
+  	link ="https://www.djangoproject.com"	
+   	extra="still in use but mostly abandoned in favor of GoLang" 
+   	img="assets/images/django.png"   	
    	  	
-   	  	
-  	
+   	  	  	
 [[cv]]
 name = "Cloud Computing"
 path = "Cloud-computing.html"
@@ -285,8 +295,7 @@ img="assets/images/"
    	extra="only was tested" 
    	img="assets/images/heroku.png"
    	
-   	
-   	 	 	   	  	 	 	  	
+   	   	 	 	   	  	 	 	  	
 [[cv]]
 name = "SEO Computing"
 path = "Seo-computing.html"

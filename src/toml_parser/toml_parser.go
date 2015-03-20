@@ -25,10 +25,29 @@ func Parse(file string) domains.Config{
     if err := toml.Unmarshal(buf, &cv); err != nil {
         panic(err)
     }
+	
+	return cv	
 
-//	fmt.Println(cv);
+}
+
+func ParseWorkPlaces(file string) domains.Job{
+
+	var job domains.Job
+
+	f, err := os.Open(file)
+    if err != nil {
+        panic(err)
+    }
+    defer f.Close()
+    buf, err := ioutil.ReadAll(f)
+    if err != nil {
+        panic(err)
+    }
+//    var config tomlConfig
+    if err := toml.Unmarshal(buf, &job); err != nil {
+        panic(err)
+    }
 	
-	return cv
-	
+	return job	
 
 }

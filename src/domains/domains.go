@@ -1,26 +1,43 @@
 package domains
 
-import (
-
-)
+import ()
 
 type Config struct {
-    Cv []struct {
-        Name string
-        Path string
-        Img string
-        Item []struct {
-            Title string
-            Rank int
-            Duration int
-            Link string
-            Extra string
-            Img string
-        }
-
-    }
+	Maintitle string
+	Subtitle  string
+	Cv        []struct {
+		Name string
+		Path string
+		Img  string
+		Item []struct {
+			Title    string
+			Rank     int
+			Duration int
+			Link     string
+			Extra    string
+			Img      string
+		}
+	}
 }
 
+type Job struct {
+	Maintitle string
+	Subtitle  string
+	Jobs      []struct {
+		Name string
+		Path string
+		Img  string
+		Item []struct {
+			Title    string
+			Rank     int
+			Duration string
+			Position string
+			Details  string
+			Location string
+			Country  string
+		}
+	}
+}
 
 //type Pages struct {
 //	//	Version string   `xml:"version,attr"`
