@@ -294,7 +294,14 @@ img="assets/images/"
   	link ="https://www.heroku.com"	
    	extra="only was tested" 
    	img="assets/images/heroku.png"
-   	
+
+   [[cv.item]]
+  	title="Docker"
+  	rank = 1 	  	  	
+   	duration = 1
+  	link ="https://www.docker.com/"	
+   	extra="basic knowledge" 
+   	img="assets/images/docker.png"   	
    	   	 	 	   	  	 	 	  	
 [[cv]]
 name = "SEO Computing"

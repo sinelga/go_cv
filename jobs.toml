@@ -58,7 +58,7 @@ img="assets/images/"
   rank = 6
   duration = "1998-2009"
   position = "Programmer"
-  details = "Communication App"
+  details = "Telecommunication App"
   location = "Helsinki"
   country = "FINLAND"   
 [[jobs.item]]
@@ -66,7 +66,7 @@ img="assets/images/"
   rank = 7
   duration = "2009-2015"
   position = "Programmer"
-  details = "Communication/Web App"
+  details = "Telecommunication/Web App"
   location = "Espoo"
   country = "FINLAND"   
            
