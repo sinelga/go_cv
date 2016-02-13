@@ -21,7 +21,7 @@ func Parse(file string) domains.Config{
     if err != nil {
         panic(err)
     }
-//    var config tomlConfig
+
     if err := toml.Unmarshal(buf, &cv); err != nil {
         panic(err)
     }

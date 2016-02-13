@@ -8,9 +8,7 @@ import (
 	"log/syslog"
 	"strconv"
 	"toml_parser"
-	//	"domains"
-	//	"path/filepath"
-	//	"os"
+
 )
 
 // The flag package provides a default help printer via -h switch
