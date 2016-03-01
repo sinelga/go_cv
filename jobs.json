@@ -1,0 +1,85 @@
+{
+  "jobs": [
+    {
+      "img": "assets/images/",
+      "item": [
+        {
+          "country": "ITALY",
+          "details": "PLC5 Controllers Programming",
+          "duration": "1980-1982",
+          "location": "Conegliano (Treviso)",
+          "position": "Programmer",
+          "rank": 0,
+          "title": "ZANUSSI SPA"
+        },
+        {
+          "country": "ITALY",
+          "details": "Production Data Elaboration",
+          "duration": "1982-1983",
+          "location": "Roncadelle (Brescia)",
+          "position": "Engineer",
+          "rank": 1,
+          "title": "SETA GROUP SPA"
+        },
+        {
+          "country": "ITALY",
+          "details": "Commerce Data Elaboration",
+          "duration": "1983-1985",
+          "location": "Galliera Veneta (Padova)",
+          "position": "Engineer",
+          "rank": 2,
+          "title": "PAVAN GROUP"
+        },
+        {
+          "country": "RUSSIA",
+          "details": "Commerce Data Elaboration",
+          "duration": "1985-1990",
+          "location": "Moscow",
+          "position": "Engineer",
+          "rank": 3,
+          "title": "PAVAN RUSSIA"
+        },
+        {
+          "country": "RUSSIA",
+          "details": "Commerce Data Elaboration",
+          "duration": "1990-1993",
+          "location": "St.Petersburg",
+          "position": "Engineer",
+          "rank": 4,
+          "title": "ZANOTTI S.P.A"
+        },
+        {
+          "country": "RUSSIA",
+          "details": "Consulting/Data Elaboration/Programming",
+          "duration": "1993-1998",
+          "location": "St.Petersburg",
+          "position": "Engineer",
+          "rank": 5,
+          "title": "Private Activity"
+        },
+        {
+          "country": "FINLAND",
+          "details": "Telecommunication App",
+          "duration": "1998-2009",
+          "location": "Helsinki",
+          "position": "Programmer",
+          "rank": 6,
+          "title": "X-PHONE-COM OY"
+        },
+        {
+          "country": "FINLAND",
+          "details": "Telecommunication/Web App",
+          "duration": "2009-2015",
+          "location": "Espoo",
+          "position": "Programmer",
+          "rank": 7,
+          "title": "KRASAVA OY"
+        }
+      ],
+      "name": "Positions and places",
+      "path": "Programming-languages.html"
+    }
+  ],
+  "maintitle": "Aleksander Mazurov jobs",
+  "subtitle": "Work Experience"
+}
