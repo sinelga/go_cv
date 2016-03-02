@@ -22,13 +22,13 @@ func main() {
 	})
 	goji.Use(c.Handler)
 
-
-	goji.Get("/echo/json", handlers.Echojson)
-	goji.Options("/echo/json", handlers.Echojson)
-	goji.Get("/api", handlers.MhandleAll)
-	goji.Options("/api", handlers.MhandleAll)
-	goji.Get("/api/:id", handlers.MhandleAll)
-	goji.Options("/api/:id", handlers.MhandleAll)	
+	goji.Get("/*",handlers.Elaborate) 
+//	goji.Get("/echo/json", handlers.Echojson)
+//	goji.Options("/echo/json", handlers.Echojson)
+//	goji.Get("/api", handlers.MhandleAll)
+//	goji.Options("/api", handlers.MhandleAll)
+//	goji.Get("/api/:id", handlers.MhandleAll)
+//	goji.Options("/api/:id", handlers.MhandleAll)	
 			
 	goji.Serve()
 	
