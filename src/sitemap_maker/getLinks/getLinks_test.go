@@ -1,35 +1,32 @@
 package getLinks
 
 import (
-	"github.com/garyburd/redigo/redis"
+//	"fmt"
+//	"github.com/garyburd/redigo/redis"
+	"log"
+	"log/syslog"
+//	"startones"
 	"testing"
-	"startones"
-	"fmt"
 )
 
 func TestGetAllLinks(t *testing.T) {
 
-	golog, _ := startones.Start()
-	
-	c, err := redis.Dial("tcp", ":6379")
+	golog, err := syslog.New(syslog.LOG_ERR, "golog")
+
+	defer golog.Close()
 	if err != nil {
-
-		golog.Crit(err.Error())
-
+		log.Fatal("error writing syslog!!")
 	}
-	defer c.Close()
-	
-	site :="www.test.com"
-	
-	
-	res := GetAllLinks(golog,c,site)
-	
-	
-	for _,character := range res {
-		
-		fmt.Println(character.Moto)
-		
-		
-	}
+
+	site := "remotejob.work"
+
+//	res := GetAllLinks(golog, c, site)
+	GetAllLinks(*golog, site)
+
+//	for _, character := range res {
+//
+//		fmt.Println(character.Moto)
+//
+//	}
 
 }
