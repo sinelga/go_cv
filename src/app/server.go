@@ -22,6 +22,7 @@ func main() {
 	})
 	goji.Use(c.Handler)
 
+	goji.Get("/sitemap.xml",handlers.CheckServeSitemap)
 	goji.Get("/*",handlers.Elaborate) 
 //	goji.Get("/echo/json", handlers.Echojson)
 //	goji.Options("/echo/json", handlers.Echojson)

@@ -8,8 +8,6 @@ import (
 	"log/syslog"
 	"math/rand"
 	"io/ioutil"
-	//	"github.com/garyburd/redigo/redis"
-	//	"net/url"
 	"time"
 	//	"fmt"
 	"encoding/xml"
@@ -59,7 +57,6 @@ func main() {
 			lastmod := now.Add(-minback * time.Second)
 			doc.Lastmod = lastmod.Format(time.RFC3339)
 			doc.Changefreq = "weekly"
-			//
 			docList.Pages = append(docList.Pages, doc)
 
 		}
@@ -72,7 +69,9 @@ func main() {
 
 		fmt.Println(string(resultXml))
 		
-		ioutil.WriteFile("/tmp/sitemap.xml",resultXml, 0644)
+		filestr := "/home/juno/git/go_cv/maps/sitemap_"+site+".xml"
+		
+		ioutil.WriteFile(filestr,resultXml, 0644)
 		if err != nil {
 
 			golog.Crit(err.Error())

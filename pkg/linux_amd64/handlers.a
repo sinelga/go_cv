@@ -1,18 +1,17 @@
 !<arch>
-__.PKGDEF       0           0     0     644     57070     `
+__.PKGDEF       0           0     0     644     56789     `
 go object linux amd64 go1.5.3 X:none
-build id "9b80d1497a6554ade2141e7acd72a7d65f4eca4c"
+build id "f53dd37c62e9bff6f09c721397071edaf95bc3c7"
 
 $$
 package handlers
 	import runtime "runtime"
 	import web "github.com/zenazn/goji/web"
 	import http "net/http"
-	import sync "sync"
-	import syslog "log/syslog"
-	import startones "startones"
+	import bytes "bytes"
+	import io "io"
+	import os "os"
 	type @"github.com/zenazn/goji/web".C struct { URLParams map[string]string; Env map[interface {}]interface {} }
-	import io "io" // indirect
 	type @"io".Writer interface { Write(@"io".p []byte) (@"io".n int, @"io".err error) }
 	type @"net/http".keyValues struct { @"net/http".key string; @"net/http".values []string }
 	type @"net/http".headerSorter struct { @"net/http".kvs []@"net/http".keyValues }
@@ -333,7 +332,6 @@ package handlers
 	func (@"bufio".bÂ·2 *@"bufio".Reader "esc:0x22") @"bufio".readErr () (? error) { var @"bufio".errÂ·3 error; ; @"bufio".errÂ·3 = @"bufio".bÂ·2.@"bufio".err; @"bufio".bÂ·2.@"bufio".err = nil; return @"bufio".errÂ·3 }
 	func (@"bufio".bÂ·1 *@"bufio".Reader "esc:0x1") @"bufio".reset (@"bufio".bufÂ·2 []byte, @"bufio".rÂ·3 @"io".Reader) { *@"bufio".bÂ·1 = (@"bufio".Reader{ @"bufio".buf:@"bufio".bufÂ·2, @"bufio".rd:@"bufio".rÂ·3, @"bufio".lastByte:-0x1, @"bufio".lastRuneSize:-0x1 }) }
 	func (@"bufio".bÂ·3 *@"bufio".Reader "esc:0x9") @"bufio".writeBuf (@"bufio".wÂ·4 @"io".Writer) (? int64, ? error)
-	import bytes "bytes" // indirect
 	type @"bytes".readOp int
 	type @"bytes".Buffer struct { @"bytes".buf []byte; @"bytes".off int; @"bytes".runeBytes [4]byte; @"bytes".bootstrap [64]byte; @"bytes".lastRead @"bytes".readOp }
 	func (@"bytes".bÂ·2 *@"bytes".Buffer "esc:0x22") Bytes () (? []byte) { return @"bytes".bÂ·2.@"bytes".buf[@"bytes".bÂ·2.@"bytes".off:] }
@@ -397,8 +395,7 @@ package handlers
 	func (@"net/http".rÂ·2 *@"net/http".Request "esc:0x1") @"net/http".wantsHttp10KeepAlive () (? bool)
 	func (@"net/http".reqÂ·2 *@"net/http".Request "esc:0x9") @"net/http".write (@"net/http".wÂ·3 @"io".Writer, @"net/http".usingProxyÂ·4 bool, @"net/http".extraHeadersÂ·5 @"net/http".Header "esc:0x9") (? error)
 	func @"".Elaborate (@"".cÂ·1 @"github.com/zenazn/goji/web".C "esc:0x1", @"".wÂ·2 @"net/http".ResponseWriter "esc:0x1", @"".rÂ·3 *@"net/http".Request "esc:0x1")
-	func @"".Echojson (@"".cÂ·1 @"github.com/zenazn/goji/web".C "esc:0x1", @"".wÂ·2 @"net/http".ResponseWriter, @"".rÂ·3 *@"net/http".Request "esc:0x1")
-	func @"".MhandleAll (@"".cÂ·1 @"github.com/zenazn/goji/web".C "esc:0x1", @"".wÂ·2 @"net/http".ResponseWriter, @"".rÂ·3 *@"net/http".Request "esc:0x1")
+	func @"".CheckServeSitemap (@"".wÂ·1 @"net/http".ResponseWriter, @"".rÂ·2 *@"net/http".Request "esc:0x1")
 	func @"".init ()
 	func @"math/big".low64 (@"math/big".zÂ·2 @"math/big".nat "esc:0x1") (? uint64) { if len(@"math/big".zÂ·2) == 0x0 { return 0x0 }; var @"math/big".vÂ·3 uint64; ; @"math/big".vÂ·3 = uint64(@"math/big".zÂ·2[0x0]); if false && len(@"math/big".zÂ·2) > 0x1 { @"math/big".vÂ·3 |= uint64(@"math/big".zÂ·2[0x1]) << 0x20 }; return @"math/big".vÂ·3 }
 	var @"time".months [12]string
@@ -415,64 +412,33 @@ package handlers
 	func (@"errors".eÂ·2 *@"errors".errorString "esc:0x22") Error () (? string) { return @"errors".eÂ·2.@"errors".s }
 
 $$
-_go_.o          0           0     0     644     15036     `
+ _go_.o          0           0     0     644     6278      `
 go object linux amd64 go1.5.3 X:none
 
 !
-  go13ld8github.com/zenazn/goji/web.anet/http.alog/syslog.astartones.async.a ş"".Elaborate     Ã P   "".r @,type.*net/http.Request "".w  8type.net/http.ResponseWriter "".c  Btype.github.com/zenazn/goji/web.C   ”  TgclocalsÂ·06be2e0cf40ff10dd1e5bbc1da1e184c TgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb   d/home/juno/git/go_cv/src/handlers/all_other_req.goş"".Echojson  €  ö
-dH‹%    H;a†  Hì€   H‹œ$¨   Hƒû „~  H‹k8H‰,$H    H‰\$HÇD$   è    H‹\$H‰\$XH‹\$ H‰\$`H‹\$`Hƒû teH‹œ$    H‰$H‹œ$˜   Hƒû „  H‹[ ÿÓH‹\$H‰\$PH‹\$PH‰$H    H‰\$HÇD$   H‹\$XH‰\$H‹\$`H‰\$ è    H‹œ$    H‰$H‹œ$˜   Hƒû „¬  H‹[ ÿÓH‹\$H‰\$HH‹\$HH‰$H    H‰\$HÇD$   H    H‰\$HÇD$    è    H‹œ$    H‰$H‹œ$˜   Hƒû „?  H‹[ ÿÓH‹\$H‰\$@H‹\$@H‰$H    H‰\$HÇD$   H    H‰\$HÇD$ 6   è    H‹œ$    H‰$H‹œ$˜   Hƒû „Ò   H‹[ ÿÓH‹\$H‰\$8H‹\$8H‰$H    H‰\$HÇD$   H    H‰\$HÇD$    è    HÇ$    H    H‰\$HÇD$   è    H‹\$H‰\$hH‹\$ H‰\$pH‹\$(H‰\$xH‹\$hH‰\$H‹\$pH‰\$H‹\$xH‰\$H‹œ$    H‰$H‹œ$˜   Hƒû tH‹[(ÿÓHÄ€   Ã‰ëî‰é'ÿÿÿ‰éºşÿÿ‰éMşÿÿ‰éáıÿÿ‰é{ıÿÿè    éEıÿÿ,
-      n  $go.string."Origin"   ”
-  &net/http.Header.Get          Î  Ngo.string."Access-Control-Allow-Origin"   œ
-  &net/http.Header.Set   è       ˜  Pgo.string."Access-Control-Allow-Methods"   Â  Vgo.string."POST, GET, OPTIONS, PUT, DELETE"   è
-  &net/http.Header.Set   ´       ä  Pgo.string."Access-Control-Allow-Headers"     „go.string."Content-Type, Content-Length, Accept-Encoding,hashbang"   ´
-  &net/http.Header.Set   €       °  0go.string."Content-Type"   Ú  8go.string."application/json"   €
-  &net/http.Header.Set     Dgo.string."{\"hello\": \"world\"}"   Ä
-  2runtime.stringtoslicebyte   €
-       ä
-
-  0runtime.morestack_noctxt   P€  "".autotmp_0004 /type.[]uint8 "".autotmp_0003 (type.net/http.Header "".autotmp_0002 (type.net/http.Header "".autotmp_0001 o(type.net/http.Header "".autotmp_0000 _(type.net/http.Header "".origin Otype.string "".r @,type.*net/http.Request "".w  8type.net/http.ResponseWriter "".c  Btype.github.com/zenazn/goji/web.C €ïÿ€6 À >Sefff~  IF>ó TgclocalsÂ·93b5109c83c638bfc2ecf7945f4f0914 TgclocalsÂ·04370ae8e333f87df1b4635605da671a   Z/home/juno/git/go_cv/src/handlers/echojson.goş"".MhandleAll  À  ¬dH‹%    H„$HÿÿÿH;A†ñ  Hì8  H‹œ$`  H‰$è    H‹\$H‰\$PH‹\$H‰\$XH‹œ$`  H‰$è    H‹\$H‰\$@H‹\$H‰\$HH\$xH‰\$8H‹|$8Hƒÿ „€  H5    è    H‹\$8Hƒû „^  HÇD$h   HÇD$p   H‰\$`H‹\$`HƒÃH‹l$XH‰kH‹l$P€=     …  H‰+H‹œ$`  Hƒû „ñ  HkxH‹\$`HƒÃ0H‰\$H‰l$H-    H‰,$è    H‹œ$`  Hƒû „±  H«¸   H‹\$`HƒÃPH‰\$H‰l$H-    H‰,$è    H‹œ$`  Hƒû „n  H«¨   H‹\$`HƒÃpH‰\$H‰l$H-    H‰,$è    H‹\$`HÃ   H‹l$HH‰kH‹l$@€=     …  H‰+H‹œ$`  Hƒû „ë   H‰İH‹\$`HÃ°   H‰\$H‰l$H-    H‰,$è    HÇ$    H‹\$`H‰\$H‹\$hH‰\$H‹\$pH‰\$è    H\$ H|$H‰ŞH‹H‰H‹NH‰OH    H‰$è    H    H‰$H    H‰\$è    H‹    H‰\$H‹    H‰\$H‹    H‰\$H‹œ$X  H‰$H‹œ$P  Hƒû tH‹[(ÿÓHÄ8  Ã‰ëî‰éÿÿÿI‰ØL‰$H‰l$è    éæşÿÿ‰é‹şÿÿ‰éHşÿÿ‰éşÿÿI‰ØL‰$H‰l$è    éàıÿÿ‰é›ıÿÿ‰éyıÿÿè    éêüÿÿ8
-      ^
-  :net/http.(*Request).UserAgent   ¨
-  6net/http.(*Request).Referer     """.statictmp_0009   š
-à  runtime.duffcopy     6runtime.writeBarrierEnabled   ”  type.string   ¦
-  (runtime.typedmemmove   Œ  type.string   
-  (runtime.typedmemmove   „  type.string   –
-  (runtime.typedmemmove   Ö 6runtime.writeBarrierEnabled   Î  type.string   à
-  (runtime.typedmemmove   ¶
-  *runtime.concatstrings   ú  "".golog   Œ	
-  2log/syslog.(*Writer).Info   š	  "".startOnce   °	  ,"".MhandleAll.func1Â·f   Ä	
-  sync.(*Once).Do   Ò	  "".jcv   ê	 "".jcv   ‚
-  "".jcv   Ğ
-       ”
-  .runtime.writebarrierptr   ê
-  .runtime.writebarrierptr   š
-  0runtime.morestack_noctxt   Pğ  "".autotmp_0010 ÿ type.*[12]string "".autotmp_0008 ¯type.[]string "".autotmp_0007 ÿtype.[12]string "".autotmp_0006 ïtype.string "".autotmp_0005 Ïtype.string "".r @,type.*net/http.Request "".w  8type.net/http.ResponseWriter "".c  Btype.github.com/zenazn/goji/web.C "ğïğn   $B"¨
-:DCV * .%¿İ+Gh+, TgclocalsÂ·6e904af67c2dae071497983487431b3f TgclocalsÂ·46f78f3546a17b988120f5e7759b2dce   Z/home/juno/git/go_cv/src/handlers/mhandler.goş&"".MhandleAll.func1  À  ºdH‹%    HD$H;A†»   Hìğ   è    H¼$   H‰æè    H‹\$`H‰\$xH‹\$hH‰œ$€   H‹\$pH‰œ$ˆ   Hœ$   H-    H‰l$H‰\$H    H‰$è    H‹œ$€   H‰    H‹œ$ˆ   H‰    H‹\$x€=     uH‰    HÄğ   ÃH-    H‰,$H‰\$è    ëáè    é#ÿÿÿ
-      @
-  startones.Start   `
-°  runtime.duffcopy   Æ  "".golog   è  ,type.log/syslog.Writer   ú
-  (runtime.typedmemmove   ˜ "".jcv   ¶  "".jcv   Ì 6runtime.writeBarrierEnabled   à  "".jcv   ş  "".jcv   š
-  .runtime.writebarrierptr   ¨
-  0runtime.morestack_noctxt    à  "".autotmp_0012 ïtype.[]uint8 "".autotmp_0011 ¿,type.log/syslog.Writer àœßà$ à N•  ]P TgclocalsÂ·69c1753bd5f81501d95132d08af04464 TgclocalsÂ·650a9f70ab277ee03e01e1f7ef64f7dc   Z/home/juno/git/go_cv/src/handlers/mhandler.goş"".init  À  ¸dH‹%    H;avFŠ    €û tŠ    €ûuÃè    Æ    è    è    è    è    è    Æ    Ãè    ë¤
+  go13ld8github.com/zenazn/goji/web.anet/http.abytes.aio.aos.a ş"".Elaborate     Ã P   "".r @,type.*net/http.Request "".w  8type.net/http.ResponseWriter "".c  Btype.github.com/zenazn/goji/web.C   ”  TgclocalsÂ·06be2e0cf40ff10dd1e5bbc1da1e184c TgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb   d/home/juno/git/go_cv/src/handlers/all_other_req.goş("".CheckServeSitemap  à  ÊdH‹%    HD$€H;A†Ã  Hì   H‹œ$  Hƒû „£  H‹kxH‰¬$˜   H‹«€   H‰¬$    HÇ$    H    H‰\$HÇD$   H‹œ$˜   H‰\$H‹œ$    H‰\$ H    H‰\$(HÇD$0   è    H‹\$8H‰œ$¨   H‹\$@H‰œ$°   H‹œ$¨   H‰$H‹œ$°   H‰\$è    H‹\$ H‰œ$¸   H‹\$(H‰œ$À   H‹œ$¸   H‰$H‹œ$À   H‰\$è    Š\$ˆ\$O€|$O t3H‹œ$  H‰$H‹œ$  H‰\$H‹œ$  H‰\$è    HÄ   ÃH‹œ$¨   H‰$H‹œ$°   H‰\$è    H‹\$H‰\$P1ÛH‰$H‰\$H‰\$è    H‹\$H‰\$XH‹\$XH‰œ$   H‹\$PH‰œ$ˆ   H‹    H‰\$xH‹\$x1íH9ë„Ñ  H‹    H‰\$pH‹\$p1íH9ë„~  H‹œ$   H‰\$hH‹\$hH‰œ$à   H‹\$xH‰œ$Ø   H‹œ$Ø   H‰$H‹œ$à   H‰\$H‹œ$ˆ   H‰\$`H‹\$`H‰œ$Ğ   H‹\$pH‰œ$È   H‹œ$È   H‰\$H‹œ$Ğ   H‰\$è    H‹œ$  H‰$H‹œ$  Hƒû „Ó   H‹[ ÿÓH‹\$H‰œ$€   H‹œ$€   H‰$H    H‰\$HÇD$   H    H‰\$HÇD$    è    H‹\$XH‰$è    H‹\$H‰œ$è   H‹\$H‰œ$ğ   H‹\$H‰œ$ø   H‹œ$è   H‰\$H‹œ$ğ   H‰\$H‹œ$ø   H‰\$H‹œ$  H‰$H‹œ$  Hƒû tH‹[(ÿÓéìıÿÿ‰ëñ‰é&ÿÿÿH    H‰$H    H‰\$H    H‰\$è    H‹\$H‰\$péKşÿÿH    H‰$H    H‰\$H    H‰\$è    H‹\$H‰\$xéøıÿÿ‰éVüÿÿè    éüÿÿ6
+      ®  2go.string."maps/sitemap_"   Œ   go.string.".xml"   ²
+  *runtime.concatstring3   ¢
+  os.Stat   ’
+  os.IsNotExist   †
+  "net/http.NotFound   Ò
+  os.Open   
+  bytes.NewBuffer   æ  >go.itab.*bytes.Buffer.io.Writer     4go.itab.*os.File.io.Reader   Ô	
+  io.Copy    
+       Ü
+  0go.string."Content-type"   †  6go.string."application/xml"   ¬
+  &net/http.Header.Add   È
+  *bytes.(*Buffer).Bytes   ¨       Ò  type.*os.File   è  type.io.Reader   €  4go.itab.*os.File.io.Reader   ”
+   runtime.typ2Itab   À  $type.*bytes.Buffer   Ö  type.io.Writer   î  >go.itab.*bytes.Buffer.io.Writer   ‚
+   runtime.typ2Itab   ¸
+  0runtime.morestack_noctxt   0€  "".autotmp_0006 Ÿtype.*uint8 "".autotmp_0005 type.*uint8 "".autotmp_0004 /type.[]uint8 "".autotmp_0003 ÿ(type.net/http.Header "".autotmp_0002 ïtype.*os.File "".autotmp_0001 ß$type.*bytes.Buffer "".autotmp_0000 átype.bool "".buf Ï$type.*bytes.Buffer "".f ßtype.*os.File "".err type.error "".filestr ¯type.string "".site Ïtype.string "".r  ,type.*net/http.Request "".w  8type.net/http.ResponseWriter €¯ÿ€¡ ğ H.-ke+(Øl|n , ˜8rEâz	¦70 TgclocalsÂ·536a1a6fffedb1798b5362df4e8577c3 TgclocalsÂ·dd4a7917e60d9eb5f14357cb600de785   X/home/juno/git/go_cv/src/handlers/sitemap.goş"".init  À  ¸dH‹%    H;avFŠ    €û tŠ    €ûuÃè    Æ    è    è    è    è    è    Æ    Ãè    ë¤
       "  "".initdoneÂ·   8  "".initdoneÂ·   N
   "runtime.throwinit   ^ "".initdoneÂ·   j
   >github.com/zenazn/goji/web.init   t
   net/http.init   ~
-  log/syslog.init   ˆ
-  startones.init   ’
-  sync.init    "".initdoneÂ·   ¬
-  0runtime.morestack_noctxt        ` ` ’` 
- &: TgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb TgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb   Z/home/juno/git/go_cv/src/handlers/mhandler.goş*type..hash.[12]string à  ÎdH‹%    H;a†Ê   Hƒì0HÇD$H    HÇD$(    HÇD$    H‹\$(H‹l$ H9ë…   H‹\$(H‰\$H‹\$@HÁÃH‰\$@H»¿c»kïR H‹l$@H¯İH‰\$@H‹\$8Hƒû tYH‹l$HÁåHëH‰$H‹\$@H‰\$è    H‹\$H‰\$@H‹\$(HƒÃH‰\$(H‹\$(H‹l$ H9ëŒ{ÿÿÿH‹\$@H‰\$HHƒÄ0Ã‰ë£è    éÿÿÿ
-      ¶
-  runtime.strhash   ¼
-  0runtime.morestack_noctxt   0`  "".autotmp_0014 type.int "".autotmp_0013 type.int "".i /type.int "".~r2  type.uintptr "".h type.uintptr "".p   type.*[12]string `Á_` ğ ğ  šV TgclocalsÂ·0b86ef39f3fed835f14ba5f4d7c62fa2 TgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb   d/home/juno/git/go_cv/src/handlers/all_other_req.goş&type..eq.[12]string €  èdH‹%    H;a†  Hƒì`ÆD$x HÇD$8    HÇD$0   H‹\$8H‹l$0H9ëÇ   H‹\$8H‰\$(H‹\$hHƒû „É   H‹l$(HÁåHëH‹+H‰l$PH‹kH‰l$XH‹\$pHƒû „–   H‹l$(HÁåHëH‹+H‰l$@H‹kH‰l$HH‹\$XH‹l$HH9ëu`H‹l$PH‰,$H‹l$XH‰l$H‹l$@H‰l$H‹l$HH‰l$è    Š\$ €û t+H‹\$8HƒÃH‰\$8H‹\$8H‹l$0H9ëŒ9ÿÿÿÆD$xHƒÄ`ÃÆD$x HƒÄ`Ã‰écÿÿÿ‰é0ÿÿÿè    éÌşÿÿ
-      ´
-   runtime.eqstring   Ö
-  0runtime.morestack_noctxt   0À  "".autotmp_0018 ?type.string "".autotmp_0017 type.string "".autotmp_0016 _type.int "".autotmp_0015 Otype.int "".i otype.int "".~r2  type.bool "".q  type.*[12]string "".p   type.*[12]string &Àú¿À	¿À$ À À  Ùg TgclocalsÂ·3bb21ca8fe1d99a3e492463bd711418a TgclocalsÂ·a8eabfc4a4514ed6b3b0c61e9680e440   d/home/juno/git/go_cv/src/handlers/all_other_req.goşTgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb           şTgclocalsÂ·06be2e0cf40ff10dd1e5bbc1da1e184c             ş,go.string.hdr."Origin"                       $go.string."Origin"   ş$go.string."Origin"   Origin  şVgo.string.hdr."Access-Control-Allow-Origin"                       Ngo.string."Access-Control-Allow-Origin"   şNgo.string."Access-Control-Allow-Origin" @  8Access-Control-Allow-Origin  şXgo.string.hdr."Access-Control-Allow-Methods"                       Pgo.string."Access-Control-Allow-Methods"   şPgo.string."Access-Control-Allow-Methods" @  :Access-Control-Allow-Methods  ş^go.string.hdr."POST, GET, OPTIONS, PUT, DELETE"                       Vgo.string."POST, GET, OPTIONS, PUT, DELETE"   şVgo.string."POST, GET, OPTIONS, PUT, DELETE" @  @POST, GET, OPTIONS, PUT, DELETE  şXgo.string.hdr."Access-Control-Allow-Headers"                       Pgo.string."Access-Control-Allow-Headers"   şPgo.string."Access-Control-Allow-Headers" @  :Access-Control-Allow-Headers  şŒgo.string.hdr."Content-Type, Content-Length, Accept-Encoding,hashbang"             6          „go.string."Content-Type, Content-Length, Accept-Encoding,hashbang"   ş„go.string."Content-Type, Content-Length, Accept-Encoding,hashbang" p  nContent-Type, Content-Length, Accept-Encoding,hashbang  ş8go.string.hdr."Content-Type"                       0go.string."Content-Type"   ş0go.string."Content-Type"    Content-Type  ş@go.string.hdr."application/json"                       8go.string."application/json"   ş8go.string."application/json" 0  "application/json  şLgo.string.hdr."{\"hello\": \"world\"}"                       Dgo.string."{\"hello\": \"world\"}"   şDgo.string."{\"hello\": \"world\"}" 0  &{"hello": "world"}  şTgclocalsÂ·04370ae8e333f87df1b4635605da671a        	           şTgclocalsÂ·93b5109c83c638bfc2ecf7945f4f0914                  ş4go.string.hdr."UserAgent "             
-          ,go.string."UserAgent "   ş,go.string."UserAgent "    UserAgent   ş,go.string.hdr." Host "                       $go.string." Host "   ş$go.string." Host "    Host   ş8go.string.hdr." RequestURI "                       0go.string." RequestURI "   ş0go.string." RequestURI "     RequestURI   ş8go.string.hdr." RemoteAddr "                       0go.string." RemoteAddr "   ş0go.string." RemoteAddr "     RemoteAddr   ş2go.string.hdr." referer "             	          *go.string." referer "   ş*go.string." referer "     referer   ş0go.string.hdr." Method "                       (go.string." Method "   ş(go.string." Method "     Method   şTgclocalsÂ·46f78f3546a17b988120f5e7759b2dce 8  8              "UUU UUU UUU şTgclocalsÂ·6e904af67c2dae071497983487431b3f 8  8                      şTgclocalsÂ·650a9f70ab277ee03e01e1f7ef64f7dc                   şTgclocalsÂ·69c1753bd5f81501d95132d08af04464           şTgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb           şTgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb           ş0"".startOnce  type.sync.Once   ş."".golog  À,type.log/syslog.Writer   ş."".jcv  0type.[]uint8   ş""".statictmp_0009  €type.[12]string à        
-                                                                                                                            	                                         ,go.string."UserAgent "   @  $go.string." Host "   €  0go.string." RequestURI "   À  0go.string." RemoteAddr "   €  *go.string." referer "   À  (go.string." Method "   ş0"".initdoneÂ·  type.uint8   ş"".ElaborateÂ·f              "".Elaborate   ş"".EchojsonÂ·f              "".Echojson   ş "".MhandleAllÂ·f              "".MhandleAll   ş,"".MhandleAll.func1Â·f              &"".MhandleAll.func1   ş"".initÂ·f              "".init   ş"runtime.gcbits.01    ş.go.string.hdr."[]uint8"                       &go.string."[]uint8"   ş&go.string."[]uint8"   []uint8  ştype.[]uint8                   ß~.8                                                         0   runtime.algarray   @  "runtime.gcbits.01   P  .go.string.hdr."[]uint8"   p  *go.weak.type.*[]uint8   €  "runtime.zerovalue     type.uint8   ş6go.typelink.[]uint8	[]uint8              type.[]uint8   ş0go.string.hdr."[]string"                       (go.string."[]string"   ş(go.string."[]string"    []string  ştype.[]string                   Ó¨ó
-                                                         0   runtime.algarray   @  "runtime.gcbits.01   P  0go.string.hdr."[]string"   p  ,go.weak.type.*[]string   €  "runtime.zerovalue     type.string   ş:go.typelink.[]string	[]string              type.[]string   şTgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb           şTgclocalsÂ·0b86ef39f3fed835f14ba5f4d7c62fa2             şTgclocalsÂ·a8eabfc4a4514ed6b3b0c61e9680e440              şTgclocalsÂ·3bb21ca8fe1d99a3e492463bd711418a             ş2type..hashfunc.[12]string              *type..hash.[12]string   ş.type..eqfunc.[12]string              &type..eq.[12]string   ş(type..alg.[12]string                        2type..hashfunc.[12]string     .type..eqfunc.[12]string   ş*runtime.gcbits.555555   UUU ş4go.string.hdr."[12]string"             
-          ,go.string."[12]string"   ş,go.string."[12]string"    [12]string  ştype.[12]string À  ÀÀ       ¸       3‡F                                                                        0  (type..alg.[12]string   @  *runtime.gcbits.555555   P  4go.string.hdr."[12]string"   p  0go.weak.type.*[12]string   €  "runtime.zerovalue     type.string      type.[]string   şBgo.typelink.[12]string	[12]string              type.[12]string   ş6go.string.hdr."*[12]string"                       .go.string."*[12]string"   ş.go.string."*[12]string"    *[12]string  ş type.*[12]string                   y—Ch 6                                                        0   runtime.algarray   @  "runtime.gcbits.01   P  6go.string.hdr."*[12]string"   p  2go.weak.type.**[12]string   €  "runtime.zerovalue     type.[12]string   ş.go.string.hdr."runtime"                       &go.string."runtime"   ş&go.string."runtime"   runtime  ş,go.importpath.runtime.                       &go.string."runtime"   şTgo.string.hdr."github.com/zenazn/goji/web"                       Lgo.string."github.com/zenazn/goji/web"   şLgo.string."github.com/zenazn/goji/web" @  6github.com/zenazn/goji/web  şRgo.importpath.github.com/zenazn/goji/web.                       Lgo.string."github.com/zenazn/goji/web"   ş0go.string.hdr."net/http"                       (go.string."net/http"   ş(go.string."net/http"    net/http  ş.go.importpath.net/http.                       (go.string."net/http"   ş(go.string.hdr."sync"                        go.string."sync"   ş go.string."sync"   
-sync  ş&go.importpath.sync.                        go.string."sync"   ş4go.string.hdr."log/syslog"             
-          ,go.string."log/syslog"   ş,go.string."log/syslog"    log/syslog  ş2go.importpath.log/syslog.             
-          ,go.string."log/syslog"   ş2go.string.hdr."startones"             	          *go.string."startones"   ş*go.string."startones"    startones  ş0go.importpath.startones.             	          *go.string."startones"   ş0type..hash.[12]stringÂ·f              *type..hash.[12]string   ş,type..eq.[12]stringÂ·f              &type..eq.[12]string   ş"runtime.zerovalue      ÿÿgo13ld
+  bytes.init   ˆ
+  io.init   ’
+  os.init    "".initdoneÂ·   ¬
+  0runtime.morestack_noctxt        ` ` V` 
+ &: TgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb TgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb   X/home/juno/git/go_cv/src/handlers/sitemap.goşTgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb           şTgclocalsÂ·06be2e0cf40ff10dd1e5bbc1da1e184c             ş0>go.itab.*bytes.Buffer.io.Writer     ş04go.itab.*os.File.io.Reader     ş:go.string.hdr."maps/sitemap_"                       2go.string."maps/sitemap_"   ş2go.string."maps/sitemap_"    maps/sitemap_  ş(go.string.hdr.".xml"                        go.string.".xml"   ş go.string.".xml"   
+.xml  ş8go.string.hdr."Content-type"                       0go.string."Content-type"   ş0go.string."Content-type"    Content-type  ş>go.string.hdr."application/xml"                       6go.string."application/xml"   ş6go.string."application/xml"     application/xml  şTgclocalsÂ·dd4a7917e60d9eb5f14357cb600de785 @  @                ‚  ¢      şTgclocalsÂ·536a1a6fffedb1798b5362df4e8577c3 @  @                         şTgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb           şTgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb           ş0"".initdoneÂ·  type.uint8   ş"".ElaborateÂ·f              "".Elaborate   ş."".CheckServeSitemapÂ·f              ("".CheckServeSitemap   ş"".initÂ·f              "".init   ş"runtime.gcbits.01    ş.go.string.hdr."[]uint8"                       &go.string."[]uint8"   ş&go.string."[]uint8"   []uint8  ştype.[]uint8                   ß~.8                                                         0   runtime.algarray   @  "runtime.gcbits.01   P  .go.string.hdr."[]uint8"   p  *go.weak.type.*[]uint8   €  "runtime.zerovalue     type.uint8   ş6go.typelink.[]uint8	[]uint8              type.[]uint8   ş.go.string.hdr."runtime"                       &go.string."runtime"   ş&go.string."runtime"   runtime  ş,go.importpath.runtime.                       &go.string."runtime"   şTgo.string.hdr."github.com/zenazn/goji/web"                       Lgo.string."github.com/zenazn/goji/web"   şLgo.string."github.com/zenazn/goji/web" @  6github.com/zenazn/goji/web  şRgo.importpath.github.com/zenazn/goji/web.                       Lgo.string."github.com/zenazn/goji/web"   ş0go.string.hdr."net/http"                       (go.string."net/http"   ş(go.string."net/http"    net/http  ş.go.importpath.net/http.                       (go.string."net/http"   ş*go.string.hdr."bytes"                       "go.string."bytes"   ş"go.string."bytes"   bytes  ş(go.importpath.bytes.                       "go.string."bytes"   ş$go.string.hdr."io"                       go.string."io"   şgo.string."io"   io  ş"go.importpath.io.                       go.string."io"   ş$go.string.hdr."os"                       go.string."os"   şgo.string."os"   os  ş"go.importpath.os.                       go.string."os"   ş"runtime.zerovalue      ÿÿgo13ld
