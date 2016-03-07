@@ -4,12 +4,13 @@ import (
 	"log"
 	"log/syslog"
 	"github.com/rs/cors"
+//	 "github.com/zenazn/goji/web/middleware"	
 	"github.com/zenazn/goji"
 	"handlers"
 )
 
 func main() {
-	
+//	goji.Abandon(middleware.Logger)	
 	golog, err := syslog.New(syslog.LOG_ERR, "golog")
 
 	defer golog.Close()

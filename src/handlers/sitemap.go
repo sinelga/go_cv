@@ -2,29 +2,30 @@ package handlers
 
 import (
 	"bytes"
-//	"domains"
-//	"encoding/xml"
-//	"github.com/garyburd/redigo/redis"
-//	"handlers/sitemap/createmapfile"
+	"fmt"
+	//	"domains"
+	//	"encoding/xml"
+	//	"github.com/garyburd/redigo/redis"
+	//	"handlers/sitemap/createmapfile"
 	"io"
-//	"log/syslog"
-//	"math/rand"
+	//	"log/syslog"
+	//	"math/rand"
 	"net/http"
-//	"net/url"
+	//	"net/url"
 	"os"
-//	"sitemap_maker/getLinks"
-//	"strconv"
-//	"strings"
-//	"time"
+	//	"sitemap_maker/getLinks"
+	//	"strconv"
+	"strings"
+	//	"time"
 )
 
+func CheckServeSitemap(w http.ResponseWriter, r *http.Request) {
 
-func CheckServeSitemap( w http.ResponseWriter, r *http.Request) {
-
-	site :=  r.Host 
-
+	sitefull := r.Host
+	site := strings.Split(sitefull, ":")[0]
+	//	site :=r.URL.String()
 	filestr := "maps/sitemap_" + site + ".xml"
-
+	fmt.Println("site", filestr)
 	if _, err := os.Stat(filestr); os.IsNotExist(err) {
 
 		http.NotFound(w, r)
