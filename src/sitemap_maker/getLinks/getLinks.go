@@ -4,104 +4,88 @@ import (
 	//	"domains"
 	//	"encoding/json"
 	//	"github.com/garyburd/redigo/redis"
-//	"fmt"
+	"fmt"
 	"log/syslog"
 	"os"
 	//	"strconv"
+	"encoding/csv"
 	"path/filepath"
-	"strings"
+	//	"strings"
 )
 
-
 var links []string
+var maplinks map[string][]string
+
+// Walker file dir
+//func walkpath(pathstr string, f os.FileInfo, err error) error {
+//
+//	if f.IsDir() {
+//
+//		dirscplit := strings.Split(pathstr, "/")
+//
+//		link := "http:/"
+//
+//		for i := 6; i < len(dirscplit); i++ {
+//
+//			link = link + "/" + dirscplit[i]
+//
+//			if i == len(dirscplit)-1 {
+//				if i == 6 {
+//					link = link + "/index.html"
+//					links =append(links,link)
+//				} else {
+//					link = link + ".html"
+//					links =append(links,link)
+//				}
+//
+//			}
+//
+//		}
+//
+//	}
+//	return nil
+//}
 
 func walkpath(pathstr string, f os.FileInfo, err error) error {
 
-	if f.IsDir() {
+	if !f.IsDir() {
 
-		dirscplit := strings.Split(pathstr, "/")
+        site := f.Name()
+		csvfile, err := os.Open(pathstr)
+		if err != nil {
+			fmt.Println(err)
+			return err
+		}
+		defer csvfile.Close()
+		reader := csv.NewReader(csvfile)
 
-		link := "http:/"
+		records, err := reader.ReadAll()
+		if err != nil {
 
-		for i := 6; i < len(dirscplit); i++ {
-
-			link = link + "/" + dirscplit[i]
-
-			if i == len(dirscplit)-1 {
-				if i == 6 {
-
-					link = link + "/index.html"
-//					fmt.Println(link, i)
-					links =append(links,link)
-				} else {
-					link = link + ".html"
-//					fmt.Println(link, i)
-					links =append(links,link)
-
-				}
-
+			fmt.Println(err)
+			return err
+		} else {
+//			fmt.Println(records)
+			
+			for _,record := range records {
+//				fmt.Println(record)
+				maplinks[site]=append(maplinks[site],record[0])
 			}
-
-			//			}
-
+//			fmt.Println(maplinks[site])
+			
 		}
 
-		//		fmt.Println(link)
-
-		//		dir, file := path.Split(pathstr)
-		//		dirscplit := strings.Split(dir, "/")
-		//		id := dirscplit[len(dirscplit)-3]
-		//		imgfile := []string{id, file}
-		//		imgfiles = append(imgfiles, imgfile)
-
 	}
+
 	return nil
 }
 
-func GetAllLinks(golog syslog.Writer, site string) []string {
-
-	rootpath := "/home/juno/git/go_cv/www/" + site
-
-	filepath.Walk(rootpath, walkpath)
+func GetAllLinks(golog syslog.Writer, rootpath string)  map[string][]string{
 	
-	return links
+	maplinks	=make(map[string][]string)
+	
+	filepath.Walk(rootpath, walkpath)
 
-	//	limitstr :=strconv.Itoa(limit)
+	return maplinks
 
-	//	var charactersRedis []domains.CharacterRedis
-	//
-	//	if bcharactersRedis, err := redis.MultiBulk(c.Do("HVALS", site)); err != nil {
-	//
-	//		golog.Crit(err.Error())
-	//
-	//	} else {
-	//
-	////		fmt.Println(len(bcharactersRedis),site)
-	//
-	//		for _, bcharacter := range bcharactersRedis {
-	//
-	//			var v, ok = bcharacter.([]byte)
-	//
-	//			if ok {
-	//
-	//				var character domains.CharacterRedis
-	//
-	//				if err := json.Unmarshal(v, &character); err != nil {
-	//					golog.Crit(err.Error())
-	//				} else {
-	//
-	//					if character.Sex == "female" {
-	//
-	//						charactersRedis = append(charactersRedis, character)
-	//
-	//					}
-	//
-	//				}
-	//			}
-	//
-	//		}
-	//
-	//	}
-
-	//	return charactersRedis
 }

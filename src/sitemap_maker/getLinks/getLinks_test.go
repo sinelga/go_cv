@@ -18,10 +18,12 @@ func TestGetAllLinks(t *testing.T) {
 		log.Fatal("error writing syslog!!")
 	}
 
-	site := "remotejob.work"
+	rootpath := "/home/juno/git/cv/version_desk_react_00/links"
 
 //	res := GetAllLinks(golog, c, site)
-	GetAllLinks(*golog, site)
+	maplinks :=GetAllLinks(*golog, rootpath)
+	
+	log.Println(maplinks) 
 
 //	for _, character := range res {
 //
