@@ -25,7 +25,7 @@ func main() {
 	goji.Use(c.Handler)
 
 	goji.Get("/sitemap.xml",handlers.CheckServeSitemap)
-	goji.Get("/robot.txt",robots.Generate)	
+	goji.Get("/robots.txt",robots.Generate)	
 	goji.Get("/*",handlers.Elaborate) 
 //	goji.Get("/echo/json", handlers.Echojson)
 //	goji.Options("/echo/json", handlers.Echojson)
