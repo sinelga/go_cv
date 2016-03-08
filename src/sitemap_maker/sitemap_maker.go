@@ -55,7 +55,7 @@ func main() {
 
 			for _, link := range vals {
 				doc := new(domains.Page)
-				doc.Loc = link
+				doc.Loc = "http://"+site+link
 				now := time.Now()
 				intrand := random(100, 50000)
 				minback := time.Duration(intrand)
