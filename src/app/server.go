@@ -7,6 +7,7 @@ import (
 //	 "github.com/zenazn/goji/web/middleware"	
 	"github.com/zenazn/goji"
 	"handlers"
+	"handlers/robots"	
 )
 
 func main() {
@@ -24,6 +25,7 @@ func main() {
 	goji.Use(c.Handler)
 
 	goji.Get("/sitemap.xml",handlers.CheckServeSitemap)
+	goji.Get("/robot.txt",robots.Generate)	
 	goji.Get("/*",handlers.Elaborate) 
 //	goji.Get("/echo/json", handlers.Echojson)
 //	goji.Options("/echo/json", handlers.Echojson)
