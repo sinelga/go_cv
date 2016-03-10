@@ -94,41 +94,7 @@ func main() {
 			}
 		}
 
-		//		fmt.Println(linksmap)
-
-		//
-		//		docList := new(domains.Pages)
-		//		docList.XmlNS = "http://www.sitemaps.org/schemas/sitemap/0.9"
-		//
-		//		for _, link := range links {
-		//
-		//			doc := new(domains.Page)
-		//			doc.Loc = link
-		//			now := time.Now()
-		//			intrand := random(100, 50000)
-		//			minback := time.Duration(intrand)
-		//			lastmod := now.Add(-minback * time.Second)
-		//			doc.Lastmod = lastmod.Format(time.RFC3339)
-		//			doc.Changefreq = "weekly"
-		//			docList.Pages = append(docList.Pages, doc)
-		//
-		//		}
-		//
-		//		resultXml, err := xml.MarshalIndent(docList, "", "  ")
-		//		if err != nil {
-		//
-		//			golog.Crit(err.Error())
-		//		}
-		//
-		//		fmt.Println(string(resultXml))
-		//
-		//		filestr := "/home/juno/git/go_cv/maps/sitemap_"+site+".xml"
-		//
-		//		ioutil.WriteFile(filestr,resultXml, 0644)
-		//		if err != nil {
-		//
-		//			golog.Crit(err.Error())
-		//		}
+		
 
 	} else {
 		fmt.Println("try sitemap_maker -h")
