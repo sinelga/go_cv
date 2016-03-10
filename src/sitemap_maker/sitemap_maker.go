@@ -10,15 +10,21 @@ import (
 	"log/syslog"
 	"math/rand"
 	"time"
+	"path/filepath"
 	//	"startones"
 	//	"strconv"
 	//	"strings"
-
 	"sitemap_maker/getLinks"
+	"sitemap_maker/contents_feeder"
 )
 
-var rootdirFlag = flag.String("rootdir", "", "must dir location links files")
-var mapsdirFlag = flag.String("mapsdir", "", "must dir location links files")
+var contentsdirFlag = flag.String("contentsdir", "", "must dir location contents files")
+var linksdirFlag = flag.String("linksdir", "", "must dir location links files")
+var mapsdirFlag = flag.String("mapsdir", "", "must dir location sitemaps files")
+
+//var linksdir string
+//var  mapsdir string
+//var contentsdir  string
 
 //var limitFlag = flag.Int("limit", 0, "if not will be 0")
 
@@ -26,14 +32,18 @@ func random(min, max int) int {
 	rand.Seed(time.Now().UnixNano())
 	return rand.Intn(max-min) + min
 }
+func init() {
 
+}
 func main() {
-	flag.Parse() // Scan the arguments list
+	// Scan the arguments list
 
-	rootdir := *rootdirFlag
-	mapsdir :=*mapsdirFlag
+	flag.Parse()
+	linksdir := *linksdirFlag
+	mapsdir := *mapsdirFlag
+	contentsdir := *contentsdirFlag
 
-	if rootdir != "" || mapsdir != "" {
+	if ( linksdir != "") && ( mapsdir != "")  &&  ( contentsdir != "" ) {
 		golog, err := syslog.New(syslog.LOG_ERR, "golog")
 
 		defer golog.Close()
@@ -41,7 +51,7 @@ func main() {
 			log.Fatal("error writing syslog!!")
 		}
 		//
-		linksmap := getLinks.GetAllLinks(*golog, rootdir)
+		linksmap := getLinks.GetAllLinks(*golog, linksdir)
 
 		docList := new(domains.Pages)
 		docList.XmlNS = "http://www.sitemaps.org/schemas/sitemap/0.9"
@@ -54,8 +64,11 @@ func main() {
 			site = key
 
 			for _, link := range vals {
+				
+				contents_feeder.MakeContents(filepath.Join(contentsdir,site),link)
+				
 				doc := new(domains.Page)
-				doc.Loc = "http://"+site+link
+				doc.Loc = "http://" + site + link
 				now := time.Now()
 				intrand := random(100, 50000)
 				minback := time.Duration(intrand)
@@ -73,7 +86,7 @@ func main() {
 			}
 
 			fmt.Println(string(resultXml))
-			filestr := mapsdir+"/sitemap_" + site + ".xml"
+			filestr := mapsdir + "/sitemap_" + site + ".xml"
 			ioutil.WriteFile(filestr, resultXml, 0644)
 			if err != nil {
 

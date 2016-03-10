@@ -80,11 +80,11 @@ func walkpath(pathstr string, f os.FileInfo, err error) error {
 	return nil
 }
 
-func GetAllLinks(golog syslog.Writer, rootpath string)  map[string][]string{
+func GetAllLinks(golog syslog.Writer, linksdir string)  map[string][]string{
 	
 	maplinks	=make(map[string][]string)
 	
-	filepath.Walk(rootpath, walkpath)
+	filepath.Walk(linksdir, walkpath)
 
 	return maplinks
 
