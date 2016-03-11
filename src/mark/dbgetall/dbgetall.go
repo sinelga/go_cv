@@ -4,7 +4,7 @@ import (
 	_ "code.google.com/p/go-sqlite/go1/sqlite3"
 	"database/sql"
 	"log"
-//	"fmt"
+	"fmt"
 )
 
 func GetAll(db sql.DB,locale string, themes string, table string) []string{
@@ -27,6 +27,8 @@ func GetAll(db sql.DB,locale string, themes string, table string) []string{
 		 
 	}
 	rows.Close()
+	
+	fmt.Println("getAll",len(outarray))
 	
 	return outarray
 }
