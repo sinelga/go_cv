@@ -65,13 +65,10 @@ func walkpath(pathstr string, f os.FileInfo, err error) error {
 			fmt.Println(err)
 			return err
 		} else {
-//			fmt.Println(records)
 			
 			for _,record := range records {
-//				fmt.Println(record)
 				maplinks[site]=append(maplinks[site],record[0])
 			}
-//			fmt.Println(maplinks[site])
 			
 		}
 

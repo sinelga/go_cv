@@ -1,11 +1,16 @@
 package main
 
 import (
+	_ "code.google.com/p/go-sqlite/go1/sqlite3"
+	"database/sql"
 	"encoding/csv"
 	"flag"
 	"fmt"
+	"mark/checkkeyword"
+	"mark/dbgetall"
 	"os"
 	"strings"
+	"log"
 )
 
 const APP_VERSION = "0.1"
@@ -13,14 +18,36 @@ const APP_VERSION = "0.1"
 // The flag package provides a default help printer via -h switch
 
 var fileFlag = flag.String("file", "", "file to parse")
-var mapkeywords map[string][]string
+var localeFlag = flag.String("locale", "", "must be fi_FI/en_US/it_IT")
+var themesFlag = flag.String("themes", "", "must be porno/finance/fortune...")
+
+var mapkeywords map[string]struct{}
+var newinsert []string
 
 func main() {
 	flag.Parse() // Scan the arguments list
 
 	file := *fileFlag
+	locale := *localeFlag
+	themes := *themesFlag
 
 	if file != "" {
+
+		db, err := sql.Open("sqlite3", "/home/juno/git/goFastCgiLight/goFastCgiLight/singo.db")
+		if err != nil {
+			log.Fatal(err)
+		}
+		defer db.Close()
+
+		mapkeywords = make(map[string]struct{})
+		old := dbgetall.GetAll(*db,locale, themes, "keywords")
+
+		for _, val := range old {
+
+			fmt.Println(val)
+			mapkeywords[val] = struct{}{}
+
+		}
 
 		csvfile, err := os.Open(file)
 		if err != nil {
@@ -37,41 +64,32 @@ func main() {
 			fmt.Println(err)
 			return
 		} else {
-			//			fmt.Println(records)
-			
-			mapkeywords=make(map[string][]string)
 
 			for _, record := range records {
 
-//				fmt.Println(record[0])
 				keywordsarr := strings.Split(record[0], " ")
-//
-//				if len(keywordsarr) <= 1 {
-//
-//					fmt.Println(keywordsarr[0])
-////					mapkeywords	["programming"]=append(maplinks[	["programming"],
-//
-//				} else {
 
-					for _, keyword := range keywordsarr {
+				for _, keyword := range keywordsarr {
 
-//						fmt.Println(keyword)
-						mapkeywords	["programming"]=append(mapkeywords["programming"],keyword)						
+					if _, ok := mapkeywords[keyword]; ok {
 
+						//						fmt.Println("in map", keyword)
+
+					} else {
+						//						fmt.Println("NOT in map", keyword)
+						mapkeywords[keyword] = struct{}{}
 					}
 
-//				}
+				}
 
-				//				fmt.Println(record)
-				//				maplinks[site]=append(maplinks[site],record[0])
 			}
-			
-			for _,val :=range mapkeywords {
-				
-				fmt.Println(val)
+
+			for key, _ := range mapkeywords {
+
+				if len(key) > 2 {
+					checkkeyword.Check(key)
+				}
 			}
-			
-			//			fmt.Println(maplinks[site])
 
 		}
 

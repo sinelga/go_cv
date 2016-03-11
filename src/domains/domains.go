@@ -5,6 +5,15 @@ import (
 "time"	
 )
 
+type KeywordObj struct {
+	
+	Keyword string
+	Cl int
+	Lang string
+		
+}
+
+
 type Contents struct {
 	Title string
 	Moto string
