@@ -1,6 +1,8 @@
 package main
 
 import (
+	_ "code.google.com/p/go-sqlite/go1/sqlite3"
+	"database/sql"
 	"domains"
 	"encoding/xml"
 	"flag"
@@ -8,16 +10,19 @@ import (
 	"io/ioutil"
 	"log"
 	"log/syslog"
+	"mark/dbgetall"
 	"math/rand"
-	"time"
 	"path/filepath"
+	"time"
 	//	"startones"
 	//	"strconv"
 	//	"strings"
-	"sitemap_maker/getLinks"
 	"sitemap_maker/contents_feeder"
+	"sitemap_maker/getLinks"
 )
 
+var localeFlag = flag.String("locale", "", "must be fi_FI/en_US/it_IT")
+var themesFlag = flag.String("themes", "", "must be porno/finance/fortune...")
 var contentsdirFlag = flag.String("contentsdir", "", "must dir location contents files")
 var linksdirFlag = flag.String("linksdir", "", "must dir location links files")
 var mapsdirFlag = flag.String("mapsdir", "", "must dir location sitemaps files")
@@ -39,11 +44,13 @@ func main() {
 	// Scan the arguments list
 
 	flag.Parse()
+	locale := *localeFlag
+	themes := *themesFlag
 	linksdir := *linksdirFlag
 	mapsdir := *mapsdirFlag
 	contentsdir := *contentsdirFlag
 
-	if ( linksdir != "") && ( mapsdir != "")  &&  ( contentsdir != "" ) {
+	if (linksdir != "") && (mapsdir != "") && (contentsdir != "") && (locale != "") && (themes != "") {
 		golog, err := syslog.New(syslog.LOG_ERR, "golog")
 
 		defer golog.Close()
@@ -51,6 +58,16 @@ func main() {
 			log.Fatal("error writing syslog!!")
 		}
 		//
+
+		db, err := sql.Open("sqlite3", "/home/juno/git/goFastCgi/goFastCgi/singo.db")
+		if err != nil {
+			log.Fatal(err)
+		}
+		defer db.Close()
+
+		oldphrases := dbgetall.GetAll(*db, "en_US", "programming", "phrases", "phrase")
+		oldkeywords := dbgetall.GetAll(*db, "en_US", "programming", "keywords", "keyword")
+
 		linksmap := getLinks.GetAllLinks(*golog, linksdir)
 
 		docList := new(domains.Pages)
@@ -64,9 +81,9 @@ func main() {
 			site = key
 
 			for _, link := range vals {
-				
-				contents_feeder.MakeContents(filepath.Join(contentsdir,site),link)
-				
+
+				contents_feeder.MakeContents(filepath.Join(contentsdir, site), link,oldkeywords,oldphrases)
+
 				doc := new(domains.Page)
 				doc.Loc = "http://" + site + link
 				now := time.Now()
@@ -93,8 +110,6 @@ func main() {
 				golog.Crit(err.Error())
 			}
 		}
-
-		
 
 	} else {
 		fmt.Println("try sitemap_maker -h")

@@ -10,9 +10,10 @@ import (
 	"path/filepath"
 	"strings"
 	"time"
+	"mark/mgenerator"	
 )
 
-func MakeContents(contentsdir string, pathstr string) {
+func MakeContents(contentsdir string, pathstr string,keywords []string, phrases []string) {
 
 	//	fmt.Println(rootdir, pathstr)
 
@@ -39,7 +40,8 @@ func MakeContents(contentsdir string, pathstr string) {
 			fmt.Println(err.Error())
 		} else {
 
-			contents := domains.Contents{"title", "moto", "contents", time.Now(), time.Now()}
+//			contents := domains.Contents{"title", "moto", "contents", time.Now(), time.Now()}
+			contents := mgenerator.Generate(keywords,phrases)
 
 			b, err := json.Marshal(contents)
 			if err != nil {
@@ -57,6 +59,7 @@ func MakeContents(contentsdir string, pathstr string) {
 		if _, err := os.Stat(jsonpath); os.IsNotExist(err) {
 
 			contents := domains.Contents{"title", "moto", "contents", time.Now(), time.Now()}
+			
 			b, err := json.Marshal(contents)
 			if err != nil {
 				log.Println(err)
