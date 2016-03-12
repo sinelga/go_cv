@@ -22,6 +22,7 @@ type Contents struct {
 	Updated_at time.Time	
 }
 
+
 type Pages struct {
 	//	Version string   `xml:"version,attr"`
 	XMLName xml.Name `xml:"urlset"`
