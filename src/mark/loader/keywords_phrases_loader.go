@@ -9,6 +9,7 @@ import (
 //	"mark/checkkeyword"
 //	"mark/dbgetall"
 	"mark/keywords"
+	"mark/phrases"	
 	"os"
 //	"strings"
 	"log"
@@ -38,14 +39,6 @@ func main() {
 		}
 		defer db.Close()
 
-//		mapkeywords = make(map[string]struct{})
-//		old := dbgetall.GetAll(*db,locale, themes, "keywords")
-//
-//		for _, val := range old {
-//
-//			mapkeywords[val] = struct{}{}
-//
-//		}
 
 		csvfile, err := os.Open(file)
 		if err != nil {
@@ -65,6 +58,9 @@ func main() {
 
 		
 		keywords.Elaborate(locale,themes,*db,records)
+		phrases.Elaborate(locale,themes,*db,records)
+		
+		
 
 	} else {
 		fmt.Println("try  -h")

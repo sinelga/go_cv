@@ -18,7 +18,7 @@ var newobjinsert []domains.KeywordObj
 func Elaborate(locale string, themes string, db sql.DB, records [][]string) {
 
 	mapkeywords = make(map[string]struct{})
-	old := dbgetall.GetAll(db, locale, themes, "keywords")
+	old := dbgetall.GetAll(db, locale, themes, "keywords","keyword")
 
 	for _, val := range old {
 

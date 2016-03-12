@@ -7,10 +7,10 @@ import (
 	"fmt"
 )
 
-func GetAll(db sql.DB,locale string, themes string, table string) []string{
+func GetAll(db sql.DB,locale string, themes string, table string,colomns string) []string{
 
 
-	sqlstr := "select keyword from keywords where locale='" + locale + "' and themes='" + themes + "'"
+	sqlstr := "select "+colomns+" from "+table+" where locale='" + locale + "' and themes='" + themes + "'"
 
 	rows, err := db.Query(sqlstr)
 	if err != nil {
