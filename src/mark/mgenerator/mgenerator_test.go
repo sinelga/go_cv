@@ -6,6 +6,7 @@ import (
 	"mark/dbgetall"
 	"testing"
 	"log"
+	"fmt"
 )
 
 func TestGenerate(t *testing.T) {
@@ -19,6 +20,8 @@ func TestGenerate(t *testing.T) {
 	oldphrases := dbgetall.GetAll(*db, "en_US", "programming", "phrases", "phrase")
 	oldkeywords := dbgetall.GetAll(*db, "en_US", "programming", "keywords", "keyword")	
 
-	Generate(oldkeywords,oldphrases)
+	result :=Generate(oldkeywords,oldphrases)
+	
+	fmt.Println(result)
 
 }
