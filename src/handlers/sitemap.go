@@ -3,10 +3,6 @@ package handlers
 import (
 	"bytes"
 	"fmt"
-	//	"domains"
-	//	"encoding/xml"
-	//	"github.com/garyburd/redigo/redis"
-	//	"handlers/sitemap/createmapfile"
 	"io"
 	//	"log/syslog"
 	//	"math/rand"

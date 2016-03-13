@@ -6,6 +6,8 @@ bin/sitemap_maker -locale en_US -themes programming -linksdir  /home/juno/git/cv
 
 bin/loader -locale en_US -themes programming -file programming.csv
 
+scp /home/juno/git/goFastCgi/goFastCgi/singo.db 104.236.240.215:/home/juno/git/goFastCgi/goFastCgi
+
 
 
 
