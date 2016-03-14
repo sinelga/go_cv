@@ -27,11 +27,6 @@ var contentsdirFlag = flag.String("contentsdir", "", "must dir location contents
 var linksdirFlag = flag.String("linksdir", "", "must dir location links files")
 var mapsdirFlag = flag.String("mapsdir", "", "must dir location sitemaps files")
 
-//var linksdir string
-//var  mapsdir string
-//var contentsdir  string
-
-//var limitFlag = flag.Int("limit", 0, "if not will be 0")
 
 func random(min, max int) int {
 	rand.Seed(time.Now().UnixNano())
@@ -91,7 +86,7 @@ func main() {
 				minback := time.Duration(intrand)
 				lastmod := now.Add(-minback * time.Second)
 				doc.Lastmod = lastmod.Format(time.RFC3339)
-				doc.Changefreq = "weekly"
+				doc.Changefreq = "monthly"
 				docList.Pages = append(docList.Pages, doc)
 
 			}
@@ -101,8 +96,9 @@ func main() {
 
 				golog.Crit(err.Error())
 			}
-
-			fmt.Println(string(resultXml))
+			docList.Pages = nil
+			
+//			fmt.Println(string(resultXml))
 			filestr := mapsdir + "/sitemap_" + site + ".xml"
 			ioutil.WriteFile(filestr, resultXml, 0644)
 			if err != nil {

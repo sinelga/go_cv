@@ -6,20 +6,20 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
+	"mark/mgenerator"
 	"os"
 	"path/filepath"
 	"strings"
 	"time"
-	"mark/mgenerator"	
 )
 
-func MakeContents(contentsdir string, pathstr string,keywords []string, phrases []string) {
+func MakeContents(contentsdir string, pathstr string, keywords []string, phrases []string) {
 
 	//	fmt.Println(rootdir, pathstr)
 
 	splitpath := strings.Split(pathstr, "/")
 
-	directory := contentsdir 
+	directory := contentsdir
 
 	for i := 0; i < len(splitpath)-1; i++ {
 
@@ -40,8 +40,8 @@ func MakeContents(contentsdir string, pathstr string,keywords []string, phrases 
 			fmt.Println(err.Error())
 		} else {
 
-//			contents := domains.Contents{"title", "moto", "contents", time.Now(), time.Now()}
-			contents := mgenerator.Generate(keywords,phrases)
+			//			contents := domains.Contents{"title", "moto", "contents", time.Now(), time.Now()}
+			contents := mgenerator.Generate(keywords, phrases)
 
 			b, err := json.Marshal(contents)
 			if err != nil {
@@ -59,7 +59,7 @@ func MakeContents(contentsdir string, pathstr string,keywords []string, phrases 
 		if _, err := os.Stat(jsonpath); os.IsNotExist(err) {
 
 			contents := domains.Contents{"title", "moto", "contents", time.Now(), time.Now()}
-			
+
 			b, err := json.Marshal(contents)
 			if err != nil {
 				log.Println(err)
@@ -78,7 +78,7 @@ func MakeContents(contentsdir string, pathstr string,keywords []string, phrases 
 			if err := json.Unmarshal(byt, &dat); err != nil {
 				panic(err)
 			}
-			fmt.Println(dat)
+//			fmt.Println(dat)
 			contents := domains.Contents{dat.Title, dat.Moto, dat.Contents, dat.Created_at, time.Now()}
 
 			b, err := json.Marshal(contents)
@@ -89,7 +89,6 @@ func MakeContents(contentsdir string, pathstr string,keywords []string, phrases 
 			ioutil.WriteFile(jsonpath, b, 0644)
 
 		}
-
 	}
 
 	//	fulldir := rootdir+strings.Split(pathstr,"/")[0]
