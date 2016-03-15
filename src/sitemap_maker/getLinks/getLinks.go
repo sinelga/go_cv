@@ -1,9 +1,7 @@
 package getLinks
 
 import (
-	//	"domains"
-	//	"encoding/json"
-	//	"github.com/garyburd/redigo/redis"
+
 	"fmt"
 	"log/syslog"
 	"os"

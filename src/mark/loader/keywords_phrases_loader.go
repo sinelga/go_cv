@@ -1,7 +1,7 @@
 package main
 
 import (
-	_ "code.google.com/p/go-sqlite/go1/sqlite3"
+	_ "github.com/mxk/go-sqlite/sqlite3"
 	"database/sql"
 	"encoding/csv"
 	"flag"
@@ -55,12 +55,10 @@ func main() {
 			fmt.Println(err)
 			return
 		} 
-
 		
 		keywords.Elaborate(locale,themes,*db,records)
 		phrases.Elaborate(locale,themes,*db,records)
-		
-		
+				
 
 	} else {
 		fmt.Println("try  -h")
