@@ -77,7 +77,7 @@ func walkpath(pathstr string, f os.FileInfo, err error) error {
 
 func GetAllLinks(golog syslog.Writer, linksdir string)  map[string][]string{
 	
-	maplinks	=make(map[string][]string)
+	maplinks=make(map[string][]string)
 	
 	filepath.Walk(linksdir, walkpath)
 

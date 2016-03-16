@@ -5,6 +5,14 @@ import (
 "time"	
 )
 
+type Blog struct {
+	Title string
+	Contents string
+	Created_at time.Time
+	Updated_at time.Time	
+	
+}
+
 type KeywordObj struct {
 	
 	Keyword string
