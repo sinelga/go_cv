@@ -1,35 +1,35 @@
 package domains
 
 import (
-"encoding/xml"
-"time"	
+	"encoding/xml"
+	"time"
 )
 
-type Blog struct {
-	Title string
-	Contents string
+type BlogItem struct {
+	Title      string
+	Contents   string
 	Created_at time.Time
-	Updated_at time.Time	
-	
+	Updated_at time.Time
+}
+
+type Blog struct {
+//	Topic string
+	Items map[string][]BlogItem
 }
 
 type KeywordObj struct {
-	
 	Keyword string
-	Cl int
-	Lang string
-		
+	Cl      int
+	Lang    string
 }
-
 
 type Contents struct {
-	Title string
-	Moto string
-	Contents	string
+	Title      string
+	Moto       string
+	Contents   string
 	Created_at time.Time
-	Updated_at time.Time	
+	Updated_at time.Time
 }
-
 
 type Pages struct {
 	//	Version string   `xml:"version,attr"`
@@ -51,7 +51,6 @@ type Page struct {
 	//	Keywords   string   `xml:"news:news>news:keywords"`
 	//	Image      string   `xml:"image:image>image:loc"`
 }
-
 
 type Config struct {
 	Maintitle string

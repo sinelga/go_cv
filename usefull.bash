@@ -9,7 +9,7 @@ bin/loader -locale en_US -themes programming -file programming.csv
 
 scp /home/juno/git/goFastCgi/goFastCgi/singo.db 104.236.240.215:/home/juno/git/goFastCgi/goFastCgi
 
-bin/blogfeeder -locale en_US -themes programming -file /home/juno/git/cv/version_desk_react_00/dist/bog.json -title test test2 test3
+bin/blogfeeder -locale en_US -themes programming -rootdir /home/juno/git/cv/version_desk_react_00/dist/www -topic golang  -title test test2 test3
 
 
 
