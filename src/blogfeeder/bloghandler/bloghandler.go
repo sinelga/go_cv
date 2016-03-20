@@ -9,8 +9,7 @@ func Bhandler(locale string, themes string, file string,title string, contents s
 
 	if _, err := os.Stat(file); os.IsNotExist(err) {
 		fmt.Println(file, "not EXIST")
-		// path/to/whatever does not exist
-		//			blogObj := domains.Blog{"Title","Contents
+	
 
 	}
 
