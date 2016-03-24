@@ -7,13 +7,14 @@ import (
 
 type BlogItem struct {
 	Title      string
+	Stitle     string
 	Contents   string
 	Created_at time.Time
 	Updated_at time.Time
 }
 
 type Blog struct {
-//	Topic string
+	//	Topic string
 	Items map[string][]BlogItem
 }
 

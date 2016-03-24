@@ -11,9 +11,11 @@ import (
 	"os"
 	//	"bytes"
 	"path/filepath"
+	//	"strings"
 	"time"
-
-	//	"encoding/binary"
+	"blogfeeder/check_title"
+	"blogfeeder/addlink"
+	"blogfeeder/addnewblogitem"	
 )
 
 var rootdirFlag = flag.String("rootdir", "", "file to parse")
@@ -34,28 +36,30 @@ func main() {
 	if (rootdir != "") && (locale != "") && (themes != "") && (topic != "") && (title != "") {
 
 		now := time.Now()
-		filestr := filepath.Join(rootdir, locale+"_"+themes+"_"+"blog.json")
+		filestr := filepath.Join(rootdir,"dist", locale+"_"+themes+"_"+"blog.json")
+		
+		linksdir := filepath.Join(rootdir,"links")
 
 		stitle := slug.Make(title)
 
 		blogItems := make(map[string][]domains.BlogItem)
-		item := domains.BlogItem{stitle, "", now, now}
+		item := domains.BlogItem{title, stitle, "", now, now}
 
 		if _, err := os.Stat(filestr); os.IsNotExist(err) {
 
-			blogItems[topic] = append(blogItems[topic], item)
-
-			b, err := json.Marshal(blogItems)
-			if err != nil {
-				log.Println(err)
-			}
-
-			ioutil.WriteFile(filestr, b, 0644)
+			addnewblogitem.Addnew(blogItems,item,topic,linksdir,filestr)
+//			blogItems[topic] = append(blogItems[topic], item)
+//
+//			b, err := json.Marshal(blogItems)
+//			if err != nil {
+//				log.Println(err)
+//			}
+//
+//			ioutil.WriteFile(filestr, b, 0644)
 
 		} else {
 
 			var blogObj map[string]*json.RawMessage
-			//			var blogObj map[string]*[]struct{}
 			file, e := ioutil.ReadFile(filestr)
 			if e != nil {
 				fmt.Printf("File error: %v\n", e)
@@ -66,40 +70,37 @@ func main() {
 				fmt.Println("error:", err)
 			} else {
 
-//				fmt.Println(blogObj)
-				for key, val := range blogObj {
-//					fmt.Println(key, val)
+				for keytopic, val := range blogObj {
+
 					var items []domains.BlogItem
 					err := json.Unmarshal(*val, &items)
 					if err != nil {
 						fmt.Println("error:", err)
 					} else {
-//						fmt.Println(items)
 
-						blogItems[key] = items
+						blogItems[keytopic] = items
 
 					}
 
 				}
 
-				
-//				if val, ok := blogItems[topic]; ok {
-//    				fmt.Println("topic  Exist")
-//    				newval := append(val, item)    				
-//    				blogItems[topic] = newval
-//    				
-//				} else {
-					
-					blogItems[topic] =append(blogItems[topic],item)					
-					
-//				}
+				stitleOK :=check_title.CheckIfExist(stitle,blogItems[topic])
 
-				b, err := json.Marshal(blogItems)
-				if err != nil {
-					log.Println(err)
+
+				if !stitleOK {
+
+					fmt.Println("new item",topic,item)	
+					blogItems[topic] = append(blogItems[topic], item)
+
+					b, err := json.Marshal(blogItems)
+					if err != nil {
+						log.Println(err)
+					}
+					ioutil.WriteFile(filestr, b, 0644)
+										
+					addlink.AddLinktoAllfiles(linksdir,topic,stitle)					
+
 				}
-//				fmt.Println(string(b))
-				ioutil.WriteFile(filestr, b, 0644)
 
 			}
 
