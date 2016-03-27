@@ -8,8 +8,8 @@
     Title:<input type="text" name="title"><br>
     Contents:<br>
     
-    <textarea cols="40" rows="5" name="contents"></textarea>
-    
+    <textarea cols="50" rows="10" name="contents"></textarea>
+    <br>
     <input type="submit" value="Submit">
 </form>
 </body>
