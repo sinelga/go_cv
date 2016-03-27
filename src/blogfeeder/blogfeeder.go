@@ -12,10 +12,11 @@ import (
 	//	"bytes"
 	"path/filepath"
 	//	"strings"
-	"time"
-	"blogfeeder/check_title"
 	"blogfeeder/addlink"
-	"blogfeeder/addnewblogitem"	
+	"blogfeeder/addnewblogitem"
+	"blogfeeder/check_title"
+	"blogfeeder/check_topic"
+	"time"
 )
 
 var rootdirFlag = flag.String("rootdir", "", "file to parse")
@@ -36,9 +37,9 @@ func main() {
 	if (rootdir != "") && (locale != "") && (themes != "") && (topic != "") && (title != "") {
 
 		now := time.Now()
-		filestr := filepath.Join(rootdir,"dist", locale+"_"+themes+"_"+"blog.json")
-		
-		linksdir := filepath.Join(rootdir,"links")
+		filestr := filepath.Join(rootdir, "dist", locale+"_"+themes+"_"+"blog.json")
+
+		linksdir := filepath.Join(rootdir, "links")
 
 		stitle := slug.Make(title)
 
@@ -47,8 +48,7 @@ func main() {
 
 		if _, err := os.Stat(filestr); os.IsNotExist(err) {
 
-			addnewblogitem.Addnew(blogItems,item,topic,linksdir,filestr)
-
+			addnewblogitem.Addnew(blogItems, item, topic, true, linksdir, filestr)
 
 		} else {
 
@@ -77,12 +77,12 @@ func main() {
 
 				}
 
-				stitleOK :=check_title.CheckIfExist(stitle,blogItems[topic])
-
+				stitleOK := check_title.CheckIfExist(stitle, blogItems[topic])
+				topicOK := check_topic.CheckTopicExist(topic, blogItems[topic])
 
 				if !stitleOK {
 
-					fmt.Println("new item",topic,item)	
+					fmt.Println("new item", topic, item)
 					blogItems[topic] = append(blogItems[topic], item)
 
 					b, err := json.Marshal(blogItems)
@@ -90,8 +90,8 @@ func main() {
 						log.Println(err)
 					}
 					ioutil.WriteFile(filestr, b, 0644)
-										
-					addlink.AddLinktoAllfiles(linksdir,topic,stitle)					
+
+					addlink.AddLinktoAllfiles(linksdir, topic, topicOK, stitle)
 
 				}
 
