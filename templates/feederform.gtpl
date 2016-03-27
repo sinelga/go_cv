@@ -4,8 +4,8 @@
 </head>
 <body>
 <form action="/formfeeder" method="post">
-    Topic:<input type="text" name="topic"><br>
-    Title:<input type="text" name="title"><br>
+    Topic:<input type="text" name="topic"><br><br>
+    Title:<input type="text" name="title" size="154"><br><br>
     Contents:<br>
     
     <textarea cols="50" rows="10" name="contents"></textarea>
