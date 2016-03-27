@@ -9,7 +9,7 @@ import (
 	"path/filepath"
 )
 
-func AddLinktoAllfiles(dir string, topic string, stitle string) {
+func AddLinktoAllfiles(dir string, topic string, topicOK bool, stitle string) {
 
 	files, err := ioutil.ReadDir(dir)
 	if err != nil {
@@ -20,13 +20,17 @@ func AddLinktoAllfiles(dir string, topic string, stitle string) {
 
 		linkfile := filepath.Join(dir, file.Name())
 		linktoadd := filepath.Join("/blog/", topic, stitle+".html")
-		fmt.Println(linktoadd)
 
 		fileHandle, _ := os.OpenFile(linkfile, os.O_APPEND|os.O_WRONLY, 0666)
 		writer := bufio.NewWriter(fileHandle)
 		defer fileHandle.Close()
 
+		if topicOK {
+			linktopicadd := filepath.Join("/blog/", topic)
+			fmt.Fprintln(writer, linktopicadd)
+		}
 		fmt.Fprintln(writer, linktoadd)
+
 		writer.Flush()
 	}
 

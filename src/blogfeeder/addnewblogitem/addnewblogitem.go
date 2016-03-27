@@ -8,7 +8,7 @@ import (
 	"log"
 )
 
-func Addnew(blogItems map[string][]domains.BlogItem, item domains.BlogItem, topic string, linksdir string, filestr string) {
+func Addnew(blogItems map[string][]domains.BlogItem, item domains.BlogItem, topic string, topicOK bool,linksdir string, filestr string) {
 
 	blogItems[topic] = append(blogItems[topic], item)
 
@@ -19,6 +19,6 @@ func Addnew(blogItems map[string][]domains.BlogItem, item domains.BlogItem, topi
 
 	ioutil.WriteFile(filestr, b, 0644)
 
-	addlink.AddLinktoAllfiles(linksdir, topic, item.Stitle)
+	addlink.AddLinktoAllfiles(linksdir,topic,topicOK, item.Stitle)
 
 }

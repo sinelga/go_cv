@@ -48,14 +48,7 @@ func main() {
 		if _, err := os.Stat(filestr); os.IsNotExist(err) {
 
 			addnewblogitem.Addnew(blogItems,item,topic,linksdir,filestr)
-//			blogItems[topic] = append(blogItems[topic], item)
-//
-//			b, err := json.Marshal(blogItems)
-//			if err != nil {
-//				log.Println(err)
-//			}
-//
-//			ioutil.WriteFile(filestr, b, 0644)
+
 
 		} else {
 

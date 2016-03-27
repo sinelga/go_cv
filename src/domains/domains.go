@@ -5,6 +5,18 @@ import (
 	"time"
 )
 
+type ServerConfig struct {
+	Main struct {
+		Locale string
+		Themes string
+	}
+    Dirs struct {
+            Rootdir string
+            
+    }
+}
+
+
 type BlogItem struct {
 	Title      string
 	Stitle     string
