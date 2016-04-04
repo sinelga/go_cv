@@ -1,0 +1,6 @@
+[main]
+locale ="en_US"
+themes ="programming"
+
+[dirs]
+rootdir="/home/juno/git/cv/version_desk_react_00"
