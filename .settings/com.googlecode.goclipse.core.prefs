@@ -1,2 +1,7 @@
+append_projloc_gopath=true
+build_targets=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\n<build_targets xmlns\="com.googlecode.goclipse.core">\n<target config\="./... \#build" enabled\="true"/>\n<target config\="./... \#build-tests" enabled\="false"/>\n<target config\="./... \#[run-tests]" enabled\="false"/>\n</build_targets>\n
+com.googlecode.goclipse.gopath=\:/home/juno/workspace/gocode
+com.googlecode.goclipse.goroot=/home/juno/go
 eclipse.preferences.version=1
 prj_auto_build_disabled=true
+toolchain_prefs.use_project_settings=false
