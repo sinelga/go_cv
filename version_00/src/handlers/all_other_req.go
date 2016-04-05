@@ -47,7 +47,7 @@ func Elaborate(c web.C, w http.ResponseWriter, r *http.Request) {
 	fmt.Println("urlstr ", urlstr )
 	//	log.Println("site", site)
 
-	sitemapfile := "/home/juno/git/go_cv/maps/sitemap_" + site + ".xml"
+	sitemapfile := "/home/juno/git/go_cv/version_00/maps/sitemap_" + site + ".xml"
 	fmt.Println("map", sitemapfile)
 
 	if _, err := os.Stat(sitemapfile); os.IsNotExist(err) {
