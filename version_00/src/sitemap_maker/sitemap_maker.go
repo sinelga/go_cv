@@ -23,6 +23,7 @@ import (
 
 var localeFlag = flag.String("locale", "", "must be fi_FI/en_US/it_IT")
 var themesFlag = flag.String("themes", "", "must be porno/finance/fortune...")
+var dblocFlag = flag.String("dbloc", "", "must be somthing like en_US_programming.db")
 var contentsdirFlag = flag.String("contentsdir", "", "must dir location contents files")
 var linksdirFlag = flag.String("linksdir", "", "must dir location links files")
 var mapsdirFlag = flag.String("mapsdir", "", "must dir location sitemaps files")
@@ -44,8 +45,9 @@ func main() {
 	linksdir := *linksdirFlag
 	mapsdir := *mapsdirFlag
 	contentsdir := *contentsdirFlag
+	dbloc := *dblocFlag
 
-	if (linksdir != "") && (mapsdir != "") && (contentsdir != "") && (locale != "") && (themes != "") {
+	if (linksdir != "") && (mapsdir != "") && (contentsdir != "") && (locale != "") && (themes != "") && (dbloc != "") {
 		golog, err := syslog.New(syslog.LOG_ERR, "golog")
 
 		defer golog.Close()
@@ -54,7 +56,7 @@ func main() {
 		}
 		//
 
-		db, err := sql.Open("sqlite3", "/home/juno/git/goFastCgi/goFastCgi/singo.db")
+		db, err := sql.Open(dbloc)
 		if err != nil {
 			log.Fatal(err)
 		}
