@@ -13,6 +13,9 @@ bin/blogfeeder -locale en_US -themes programming -rootdir /home/juno/git/cv/vers
 bin/blogfeeder -locale en_US -themes programming -rootdir /home/juno/git/cv/version_desk_react_00 -topic java  -title 'intro'
 bin/blogfeeder -locale en_US -themes programming -rootdir /home/juno/git/cv/version_desk_react_00 -topic javascript  -title 'intro'
 
+create table pr.phrases  as select * from phrases where Themes='programming'
+create table pr.keywords  as select * from keywords where Themes='programming'
+
 
 
 

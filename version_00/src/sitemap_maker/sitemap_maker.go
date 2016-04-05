@@ -14,9 +14,6 @@ import (
 	"math/rand"
 	"path/filepath"
 	"time"
-	//	"startones"
-	//	"strconv"
-	//	"strings"
 	"sitemap_maker/contents_feeder"
 	"sitemap_maker/getLinks"
 )
@@ -99,8 +96,7 @@ func main() {
 				golog.Crit(err.Error())
 			}
 			docList.Pages = nil
-			
-//			fmt.Println(string(resultXml))
+
 			filestr := mapsdir + "/sitemap_" + site + ".xml"
 			ioutil.WriteFile(filestr, resultXml, 0644)
 			if err != nil {
