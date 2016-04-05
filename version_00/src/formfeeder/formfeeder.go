@@ -24,19 +24,12 @@ func HandleForm(c web.C, w http.ResponseWriter, r *http.Request) {
 	rootdir := c.Env["rootdir"].(string)
 	locale := c.Env["locale"].(string)
 	themes := c.Env["themes"].(string)
-	//	fmt.Println(rootdir)
-	//	fmt.Println(locale)
-	//	fmt.Println(themes)
 
 	if r.Method == "GET" {
 		t, _ := template.ParseFiles("templates/feederform.gtpl")
 		t.Execute(w, nil)
 	} else {
 		r.ParseForm()
-		// logic part of log in
-		//		fmt.Println("topic:", r.Form["topic"][0])
-		//		fmt.Println("title:", r.Form["title"][0])
-		//		fmt.Println("contents:", r.Form["contents"][0])
 
 		topic := r.Form["topic"][0]
 		title := r.Form["title"][0]
@@ -50,13 +43,14 @@ func HandleForm(c web.C, w http.ResponseWriter, r *http.Request) {
 			linksdir := filepath.Join(rootdir, "links")
 
 			stitle := slug.Make(title)
-
+			stopic := slug.Make(topic)
+			
 			blogItems := make(map[string][]domains.BlogItem)
-			item := domains.BlogItem{title, stitle, contents, now, now}
+			item := domains.BlogItem{stopic,topic,stitle, title, contents, now, now}
 
 			if _, err := os.Stat(filestr); os.IsNotExist(err) {
 
-				addnewblogitem.Addnew(blogItems, item, topic, true, linksdir, filestr)
+				addnewblogitem.Addnew(blogItems, item, stopic, true, linksdir, filestr)
 
 			} else {
 
@@ -84,14 +78,14 @@ func HandleForm(c web.C, w http.ResponseWriter, r *http.Request) {
 						}
 
 					}
-
-					stitleOK := check_title.CheckIfExist(stitle, blogItems[topic])
-					topicOK := check_topic.CheckTopicExist(topic, blogItems[topic])
+					
+					key :=stopic				
+					stitleOK := check_title.CheckIfExist(stitle, blogItems[key])
+					topicOK := check_topic.CheckTopicExist(topic, blogItems[key])
 
 					if !stitleOK {
 
-//						fmt.Println("new item", topic, item)
-						blogItems[topic] = append(blogItems[topic], item)
+						blogItems[key] = append(blogItems[key], item)
 
 						b, err := json.Marshal(blogItems)
 						if err != nil {
@@ -99,7 +93,7 @@ func HandleForm(c web.C, w http.ResponseWriter, r *http.Request) {
 						}
 						ioutil.WriteFile(filestr, b, 0644)
 
-						addlink.AddLinktoAllfiles(linksdir, topic, topicOK, stitle)
+						addlink.AddLinktoAllfiles(linksdir, stopic, topicOK, stitle)
 
 					}
 

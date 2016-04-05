@@ -1,5 +1,5 @@
 !<arch>
-__.PKGDEF       0           0     0     644     9063      `
+__.PKGDEF       0           0     0     644     9092      `
 go object linux amd64 go1.5.3 X:none
 build id "45e225b2c790022e301a92c4d613f6db0972ec61"
 
@@ -70,7 +70,7 @@ package check_topic
 	func (@"time".t·2 @"time".Time "esc:0x1") @"time".abs () (? uint64)
 	func (@"time".t·5 @"time".Time "esc:0x1") @"time".date (@"time".full·6 bool) (@"time".year·1 int, @"time".month·2 @"time".Month, @"time".day·3 int, @"time".yday·4 int)
 	func (@"time".t·4 @"time".Time "esc:0x32") @"time".locabs () (@"time".name·1 string, @"time".offset·2 int, @"time".abs·3 uint64)
-	type @"domains".BlogItem struct { Title string; Stitle string; Contents string; Created_at @"time".Time; Updated_at @"time".Time }
+	type @"domains".BlogItem struct { Stopic string; Topic string; Stitle string; Title string; Contents string; Created_at @"time".Time; Updated_at @"time".Time }
 	func @"".CheckTopicExist (@"".topic·2 string "esc:0x1", @"".items·3 []@"domains".BlogItem "esc:0x1") (? bool)
 	func @"".init ()
 	var @"time".months [12]string
@@ -79,7 +79,7 @@ package check_topic
 	var @"time".UTC *@"time".Location
 
 $$
- _go_.o          0           0     0     644     2305      `
+_go_.o          0           0     0     644     2305      `
 go object linux amd64 go1.5.3 X:none
 
 !

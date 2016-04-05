@@ -40,13 +40,14 @@ func main() {
 		linksdir := filepath.Join(rootdir, "links")
 
 		stitle := slug.Make(title)
+		stopic := slug.Make(topic)		
 
 		blogItems := make(map[string][]domains.BlogItem)
-		item := domains.BlogItem{title, stitle, "", now, now}
+		item := domains.BlogItem{stopic,topic,stitle, title, "", now, now}
 
 		if _, err := os.Stat(filestr); os.IsNotExist(err) {
 
-			addnewblogitem.Addnew(blogItems, item, topic, true, linksdir, filestr)
+			addnewblogitem.Addnew(blogItems, item, stopic, true, linksdir, filestr)
 
 		} else {
 

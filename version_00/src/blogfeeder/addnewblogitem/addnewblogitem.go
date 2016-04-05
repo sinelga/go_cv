@@ -8,9 +8,11 @@ import (
 	"log"
 )
 
-func Addnew(blogItems map[string][]domains.BlogItem, item domains.BlogItem, topic string, topicOK bool,linksdir string, filestr string) {
+func Addnew(blogItems map[string][]domains.BlogItem, item domains.BlogItem, stopic string,topicOK bool,linksdir string, filestr string) {
 
-	blogItems[topic] = append(blogItems[topic], item)
+	key :=stopic
+	 
+	blogItems[key] = append(blogItems[key], item)
 
 	b, err := json.Marshal(blogItems)
 	if err != nil {
@@ -19,6 +21,6 @@ func Addnew(blogItems map[string][]domains.BlogItem, item domains.BlogItem, topi
 
 	ioutil.WriteFile(filestr, b, 0644)
 
-	addlink.AddLinktoAllfiles(linksdir,topic,topicOK, item.Stitle)
+	addlink.AddLinktoAllfiles(linksdir,stopic,topicOK, item.Stitle)
 
 }

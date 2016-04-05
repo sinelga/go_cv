@@ -56,14 +56,14 @@ func main() {
 		}
 		//
 
-		db, err := sql.Open(dbloc)
+		db, err := sql.Open("sqlite3", dbloc)
 		if err != nil {
 			log.Fatal(err)
 		}
 		defer db.Close()
 
-		oldphrases := dbgetall.GetAll(*db, "en_US", "programming", "phrases", "phrase")
-		oldkeywords := dbgetall.GetAll(*db, "en_US", "programming", "keywords", "keyword")
+		oldphrases := dbgetall.GetAll(*db, locale, themes, "phrases", "phrase")
+		oldkeywords := dbgetall.GetAll(*db, locale, themes, "keywords", "keyword")
 
 		linksmap := getLinks.GetAllLinks(*golog, linksdir)
 

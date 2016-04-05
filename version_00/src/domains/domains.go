@@ -10,16 +10,16 @@ type ServerConfig struct {
 		Locale string
 		Themes string
 	}
-    Dirs struct {
-            Rootdir string
-            
-    }
+	Dirs struct {
+		Rootdir string
+	}
 }
 
-
 type BlogItem struct {
-	Title      string
+	Stopic     string
+	Topic      string
 	Stitle     string
+	Title      string	
 	Contents   string
 	Created_at time.Time
 	Updated_at time.Time
