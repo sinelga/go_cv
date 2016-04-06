@@ -37,7 +37,7 @@ func Elaborate(c web.C, w http.ResponseWriter, r *http.Request) {
 	path := r.URL.Path
 	urlstr := "http://" + site + path
 
-	sitemapfile := rootdir + "/maps/sitemap_" + site + ".xml"
+	sitemapfile := backendrootdir + "/maps/sitemap_" + site + ".xml"
 	fmt.Println("map", sitemapfile)
 
 	if _, err := os.Stat(sitemapfile); os.IsNotExist(err) {
@@ -66,7 +66,7 @@ func Elaborate(c web.C, w http.ResponseWriter, r *http.Request) {
 
 	} else {
 
-		http.ServeFile(w, r, backendrootdir+"/dist/index.html")
+		http.ServeFile(w, r, rootdir+"/dist/index.html")
 	}
 
 }
