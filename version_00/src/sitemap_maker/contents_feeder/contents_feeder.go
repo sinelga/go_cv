@@ -15,22 +15,18 @@ import (
 
 func MakeContents(contentsdir string, pathstr string, keywords []string, phrases []string) {
 
-	//	fmt.Println(rootdir, pathstr)
-
 	splitpath := strings.Split(pathstr, "/")
 
 	directory := contentsdir
 
 	for i := 0; i < len(splitpath)-1; i++ {
 
-		//		directory = directory + "/" + splitpath[i]
 		directory = filepath.Join(directory, splitpath[i])
 
 	}
 	lastspilt := splitpath[len(splitpath)-1]
-	//	directory = directory + "/" + strings.Split(lastspilt, ".")[0]
+
 	directory = filepath.Join(directory, strings.Split(lastspilt, ".")[0])
-	//	fmt.Println(directory)
 	jsonpath := directory + "/" + lastspilt + ".json"
 
 	if _, err := os.Stat(directory); os.IsNotExist(err) {
@@ -39,8 +35,7 @@ func MakeContents(contentsdir string, pathstr string, keywords []string, phrases
 		if err := os.MkdirAll(directory, 0777); err != nil {
 			fmt.Println(err.Error())
 		} else {
-
-			//			contents := domains.Contents{"title", "moto", "contents", time.Now(), time.Now()}
+			
 			contents := mgenerator.Generate(keywords, phrases)
 
 			b, err := json.Marshal(contents)
@@ -90,9 +85,5 @@ func MakeContents(contentsdir string, pathstr string, keywords []string, phrases
 
 		}
 	}
-
-	//	fulldir := rootdir+strings.Split(pathstr,"/")[0]
-	//
-	//	fmt.Println(fulldir	)
 
 }

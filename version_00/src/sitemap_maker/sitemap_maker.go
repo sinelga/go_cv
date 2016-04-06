@@ -1,21 +1,22 @@
 package main
 
 import (
-	_ "github.com/mxk/go-sqlite/sqlite3"
 	"database/sql"
 	"domains"
 	"encoding/xml"
 	"flag"
 	"fmt"
+	_ "github.com/mxk/go-sqlite/sqlite3"
 	"io/ioutil"
 	"log"
 	"log/syslog"
 	"mark/dbgetall"
 	"math/rand"
 	"path/filepath"
-	"time"
 	"sitemap_maker/contents_feeder"
 	"sitemap_maker/getLinks"
+	"sitemap_maker/unmarshalsitemap"
+	"time"
 )
 
 var localeFlag = flag.String("locale", "", "must be fi_FI/en_US/it_IT")
@@ -24,7 +25,6 @@ var dblocFlag = flag.String("dbloc", "", "must be somthing like en_US_programmin
 var contentsdirFlag = flag.String("contentsdir", "", "must dir location contents files")
 var linksdirFlag = flag.String("linksdir", "", "must dir location links files")
 var mapsdirFlag = flag.String("mapsdir", "", "must dir location sitemaps files")
-
 
 func random(min, max int) int {
 	rand.Seed(time.Now().UnixNano())
@@ -70,16 +70,53 @@ func main() {
 		var site string
 
 		for key, vals := range linksmap {
-			fmt.Println(key)
-			fmt.Println(vals)
+
 			site = key
+			filestr := mapsdir + "/sitemap_" + site + ".xml"
+
+			fmt.Println("Site", site, filestr)
+
+			sitemapObjs := unmarshalsitemap.Get(filestr)
+
+			stitlemap := make(map[string]struct{})
+
+			var oldlinks []string
+			var durationfixed float64
+			durationfixed = float64(0)
+
+			for _, sitemapObj := range sitemapObjs {
+
+				stitlemap[sitemapObj.Loc] = struct{}{}
+
+				if sitemapObj.Changefreq == "monthly" {
+
+					durationfixed = float64(21)
+
+				}
+				//			    fmt.Println(sitemapObj.Changefreq)
+
+				if sitemapObj.Hoursduration > durationfixed {
+
+					fmt.Println("need update ", sitemapObj.Loc)
+					oldlinks = append(oldlinks, sitemapObj.Loc)
+				}
+
+			}
 
 			for _, link := range vals {
 
-				contents_feeder.MakeContents(filepath.Join(contentsdir, site), link,oldkeywords,oldphrases)
+				pageurl := "http://" + site + link
+
+				if _, ok := stitlemap[pageurl]; !ok {
+
+					fmt.Println("new link", pageurl)
+
+				}
+
+				contents_feeder.MakeContents(filepath.Join(contentsdir, site), link, oldkeywords, oldphrases)
 
 				doc := new(domains.Page)
-				doc.Loc = "http://" + site + link
+				doc.Loc = pageurl
 				now := time.Now()
 				intrand := random(100, 50000)
 				minback := time.Duration(intrand)
@@ -97,7 +134,6 @@ func main() {
 			}
 			docList.Pages = nil
 
-			filestr := mapsdir + "/sitemap_" + site + ".xml"
 			ioutil.WriteFile(filestr, resultXml, 0644)
 			if err != nil {
 

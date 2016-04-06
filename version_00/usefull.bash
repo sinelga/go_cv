@@ -1,4 +1,4 @@
-GOPATH=$GOPATH:/home/juno/git/go_cv go test -v
+GOPATH=$GOPATH:/home/juno/git/go_cv/version_00 go test -v
 
 GOPATH=$GOPATH:/home/juno/git/go_cv go test -v ./...
 
