@@ -12,6 +12,7 @@ type ServerConfig struct {
 	}
 	Dirs struct {
 		Rootdir string
+		Backendrootdir string	
 	}
 }
 

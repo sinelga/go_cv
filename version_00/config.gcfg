@@ -4,3 +4,4 @@ themes ="programming"
 
 [dirs]
 rootdir="/home/juno/git/cv/version_desk_react_00"
+backendrootdir = "/home/juno/git/go_cv"

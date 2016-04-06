@@ -29,6 +29,7 @@ func stringInSlice(str string, list []string) bool {
 func Elaborate(c web.C, w http.ResponseWriter, r *http.Request) {
 
 	rootdir := c.Env["rootdir"].(string)
+	backendrootdir	:= c.Env["backendrootdir"].(string)	
 
 	exist := false
 	sitefull := r.Host
@@ -65,7 +66,7 @@ func Elaborate(c web.C, w http.ResponseWriter, r *http.Request) {
 
 	} else {
 
-		http.ServeFile(w, r, rootdir+"/dist/index.html")
+		http.ServeFile(w, r, backendrootdir+"/dist/index.html")
 	}
 
 }
