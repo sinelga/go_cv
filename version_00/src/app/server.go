@@ -43,7 +43,7 @@ func startInit(c *web.C, h http.Handler) http.Handler {
 		c.Env["rootdir"] = rootdir
 		c.Env["locale"] = locale
 		c.Env["themes"] = themes
-		c.Env["	backendrootdir"] = backendrootdir
+		c.Env["backendrootdir"] = backendrootdir
 		h.ServeHTTP(w, r)
 	}
 
