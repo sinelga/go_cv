@@ -1,7 +1,9 @@
 [main]
 locale ="en_US"
 themes ="programming"
+changefreq ="monthly"
 
 [dirs]
 rootdir="/home/juno/git/cv/version_desk_react_00"
-backendrootdir = "/home/juno/git/go_cv"
+backendrootdir = "/home/juno/git/go_cv/version_00"
+dbdir = "/home/juno/git/go_cv/en_US_programming.db"

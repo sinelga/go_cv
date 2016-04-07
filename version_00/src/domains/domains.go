@@ -18,10 +18,12 @@ type ServerConfig struct {
 	Main struct {
 		Locale string
 		Themes string
+		Changefreq string
 	}
 	Dirs struct {
 		Rootdir string
-		Backendrootdir string	
+		Backendrootdir string
+		Dbdir string	
 	}
 }
 

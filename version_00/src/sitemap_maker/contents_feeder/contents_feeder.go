@@ -1,7 +1,7 @@
 package contents_feeder
 
 import (
-	"domains"
+//	"domains"
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
@@ -10,7 +10,7 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
-	"time"
+//	"time"
 )
 
 func MakeContents(contentsdir string, pathstr string, keywords []string, phrases []string) {
@@ -53,28 +53,23 @@ func MakeContents(contentsdir string, pathstr string, keywords []string, phrases
 
 		if _, err := os.Stat(jsonpath); os.IsNotExist(err) {
 
-			contents := domains.Contents{"title", "moto", "contents", time.Now(), time.Now()}
 
-			b, err := json.Marshal(contents)
-			if err != nil {
-				log.Println(err)
-			}
+			fmt.Println(jsonpath, "NOT exist ERROR can't be !!!")
 
-			ioutil.WriteFile(jsonpath, b, 0644)
+//			contents := domains.Contents{"title", "moto", "contents", time.Now(), time.Now()}
+//
+//			b, err := json.Marshal(contents)
+//			if err != nil {
+//				log.Println(err)
+//			}
+//
+//			ioutil.WriteFile(jsonpath, b, 0644)
 
 		} else {
-
-			byt, err := ioutil.ReadFile(jsonpath)
-			if err != nil {
-				fmt.Print("Error:", err)
-			}
-
-			var dat domains.Contents
-			if err := json.Unmarshal(byt, &dat); err != nil {
-				panic(err)
-			}
-//			fmt.Println(dat)
-			contents := domains.Contents{dat.Title, dat.Moto, dat.Contents, dat.Created_at, time.Now()}
+			
+			fmt.Println(jsonpath, "exist but probably need update ")
+			
+			contents := mgenerator.Generate(keywords, phrases)
 
 			b, err := json.Marshal(contents)
 			if err != nil {
@@ -82,6 +77,25 @@ func MakeContents(contentsdir string, pathstr string, keywords []string, phrases
 			}
 
 			ioutil.WriteFile(jsonpath, b, 0644)
+				
+//			byt, err := ioutil.ReadFile(jsonpath)
+//			if err != nil {
+//				fmt.Print("Error:", err)
+//			}
+//
+//			var dat domains.Contents
+//			if err := json.Unmarshal(byt, &dat); err != nil {
+//				panic(err)
+//			}
+//			
+//			contents := domains.Contents{dat.Title, dat.Moto, dat.Contents, dat.Created_at, time.Now()}
+//
+//			b, err := json.Marshal(contents)
+//			if err != nil {
+//				log.Println(err)
+//			}
+//
+//			ioutil.WriteFile(jsonpath, b, 0644)
 
 		}
 	}
