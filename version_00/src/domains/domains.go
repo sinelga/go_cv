@@ -5,25 +5,28 @@ import (
 	"time"
 )
 
+type Rssresors struct {
+	Topic string
+	Link  string
+}
+
 type SitemapObj struct {
-	
-	Changefreq string
+	Changefreq    string
 	Hoursduration float64
-	Loc string
-	Lastmod string
-		
+	Loc           string
+	Lastmod       string
 }
 
 type ServerConfig struct {
 	Main struct {
-		Locale string
-		Themes string
+		Locale     string
+		Themes     string
 		Changefreq string
 	}
 	Dirs struct {
-		Rootdir string
+		Rootdir        string
 		Backendrootdir string
-		Dbdir string	
+		Dbdir          string
 	}
 }
 
@@ -31,7 +34,7 @@ type BlogItem struct {
 	Stopic     string
 	Topic      string
 	Stitle     string
-	Title      string	
+	Title      string
 	Contents   string
 	Created_at time.Time
 	Updated_at time.Time
@@ -113,5 +116,3 @@ type Job struct {
 		}
 	}
 }
-
-
