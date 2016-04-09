@@ -19,6 +19,7 @@ import (
 var fileFlag = flag.String("file", "", "file to parse")
 var localeFlag = flag.String("locale", "", "must be fi_FI/en_US/it_IT")
 var themesFlag = flag.String("themes", "", "must be porno/finance/fortune...")
+var dblocFlag = flag.String("dbloc", "", "/home/juno/git/go_cv/en_US_programming.db")
 
 var mapkeywords map[string]struct{}
 var newinsert []string
@@ -30,10 +31,11 @@ func main() {
 	file := *fileFlag
 	locale := *localeFlag
 	themes := *themesFlag
+	dbloc := *dblocFlag
 
 	if file != "" {
 
-		db, err := sql.Open("sqlite3", "/home/juno/git/goFastCgi/goFastCgi/singo.db")
+		db, err := sql.Open("sqlite3", dbloc)
 		if err != nil {
 			log.Fatal(err)
 		}
