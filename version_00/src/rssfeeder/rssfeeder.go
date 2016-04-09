@@ -53,9 +53,11 @@ func main() {
 		fmt.Println("Version:", APP_VERSION)
 	}
 
-	topic := "remote job"
+//	topic := "remote job"
+	topic := "javascript"
 
-	feed, err := rss.Fetch("http://stackoverflow.com/feeds")
+//	feed, err := rss.Fetch("http://stackoverflow.com/feeds")
+	feed, err := rss.Fetch("http://meta.stackexchange.com/feeds/tag?tagnames=javascript&sort=newest")
 	if err != nil {
 		// handle error.
 	}
