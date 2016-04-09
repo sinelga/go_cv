@@ -42,11 +42,15 @@ func init() {
 
 	res1 := domains.Rssresors{"remote job", "http://stackoverflow.com/feeds"}
 	res2 := domains.Rssresors{"javascript", "http://meta.stackexchange.com/feeds/tag?tagnames=javascript&sort=newest"}
-	res3 := domains.Rssresors{"mobile web", "http://meta.stackexchange.com/feeds/tag?tagnames=mobile-web&sort=newest"}	
+	res3 := domains.Rssresors{"mobile web", "http://meta.stackexchange.com/feeds/tag?tagnames=mobile-web&sort=newest"}
+	res4 := domains.Rssresors{"ruby", "http://stackoverflow.com/feeds/tag?tagnames=ruby&sort=newest"}
+	res5 := domains.Rssresors{"reactjs", "http://stackoverflow.com/feeds/tag?tagnames=reactjs&sort=newest"}			
 
 	resorses = append(resorses, res1)
 	resorses = append(resorses, res2)
-	resorses = append(resorses, res3)	
+	resorses = append(resorses, res3)
+	resorses = append(resorses, res4)
+	resorses = append(resorses, res5)			
 
 }
 
