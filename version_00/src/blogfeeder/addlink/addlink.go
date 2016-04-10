@@ -21,7 +21,7 @@ func AddLinktoAllfiles(dir string, stopic string, topicOK bool, stitle string) {
 
 	for i, file := range files {
 
-		fmt.Println(i, file.Name())
+//		fmt.Println(i, file.Name())
 		mp[i] = file.Name()
 
 		//		linkfile := filepath.Join(dir, file.Name())
