@@ -1,7 +1,7 @@
 !<arch>
 __.PKGDEF       0           0     0     644     9285      `
 go object linux amd64 go1.5.3 X:none
-build id "a2aa691cc6b33154f26df1108086d39eb8c31cd6"
+build id "f6403ffc93de25a6444dfa366ba60a631a617bea"
 
 $$
 package addnewblogitem

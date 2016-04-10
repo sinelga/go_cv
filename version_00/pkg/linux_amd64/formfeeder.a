@@ -1,7 +1,7 @@
 !<arch>
 __.PKGDEF       0           0     0     644     57059     `
 go object linux amd64 go1.5.3 X:none
-build id "c95c90810e16474e0d36b200e9fdcc2264978e7f"
+build id "cff6e08e5f6a92bcf875a36878f7c8c1afdef28b"
 
 $$
 package formfeeder
