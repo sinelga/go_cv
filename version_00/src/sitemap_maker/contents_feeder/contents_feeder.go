@@ -56,14 +56,7 @@ func MakeContents(contentsdir string, pathstr string, keywords []string, phrases
 
 			fmt.Println(jsonpath, "NOT exist ERROR can't be !!!")
 
-//			contents := domains.Contents{"title", "moto", "contents", time.Now(), time.Now()}
-//
-//			b, err := json.Marshal(contents)
-//			if err != nil {
-//				log.Println(err)
-//			}
-//
-//			ioutil.WriteFile(jsonpath, b, 0644)
+
 
 		} else {
 			
@@ -78,24 +71,7 @@ func MakeContents(contentsdir string, pathstr string, keywords []string, phrases
 
 			ioutil.WriteFile(jsonpath, b, 0644)
 				
-//			byt, err := ioutil.ReadFile(jsonpath)
-//			if err != nil {
-//				fmt.Print("Error:", err)
-//			}
-//
-//			var dat domains.Contents
-//			if err := json.Unmarshal(byt, &dat); err != nil {
-//				panic(err)
-//			}
-//			
-//			contents := domains.Contents{dat.Title, dat.Moto, dat.Contents, dat.Created_at, time.Now()}
-//
-//			b, err := json.Marshal(contents)
-//			if err != nil {
-//				log.Println(err)
-//			}
-//
-//			ioutil.WriteFile(jsonpath, b, 0644)
+
 
 		}
 	}

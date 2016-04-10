@@ -3,6 +3,7 @@ package main
 import (
 	"blogfeeder/addlink"
 	"domains"
+	"encoding/csv"
 	"encoding/json"
 	//	"flag"
 	"fmt"
@@ -23,6 +24,8 @@ var rootdir = ""
 var backendrootdir = ""
 var locale = ""
 var themes = ""
+var rssresorsesfile = ""
+
 var resorses []domains.Rssresors
 
 func init() {
@@ -37,20 +40,40 @@ func init() {
 		locale = cfg.Main.Locale
 		themes = cfg.Main.Themes
 		backendrootdir = cfg.Dirs.Backendrootdir
+		rssresorsesfile = cfg.Dirs.Rssresorsesfile
 
 	}
 
-	res1 := domains.Rssresors{"remote job", "http://stackoverflow.com/feeds"}
-	res2 := domains.Rssresors{"javascript", "http://meta.stackexchange.com/feeds/tag?tagnames=javascript&sort=newest"}
-	res3 := domains.Rssresors{"mobile web", "http://meta.stackexchange.com/feeds/tag?tagnames=mobile-web&sort=newest"}
-	res4 := domains.Rssresors{"ruby", "http://stackoverflow.com/feeds/tag?tagnames=ruby&sort=newest"}
-	res5 := domains.Rssresors{"reactjs", "http://stackoverflow.com/feeds/tag?tagnames=reactjs&sort=newest"}			
+	csvfile, err := os.Open(rssresorsesfile)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	defer csvfile.Close()
 
-	resorses = append(resorses, res1)
-	resorses = append(resorses, res2)
-	resorses = append(resorses, res3)
-	resorses = append(resorses, res4)
-	resorses = append(resorses, res5)			
+	reader := csv.NewReader(csvfile)
+	reader.LazyQuotes = true
+
+	records, err := reader.ReadAll()
+	if err != nil {
+
+		fmt.Println(err)
+		return
+	}
+
+
+	for _,record := range records {
+		
+		fmt.Println(record[0],record[1])
+		res :=domains.Rssresors{record[0],record[1]}
+		resorses = append(resorses, res)
+	}
+
+//	resorses = append(resorses, res1)
+//	resorses = append(resorses, res2)
+//	resorses = append(resorses, res3)
+//	resorses = append(resorses, res4)
+//	resorses = append(resorses, res5)
 
 }
 
@@ -59,7 +82,7 @@ func main() {
 	for _, res := range resorses {
 
 		topic := res.Topic
-		
+
 		feed, err := rss.Fetch(res.Link)
 		if err != nil {
 			// handle error.
@@ -70,7 +93,7 @@ func main() {
 
 		for _, item := range items {
 
-//			fmt.Println(item.Title)
+			//			fmt.Println(item.Title)
 			title := item.Title
 			contents := item.Summary
 

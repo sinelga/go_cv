@@ -1,0 +1,6 @@
+remote job,http://stackoverflow.com/feeds
+javascript,http://meta.stackexchange.com/feeds/tag?tagnames=javascript&sort=newest
+mobile web,http://meta.stackexchange.com/feeds/tag?tagnames=mobile-web&sort=newest
+ruby,http://stackoverflow.com/feeds/tag?tagnames=ruby&sort=newest
+reactjs,http://stackoverflow.com/feeds/tag?tagnames=reactjs&sort=newest
+angularjs,http://stackoverflow.com/feeds/tag?tagnames=angularjs&sort=newest

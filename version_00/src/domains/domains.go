@@ -27,6 +27,7 @@ type ServerConfig struct {
 		Rootdir        string
 		Backendrootdir string
 		Dbdir          string
+		Rssresorsesfile string
 	}
 }
 
