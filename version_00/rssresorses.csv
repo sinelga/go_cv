@@ -6,3 +6,4 @@ reactjs,http://stackoverflow.com/feeds/tag?tagnames=reactjs&sort=newest
 angularjs,http://stackoverflow.com/feeds/tag?tagnames=angularjs&sort=newest
 linux,http://stackoverflow.com/feeds/tag?tagnames=linux&sort=newest
 java,http://stackoverflow.com/feeds/tag?tagnames=java&sort=newest
+golang,http://stackoverflow.com/feeds/tag?tagnames=go&sort=newest
