@@ -5,6 +5,14 @@ import (
 	"time"
 )
 
+type Md struct {
+	Locale string
+	Themes string
+	Site string
+	Menu string	
+	Item []BlogItem 	
+}
+
 type Rssresors struct {
 	Topic string
 	Link  string

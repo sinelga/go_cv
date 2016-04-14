@@ -16,6 +16,13 @@ type ServerConfig struct {
     }
 }
 
+//type Md struct {
+//	Locale string
+//	Themes string
+//	Site string
+//	Menu string	
+////	Item BlogItem 	
+//}
 
 type BlogItem struct {
 	Title      string
