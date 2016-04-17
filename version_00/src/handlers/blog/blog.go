@@ -11,14 +11,14 @@ import (
 	"strings"
 )
 
-
-
 func BlogIndex(w http.ResponseWriter, r *http.Request) {
 
 	locale := "en_US"
 	themes := "programming"
-	site := "127.0.0.1"
+	//	site := "127.0.0.1"
 	menu := "blog"
+	sitefull := r.Host
+	site := strings.Split(sitefull, ":")[0]
 
 	session, err := mgo.Dial("localhost")
 	if err != nil {
@@ -54,8 +54,10 @@ func GetItem(c web.C, w http.ResponseWriter, r *http.Request) {
 
 	locale := "en_US"
 	themes := "programming"
-	site := "127.0.0.1"
+	//	site := "127.0.0.1"
 	menu := "blog"
+	sitefull := r.Host
+	site := strings.Split(sitefull, ":")[0]
 	stopic := c.URLParams["stopic"]
 	//	fmt.Println(c.URLParams["stopic"])
 
@@ -71,7 +73,6 @@ func GetItem(c web.C, w http.ResponseWriter, r *http.Request) {
 
 	var results []domains.Md
 
-
 	query := bson.M{"locale": locale, "themes": themes, "site": site, "menu": menu, "stopic": stopic}
 
 	err = cm.Find(query).All(&results)
@@ -84,8 +85,10 @@ func GetItem(c web.C, w http.ResponseWriter, r *http.Request) {
 func GetIemDetails(c web.C, w http.ResponseWriter, r *http.Request) {
 	locale := "en_US"
 	themes := "programming"
-	site := "127.0.0.1"
+	//	site := "127.0.0.1"
 	menu := "blog"
+	sitefull := r.Host
+	site := strings.Split(sitefull, ":")[0]
 	stopic := c.URLParams["stopic"]
 	stitle := c.URLParams["stitle"]
 	fmt.Println(c.URLParams["stitle"])
@@ -106,26 +109,25 @@ func GetIemDetails(c web.C, w http.ResponseWriter, r *http.Request) {
 	err = cm.Find(query).All(&results)
 	if err != nil {
 		fmt.Println(err.Error())
-		
+
 	}
 
 	var selecteditem domains.BlogItem
-	
+
 	fmt.Println("results")
 	fmt.Println(results)
-	
-	for _,item :=range results[0].Items {
-		if strings.HasPrefix(item.Stitle,stitle) {
-			
-			selecteditem = domains.BlogItem{item.Stopic,item.Topic,item.Stitle,item.Title,item.Contents,item.Created_at,item.Updated_at}
+
+	for _, item := range results[0].Items {
+
+		//		fmt.Println(
+		if strings.HasPrefix(item.Stitle, stitle) {
+
+			selecteditem = domains.BlogItem{item.Stopic, item.Topic, item.Stitle, item.Title, item.Contents, item.Created_at, item.Updated_at}
 
 		}
-		
-		
+
 	}
-	
-	
-	
+
 	encoder := json.NewEncoder(w)
 	encoder.Encode(selecteditem)
 
