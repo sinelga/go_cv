@@ -63,6 +63,7 @@ func main() {
 
 	c := cors.New(cors.Options{
 		AllowedOrigins: []string{"*"},
+		AllowedHeaders: []string{"*"},		
 	})
 	goji.Use(middleware.EnvInit)
 	goji.Use(startInit)
@@ -72,9 +73,9 @@ func main() {
 	goji.Get("/robots.txt", robots.Generate)
 	goji.Get("/formfeeder", formfeeder.HandleForm)
 	goji.Post("/formfeeder", formfeeder.HandleForm)
-	goji.Get("/blog/:stopic/:stitle",blog.GetIemDetails)	
-	goji.Get("/blog/:stopic",blog.GetItem)
-	goji.Get("/blog",blog.BlogIndex)	
+	goji.Get("/api/blog/:stopic/:stitle",blog.GetIemDetails)	
+	goji.Get("/api/blog/:stopic",blog.GetItem)
+	goji.Get("/api/blog",blog.BlogIndex)	
 	goji.Get("/*", handlers.Elaborate)
 
     flag.Set("bind", ":8001")

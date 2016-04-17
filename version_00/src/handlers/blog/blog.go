@@ -13,9 +13,14 @@ import (
 
 func BlogIndex(w http.ResponseWriter, r *http.Request) {
 
+	
+	head := r.Header.Get("x-type")
+	
+	fmt.Println("head",head)
+
+
 	locale := "en_US"
 	themes := "programming"
-	//	site := "127.0.0.1"
 	menu := "blog"
 	sitefull := r.Host
 	site := strings.Split(sitefull, ":")[0]
@@ -40,7 +45,7 @@ func BlogIndex(w http.ResponseWriter, r *http.Request) {
 	//	fmt.Println(results)
 	for _, result := range results {
 
-		fmt.Println(result.Topic)
+//		fmt.Println(result.Topic)
 		indexItem := domains.BlogIndex{result.Stopic, result.Topic}
 
 		blogindex = append(blogindex, indexItem)
@@ -114,8 +119,8 @@ func GetIemDetails(c web.C, w http.ResponseWriter, r *http.Request) {
 
 	var selecteditem domains.BlogItem
 
-	fmt.Println("results")
-	fmt.Println(results)
+//	fmt.Println("results")
+//	fmt.Println(results)
 
 	for _, item := range results[0].Items {
 
