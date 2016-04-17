@@ -10,6 +10,7 @@ import (
 	"gopkg.in/gcfg.v1"
 	"handlers"
 	"handlers/robots"
+	"handlers/blog"
 	"log"
 	"log/syslog"
 	"net/http"
@@ -70,7 +71,10 @@ func main() {
 	goji.Get("/sitemap.xml", handlers.CheckServeSitemap)
 	goji.Get("/robots.txt", robots.Generate)
 	goji.Get("/formfeeder", formfeeder.HandleForm)
-	goji.Post("/formfeeder", formfeeder.HandleForm)	
+	goji.Post("/formfeeder", formfeeder.HandleForm)
+	goji.Get("/blog/:stopic/:stitle",blog.GetIemDetails)	
+	goji.Get("/blog/:stopic",blog.GetItem)
+	goji.Get("/blog",blog.BlogIndex)	
 	goji.Get("/*", handlers.Elaborate)
 
     flag.Set("bind", ":8001")

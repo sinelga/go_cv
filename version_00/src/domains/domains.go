@@ -5,12 +5,20 @@ import (
 	"time"
 )
 
+
+type BlogIndex struct {
+	Stopic string	
+	Topic string	
+}
+
 type Md struct {
 	Locale string
 	Themes string
 	Site string
-	Menu string	
-	Item []BlogItem 	
+	Menu string
+	Stopic string
+	Topic string	
+	Items []BlogItem 	
 }
 
 type Rssresors struct {

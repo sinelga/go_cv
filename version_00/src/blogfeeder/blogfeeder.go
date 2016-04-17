@@ -13,7 +13,7 @@ import (
 	"blogfeeder/addlink"
 	"blogfeeder/addnewblogitem"
 	"blogfeeder/check_title"
-	"blogfeeder/check_topic"
+//	"blogfeeder/check_topic"
 	"time"
 )
 
@@ -77,7 +77,7 @@ func main() {
 				}
 
 				stitleOK := check_title.CheckIfExist(stitle, blogItems[topic])
-				topicOK := check_topic.CheckTopicExist(topic, blogItems[topic])
+//				topicOK := check_topic.CheckTopicExist(topic, blogItems[topic])
 
 				if !stitleOK {
 
@@ -90,7 +90,7 @@ func main() {
 					}
 					ioutil.WriteFile(filestr, b, 0644)
 
-					addlink.AddLinktoAllfiles(linksdir, topic, topicOK, stitle)
+					addlink.AddLinktoAllfiles(linksdir, topic, stitle)
 
 				}
 

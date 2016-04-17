@@ -1,52 +1,96 @@
 package dbhandler
 
 import (
+	"domains"
 	"fmt"
 	"gopkg.in/mgo.v2"
 	"gopkg.in/mgo.v2/bson"
 	"log"
-	"domains"
-	"time"
+	//	"time"
 )
 
-
-
-
-
-func InsertRecord(session mgo.Session, locale string, themes string, site string, menu string) {
+func GetAllStitle(session mgo.Session, locale string, themes string) map[string]struct{} {
 
 	session.SetMode(mgo.Monotonic, true)
 
 	c := session.DB("cv").C("cv")
-	
-	now :=time.Now()
-//	toinsert := []domains.BlogItem{{"111111","1111111","1111111","111111","111111",now,now},{"2222222","2222222","22222","222222","22222",now,now}}
-//		
-//	toinsertmd :=domains.Md{"en_US","programming","test.com","blog",toinsert}
-//	
-	
-//	err := c.Insert(toinsertmd)
-//	if err != nil {
-//		log.Fatal(err)
-//	}
 
-	result := domains.Md{}
-	err := c.Find(bson.M{"locale": "en_US"}).One(&result)
+	var results []domains.Md
+
+	err := c.Find(bson.M{"locale": bson.M{"$exists": true}, "themes": bson.M{"$exists": true}}).All(&results)
 	if err != nil {
+
 		log.Fatal(err)
 	}
 
-	fmt.Println("Phone:", result)
-	
-	newitem :=domains.BlogItem{"44444444444","44444444444444","444444444444","4444444444444","44444444444444",now,now}
-	result.Item = append(result.Item,newitem)
-	
-	err = c.Update(bson.M{"locale": "en_US"},result)
+	uniqstitle := make(map[string]struct{})
+
+	for _, result := range results {
+
+		fmt.Println(result.Site)
+
+		for _, item := range result.Items {
+
+			uniqstitle[item.Stitle] = struct{}{}
+
+		}
+
+	}
+
+	return uniqstitle
+
+}
+
+func InsertRecord(session mgo.Session, locale string, themes string, site string, menu string, stopic string,topic string, item domains.BlogItem) {
+
+	session.SetMode(mgo.Monotonic, true)
+
+	c := session.DB("cv").C("cv")
+
+	result := domains.Md{}
+
+	//	fmt.Println(locale, themes, site, menu, stopic)
+
+	count, err := c.Find(bson.M{"locale": locale, "themes": themes, "site": site, "menu": menu, "stopic": stopic}).Limit(1).Count()
+
+	//    fmt.Println(count)
+
 	if err != nil {
+
 		log.Fatal(err)
-	}	
-	
-	
-	
+	}
+	if count == 0 {
+//		fmt.Println("not exists")
+
+		toinsert := []domains.BlogItem{item}
+
+		toinsertmd := domains.Md{locale, themes, site, menu, stopic,topic, toinsert}
+
+		err := c.Insert(toinsertmd)
+		if err != nil {
+			log.Fatal(err)
+		}
+
+	} else if count == 1 {
+//		fmt.Println("exist", count)
+
+		err := c.Find(bson.M{"locale": locale, "themes": themes, "site": site, "menu": menu, "stopic": stopic}).One(&result)
+
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		result.Items = append(result.Items, item)
+
+		err = c.Update(bson.M{"locale": locale, "themes": themes, "site": site, "menu": menu, "stopic": stopic}, result)
+		if err != nil {
+			log.Fatal(err)
+		}
+
+	} else {
+
+		fmt.Println("Records must be 1 !!!", count)
+
+	}
 
 }

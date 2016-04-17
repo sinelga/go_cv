@@ -21,6 +21,6 @@ func Addnew(blogItems map[string][]domains.BlogItem, item domains.BlogItem, stop
 
 	ioutil.WriteFile(filestr, b, 0644)
 
-	addlink.AddLinktoAllfiles(linksdir,stopic,topicOK, item.Stitle)
+	addlink.AddLinktoAllfiles(linksdir,stopic, item.Stitle)
 
 }

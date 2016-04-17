@@ -11,7 +11,7 @@ import (
 	"blogfeeder/addlink"
 	"blogfeeder/addnewblogitem"
 	"blogfeeder/check_title"
-	"blogfeeder/check_topic"
+//	"blogfeeder/check_topic"
 	"github.com/gosimple/slug"
 	"html/template"
 	"io/ioutil"
@@ -81,7 +81,7 @@ func HandleForm(c web.C, w http.ResponseWriter, r *http.Request) {
 					
 					key :=stopic				
 					stitleOK := check_title.CheckIfExist(stitle, blogItems[key])
-					topicOK := check_topic.CheckTopicExist(topic, blogItems[key])
+//					topicOK := check_topic.CheckTopicExist(topic, blogItems[key])
 
 					if !stitleOK {
 
@@ -93,7 +93,7 @@ func HandleForm(c web.C, w http.ResponseWriter, r *http.Request) {
 						}
 						ioutil.WriteFile(filestr, b, 0644)
 
-						addlink.AddLinktoAllfiles(linksdir, stopic, topicOK, stitle)
+						addlink.AddLinktoAllfiles(linksdir, stopic, stitle)
 
 					}
 
