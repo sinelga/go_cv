@@ -102,8 +102,6 @@ func GetIemDetails(c web.C, w http.ResponseWriter, r *http.Request) {
 
 	var results []domains.Md
 
-//db.cv.find({locale : "en_US", themes : "programming", site: "127.0.0.1",menu: "blog",stopic: "remote-job"},{items: { $elemMatch: {stitle:  "do-c-compilers-and-nvcc-respect-the-__restrict__-keyword-within-structs"}}})
-
 	query := bson.M{"locale": locale, "themes": themes, "site": site, "menu": menu, "stopic": stopic}
 	err = cm.Find(query).All(&results)
 	if err != nil {
@@ -112,6 +110,9 @@ func GetIemDetails(c web.C, w http.ResponseWriter, r *http.Request) {
 	}
 
 	var selecteditem domains.BlogItem
+	
+	fmt.Println("results")
+	fmt.Println(results)
 	
 	for _,item :=range results[0].Items {
 		if strings.HasPrefix(item.Stitle,stitle) {
