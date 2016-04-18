@@ -7,3 +7,4 @@ linux,http://stackoverflow.com/feeds/tag?tagnames=linux&sort=newest
 java,http://stackoverflow.com/feeds/tag?tagnames=java&sort=newest
 golang,http://stackoverflow.com/feeds/tag?tagnames=go&sort=newest
 php,http://stackoverflow.com/feeds/tag?tagnames=php&sort=newest
+database,http://stackoverflow.com/feeds/tag?tagnames=database&sort=newest
