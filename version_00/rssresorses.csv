@@ -1,11 +1,9 @@
 remote job,http://stackoverflow.com/feeds
-javascript,http://stackoverflow.com/feeds/tag?tagnames=javascript&sort=newest
 ruby,http://stackoverflow.com/feeds/tag?tagnames=ruby&sort=newest
 reactjs,http://stackoverflow.com/feeds/tag?tagnames=reactjs&sort=newest
 angularjs,http://stackoverflow.com/feeds/tag?tagnames=angularjs&sort=newest
 linux,http://stackoverflow.com/feeds/tag?tagnames=linux&sort=newest
 java,http://stackoverflow.com/feeds/tag?tagnames=java&sort=newest
 golang,http://stackoverflow.com/feeds/tag?tagnames=go&sort=newest
-php,http://stackoverflow.com/feeds/tag?tagnames=php&sort=newest
 database,http://stackoverflow.com/feeds/tag?tagnames=database&sort=newest
 mysql,http://stackoverflow.com/feeds/tag?tagnames=mysql&sort=newest
