@@ -12,7 +12,7 @@ import (
 	"handlers/robots"
 	"handlers/blog"
 	"log"
-	"log/syslog"
+//	"log/syslog"
 	"net/http"
 	"flag"
 )
@@ -54,12 +54,12 @@ func startInit(c *web.C, h http.Handler) http.Handler {
 
 func main() {
 	//	goji.Abandon(middleware.Logger)
-	golog, err := syslog.New(syslog.LOG_ERR, "golog")
-
-	defer golog.Close()
-	if err != nil {
-		log.Fatal("error writing syslog!!")
-	}
+//	golog, err := syslog.New(syslog.LOG_ERR, "golog")
+//
+//	defer golog.Close()
+//	if err != nil {
+//		log.Fatal("error writing syslog!!")
+//	}
 
 	c := cors.New(cors.Options{
 		AllowedOrigins: []string{"*"},

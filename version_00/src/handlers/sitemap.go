@@ -4,13 +4,8 @@ import (
 	"bytes"
 //	"fmt"
 	"io"
-	//	"log/syslog"
-	//	"math/rand"
 	"net/http"
-	//	"net/url"
 	"os"
-	//	"sitemap_maker/getLinks"
-	//	"strconv"
 	"strings"
 	//	"time"
 )

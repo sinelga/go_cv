@@ -11,16 +11,12 @@ import (
 	"strings"
 )
 
-func BlogIndex(w http.ResponseWriter, r *http.Request) {
+func BlogIndex(c web.C, w http.ResponseWriter, r *http.Request) {
 
-	
-	head := r.Header.Get("x-type")
-	
-	fmt.Println("head",head)
-
-
-	locale := "en_US"
-	themes := "programming"
+	locale := c.Env["locale"].(string)
+	themes := c.Env["themes"].(string)
+	//	locale := "en_US"
+	//	themes := "programming"
 	menu := "blog"
 	sitefull := r.Host
 	site := strings.Split(sitefull, ":")[0]
@@ -33,19 +29,18 @@ func BlogIndex(w http.ResponseWriter, r *http.Request) {
 
 	session.SetMode(mgo.Monotonic, true)
 
-	c := session.DB("cv").C("cv")
+	cm := session.DB("cv").C("cv")
 
 	var results []domains.Md
 
 	query := bson.M{"locale": locale, "themes": themes, "site": site, "menu": menu}
 
-	err = c.Find(query).All(&results)
+	err = cm.Find(query).All(&results)
 
 	var blogindex []domains.BlogIndex
 	//	fmt.Println(results)
 	for _, result := range results {
 
-//		fmt.Println(result.Topic)
 		indexItem := domains.BlogIndex{result.Stopic, result.Topic}
 
 		blogindex = append(blogindex, indexItem)
@@ -57,8 +52,10 @@ func BlogIndex(w http.ResponseWriter, r *http.Request) {
 
 func GetItem(c web.C, w http.ResponseWriter, r *http.Request) {
 
-	locale := "en_US"
-	themes := "programming"
+	locale := c.Env["locale"].(string)
+	themes := c.Env["themes"].(string)
+	//	locale := "en_US"
+	//	themes := "programming"
 	//	site := "127.0.0.1"
 	menu := "blog"
 	sitefull := r.Host
@@ -88,9 +85,10 @@ func GetItem(c web.C, w http.ResponseWriter, r *http.Request) {
 }
 
 func GetIemDetails(c web.C, w http.ResponseWriter, r *http.Request) {
-	locale := "en_US"
-	themes := "programming"
-	//	site := "127.0.0.1"
+
+	locale := c.Env["locale"].(string)
+	themes := c.Env["themes"].(string)
+
 	menu := "blog"
 	sitefull := r.Host
 	site := strings.Split(sitefull, ":")[0]
@@ -119,12 +117,8 @@ func GetIemDetails(c web.C, w http.ResponseWriter, r *http.Request) {
 
 	var selecteditem domains.BlogItem
 
-//	fmt.Println("results")
-//	fmt.Println(results)
-
 	for _, item := range results[0].Items {
 
-		//		fmt.Println(
 		if strings.HasPrefix(item.Stitle, stitle) {
 
 			selecteditem = domains.BlogItem{item.Stopic, item.Topic, item.Stitle, item.Title, item.Contents, item.Created_at, item.Updated_at}

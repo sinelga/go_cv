@@ -3,7 +3,7 @@ package handlers
 import (
 	"bytes"
 	"encoding/xml"
-	"fmt"
+//	"fmt"
 	"github.com/zenazn/goji/web"
 	"io"
 	"net/http"
@@ -38,7 +38,7 @@ func Elaborate(c web.C, w http.ResponseWriter, r *http.Request) {
 	urlstr := "http://" + site + path
 
 	sitemapfile := backendrootdir + "/maps/sitemap_" + site + ".xml"
-	fmt.Println("map", sitemapfile)
+//	fmt.Println("map", sitemapfile)
 
 	if _, err := os.Stat(sitemapfile); os.IsNotExist(err) {
 
