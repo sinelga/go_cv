@@ -9,3 +9,4 @@ database,http://stackoverflow.com/feeds/tag?tagnames=database&sort=newest
 mysql,http://stackoverflow.com/feeds/tag?tagnames=mysql&sort=newest
 nosql,http://stackoverflow.com/feeds/tag?tagnames=nosql&sort=newest
 jobs,http://stackoverflow.com/feeds/tag?tagnames=jobs&sort=newest
+website,http://stackoverflow.com/feeds/tag?tagnames=website&sort=newest
