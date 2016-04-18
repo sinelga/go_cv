@@ -7,3 +7,4 @@ java,http://stackoverflow.com/feeds/tag?tagnames=java&sort=newest
 golang,http://stackoverflow.com/feeds/tag?tagnames=go&sort=newest
 database,http://stackoverflow.com/feeds/tag?tagnames=database&sort=newest
 mysql,http://stackoverflow.com/feeds/tag?tagnames=mysql&sort=newest
+nosql,http://stackoverflow.com/feeds/tag?tagnames=nosql&sort=newest
