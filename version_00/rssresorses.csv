@@ -1,4 +1,4 @@
-remote job,http://stackoverflow.com/feeds
+css,http://stackoverflow.com/feeds/tag?tagnames=css&sort=newest
 ruby,http://stackoverflow.com/feeds/tag?tagnames=ruby&sort=newest
 reactjs,http://stackoverflow.com/feeds/tag?tagnames=reactjs&sort=newest
 angularjs,http://stackoverflow.com/feeds/tag?tagnames=angularjs&sort=newest
@@ -10,3 +10,4 @@ mysql,http://stackoverflow.com/feeds/tag?tagnames=mysql&sort=newest
 nosql,http://stackoverflow.com/feeds/tag?tagnames=nosql&sort=newest
 jobs,http://stackoverflow.com/feeds/tag?tagnames=jobs&sort=newest
 website,http://stackoverflow.com/feeds/tag?tagnames=website&sort=newest
+remote job,http://stackoverflow.com/feeds
