@@ -18,6 +18,7 @@ import (
 )
 
 var rootdir = ""
+var rootdirm = ""
 var backendrootdir = ""
 var locale = ""
 var themes = ""
@@ -31,6 +32,7 @@ func init() {
 	} else {
 
 		rootdir = cfg.Dirs.Rootdir
+		rootdirm = cfg.Dirs.Rootdirm
 		locale = cfg.Main.Locale
 		themes = cfg.Main.Themes
 		backendrootdir = cfg.Dirs.Backendrootdir
@@ -42,6 +44,7 @@ func init() {
 func startInit(c *web.C, h http.Handler) http.Handler {
 	fn := func(w http.ResponseWriter, r *http.Request) {
 		c.Env["rootdir"] = rootdir
+		c.Env["rootdirm"] = rootdirm		
 		c.Env["locale"] = locale
 		c.Env["themes"] = themes
 		c.Env["backendrootdir"] = backendrootdir

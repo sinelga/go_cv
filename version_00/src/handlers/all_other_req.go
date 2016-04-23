@@ -5,6 +5,7 @@ import (
 	"encoding/xml"
 	"fmt"
 	"github.com/zenazn/goji/web"
+	"godevice"
 	"io"
 	"net/http"
 	"os"
@@ -29,6 +30,7 @@ func stringInSlice(str string, list []string) bool {
 func Elaborate(c web.C, w http.ResponseWriter, r *http.Request) {
 
 	rootdir := c.Env["rootdir"].(string)
+	rootdirm := c.Env["rootdirm"].(string)	
 	backendrootdir := c.Env["backendrootdir"].(string)
 
 	exist := false
@@ -37,24 +39,27 @@ func Elaborate(c web.C, w http.ResponseWriter, r *http.Request) {
 	path := r.URL.Path
 	urlstr := "http://" + site + path
 
+	fmt.Println(urlstr)
+	deviceType := godevice.GetType(r)
+	fmt.Println(deviceType)
+
 	sitemapfile := backendrootdir + "/maps/sitemap_" + site + ".xml"
 	//	fmt.Println("map", sitemapfile)
 
 	if _, err := os.Stat(sitemapfile); os.IsNotExist(err) {
 
-		//		fmt.Println("NOT EXIST")
+		fmt.Println("NOT EXIST")
 		// path/to/whatever does not exist
 	} else {
 
-//		fmt.Println(path)
-
 		if strings.HasSuffix(path, ".json") {
-			
-//			http.FileServer(http.Dir(rootdir+"/dist"))
-			fmt.Println(rootdir+"/dist"+path)
-			
-			http.ServeFile(w, r, rootdir+"/dist"+path)
-			
+
+			fmt.Println(rootdir + "/dist" + path)
+			if deviceType == "Mobile" {
+				http.ServeFile(w, r, rootdirm+"/dist"+path)
+			} else {
+				http.ServeFile(w, r, rootdir+"/dist"+path)
+			}
 
 		} else {
 
@@ -77,20 +82,25 @@ func Elaborate(c web.C, w http.ResponseWriter, r *http.Request) {
 				}
 			}
 
-		
-
-		if !exist {
-
-			http.NotFound(w, r)
-
-		} else {
-
-			http.ServeFile(w, r, rootdir+"/dist/index.html")
-			//		fmt.Println(rootdir+"/dist")
-			//		http.FileServer(http.Dir(rootdir+"/dist"))
-
-		}
 		}
 	}
+
+	if !exist {
+
+//		fmt.Println("return 404")
+		http.NotFound(w, r)
+
+	} else {
+
+		if deviceType == "Mobile" {
+
+			http.ServeFile(w, r, "/home/juno/git/cv/version_mobile_react_00/dist/index.html")
+
+		} else {
+			http.ServeFile(w, r, rootdir+"/dist/index.html")
+		}
+
+	}
+
 
 }
