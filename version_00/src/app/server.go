@@ -75,7 +75,7 @@ func main() {
 	goji.Post("/formfeeder", formfeeder.HandleForm)
 	goji.Get("/api/blog/:stopic/:stitle",blog.GetIemDetails)	
 	goji.Get("/api/blog/:stopic",blog.GetItem)
-	goji.Get("/api/blog",blog.BlogIndex)	
+	goji.Get("/api/blog",blog.BlogIndex)
 	goji.Get("/*", handlers.Elaborate)
 
     flag.Set("bind", ":8001")

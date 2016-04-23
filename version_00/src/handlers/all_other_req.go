@@ -3,7 +3,7 @@ package handlers
 import (
 	"bytes"
 	"encoding/xml"
-//	"fmt"
+	"fmt"
 	"github.com/zenazn/goji/web"
 	"io"
 	"net/http"
@@ -29,7 +29,7 @@ func stringInSlice(str string, list []string) bool {
 func Elaborate(c web.C, w http.ResponseWriter, r *http.Request) {
 
 	rootdir := c.Env["rootdir"].(string)
-	backendrootdir	:= c.Env["backendrootdir"].(string)	
+	backendrootdir := c.Env["backendrootdir"].(string)
 
 	exist := false
 	sitefull := r.Host
@@ -38,7 +38,7 @@ func Elaborate(c web.C, w http.ResponseWriter, r *http.Request) {
 	urlstr := "http://" + site + path
 
 	sitemapfile := backendrootdir + "/maps/sitemap_" + site + ".xml"
-//	fmt.Println("map", sitemapfile)
+	//	fmt.Println("map", sitemapfile)
 
 	if _, err := os.Stat(sitemapfile); os.IsNotExist(err) {
 
@@ -46,27 +46,51 @@ func Elaborate(c web.C, w http.ResponseWriter, r *http.Request) {
 		// path/to/whatever does not exist
 	} else {
 
-		f, _ := os.Open(sitemapfile)
-		buf := bytes.NewBuffer(nil)
-		io.Copy(buf, f)
+//		fmt.Println(path)
 
-		var q Query
-		xml.Unmarshal(buf.Bytes(), &q)
+		if strings.HasSuffix(path, ".json") {
+			
+//			http.FileServer(http.Dir(rootdir+"/dist"))
+			fmt.Println(rootdir+"/dist"+path)
+			
+			http.ServeFile(w, r, rootdir+"/dist"+path)
+			
 
-		if stringInSlice(urlstr, q.Locs) {
+		} else {
 
-			exist = true
+			if path == "/" || path == "/index.html" {
+
+				exist = true
+
+			} else {
+
+				f, _ := os.Open(sitemapfile)
+				buf := bytes.NewBuffer(nil)
+				io.Copy(buf, f)
+
+				var q Query
+				xml.Unmarshal(buf.Bytes(), &q)
+
+				if stringInSlice(urlstr, q.Locs) {
+
+					exist = true
+				}
+			}
+
+		
+
+		if !exist {
+
+			http.NotFound(w, r)
+
+		} else {
+
+			http.ServeFile(w, r, rootdir+"/dist/index.html")
+			//		fmt.Println(rootdir+"/dist")
+			//		http.FileServer(http.Dir(rootdir+"/dist"))
+
 		}
-
-	}
-
-	if !exist {
-
-		http.NotFound(w, r)
-
-	} else {
-
-		http.ServeFile(w, r, rootdir+"/dist/index.html")
+		}
 	}
 
 }

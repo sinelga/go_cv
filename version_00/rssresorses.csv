@@ -1,3 +1,5 @@
+android,http://stackoverflow.com/feeds/tag?tagnames=android&sort=newest
+voip,http://stackoverflow.com/feeds/tag?tagnames=voip&sort=newest
 html,http://stackoverflow.com/feeds/tag?tagnames=html&sort=newest
 css,http://stackoverflow.com/feeds/tag?tagnames=css&sort=newest
 ruby,http://stackoverflow.com/feeds/tag?tagnames=ruby&sort=newest
