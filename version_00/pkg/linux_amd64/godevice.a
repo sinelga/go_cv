@@ -1,27 +1,26 @@
 !<arch>
-__.PKGDEF       0           0     0     644     56340     `
-go object linux amd64 go1.5.3 X:none
-build id "7f5c28bbe7ef1343b2725f4373a3c7e6777a8194"
+__.PKGDEF       0           0     0     644     57564     `
+go object linux amd64 go1.6.2 X:none
+build id "98dd10e86c513323e0650495094690d603b90110"
 
 $$
 package godevice
-	import runtime "runtime"
 	import http "net/http"
 	import strings "strings"
 	import url "net/url" // indirect
 	type @"net/url".Userinfo struct { @"net/url".username string; @"net/url".password string; @"net/url".passwordSet bool }
-	func (@"net/url".uÂ·3 *@"net/url".Userinfo "esc:0x22") Password () (? string, ? bool) { if @"net/url".uÂ·3.@"net/url".passwordSet { return @"net/url".uÂ·3.@"net/url".password, true }; return "", false }
+	func (@"net/url".uÂ·3 *@"net/url".Userinfo "esc:0x22") Password () (? string, ? bool) { if @"net/url".uÂ·3.@"net/url".passwordSet { return @"net/url".uÂ·3.@"net/url".password, bool(true) }; return string(""), bool(false) }
 	func (@"net/url".uÂ·2 *@"net/url".Userinfo "esc:0x22") String () (? string)
 	func (@"net/url".uÂ·2 *@"net/url".Userinfo "esc:0x22") Username () (? string) { return @"net/url".uÂ·2.@"net/url".username }
 	type @"net/url".Values map[string][]string
 	func (@"net/url".vÂ·1 @"net/url".Values "esc:0x9") Add (@"net/url".keyÂ·2 string, @"net/url".valueÂ·3 string) { @"net/url".vÂ·1[@"net/url".keyÂ·2] = append(@"net/url".vÂ·1[@"net/url".keyÂ·2], @"net/url".valueÂ·3) }
 	func (@"net/url".vÂ·1 @"net/url".Values "esc:0x1") Del (@"net/url".keyÂ·2 string "esc:0x1") { delete(@"net/url".vÂ·1, @"net/url".keyÂ·2) }
 	func (@"net/url".vÂ·2 @"net/url".Values "esc:0x1") Encode () (? string)
-	func (@"net/url".vÂ·2 @"net/url".Values "esc:0x1") Get (@"net/url".keyÂ·3 string "esc:0x1") (? string) { if @"net/url".vÂ·2 == nil { return "" }; var @"net/url".vsÂ·4 []string; ; var @"net/url".okÂ·5 bool; ; @"net/url".vsÂ·4, @"net/url".okÂ·5 = @"net/url".vÂ·2[@"net/url".keyÂ·3]; if !@"net/url".okÂ·5 || len(@"net/url".vsÂ·4) == 0x0 { return "" }; return @"net/url".vsÂ·4[0x0] }
-	func (@"net/url".vÂ·1 @"net/url".Values "esc:0x1") Set (@"net/url".keyÂ·2 string, @"net/url".valueÂ·3 string) { @"net/url".vÂ·1[@"net/url".keyÂ·2] = ([]string{ 0x0:@"net/url".valueÂ·3 }) }
+	func (@"net/url".vÂ·2 @"net/url".Values "esc:0x1") Get (@"net/url".keyÂ·3 string "esc:0x1") (? string) { if @"net/url".vÂ·2 == nil { return string("") }; var @"net/url".vsÂ·4 []string; ; var @"net/url".okÂ·5 bool; ; @"net/url".vsÂ·4, @"net/url".okÂ·5 = @"net/url".vÂ·2[@"net/url".keyÂ·3]; if !@"net/url".okÂ·5 || len(@"net/url".vsÂ·4) == int(0x0) { return string("") }; return @"net/url".vsÂ·4[int(0x0)] }
+	func (@"net/url".vÂ·1 @"net/url".Values "esc:0x1") Set (@"net/url".keyÂ·2 string, @"net/url".valueÂ·3 string) { @"net/url".vÂ·1[@"net/url".keyÂ·2] = ([]string{ int(0x0):@"net/url".valueÂ·3 }) }
 	type @"net/url".URL struct { Scheme string; Opaque string; User *@"net/url".Userinfo; Host string; Path string; RawPath string; RawQuery string; Fragment string }
 	func (@"net/url".uÂ·2 *@"net/url".URL "esc:0x22") EscapedPath () (? string)
-	func (@"net/url".uÂ·2 *@"net/url".URL "esc:0x1") IsAbs () (? bool) { return @"net/url".uÂ·2.Scheme != "" }
+	func (@"net/url".uÂ·2 *@"net/url".URL "esc:0x1") IsAbs () (? bool) { return @"net/url".uÂ·2.Scheme != string("") }
 	func (@"net/url".uÂ·3 *@"net/url".URL "esc:0x9") Parse (@"net/url".refÂ·4 string) (? *@"net/url".URL, ? error)
 	func (@"net/url".uÂ·2 *@"net/url".URL "esc:0x9") Query () (? @"net/url".Values)
 	func (@"net/url".uÂ·2 *@"net/url".URL "esc:0x22") RequestURI () (? string)
@@ -42,7 +41,7 @@ package godevice
 	func (@"net/http".hÂ·2 @"net/http".Header "esc:0x9") Write (@"net/http".wÂ·3 @"io".Writer) (? error)
 	func (@"net/http".hÂ·2 @"net/http".Header "esc:0x9") WriteSubset (@"net/http".wÂ·3 @"io".Writer, @"net/http".excludeÂ·4 map[string]bool "esc:0x1") (? error)
 	func (@"net/http".hÂ·2 @"net/http".Header "esc:0x9") @"net/http".clone () (? @"net/http".Header)
-	func (@"net/http".hÂ·2 @"net/http".Header "esc:0x1") @"net/http".get (@"net/http".keyÂ·3 string "esc:0x1") (? string) { var @"net/http".vÂ·4 []string; ; @"net/http".vÂ·4 = @"net/http".hÂ·2[@"net/http".keyÂ·3]; if len(@"net/http".vÂ·4) > 0x0 { return @"net/http".vÂ·4[0x0] }; return "" }
+	func (@"net/http".hÂ·2 @"net/http".Header "esc:0x1") @"net/http".get (@"net/http".keyÂ·3 string "esc:0x1") (? string) { var @"net/http".vÂ·4 []string; ; @"net/http".vÂ·4 = @"net/http".hÂ·2[@"net/http".keyÂ·3]; if len(@"net/http".vÂ·4) > int(0x0) { return @"net/http".vÂ·4[int(0x0)] }; return string("") }
 	func (@"net/http".hÂ·3 @"net/http".Header "esc:0x9") @"net/http".sortedKeyValues (@"net/http".excludeÂ·4 map[string]bool "esc:0x1") (@"net/http".kvsÂ·1 []@"net/http".keyValues, @"net/http".hsÂ·2 *@"net/http".headerSorter)
 	type @"io".ReadCloser interface { Close() (? error); Read(@"io".p []byte) (@"io".n int, @"io".err error) }
 	import multipart "mime/multipart" // indirect
@@ -60,6 +59,7 @@ package godevice
 	import tls "crypto/tls" // indirect
 	import x509 "crypto/x509" // indirect
 	type @"crypto/x509".SignatureAlgorithm int
+	func (@"crypto/x509".algoÂ·2 @"crypto/x509".SignatureAlgorithm) String () (? string)
 	type @"crypto/x509".PublicKeyAlgorithm int
 	import big "math/big" // indirect
 	type @"math/big".Word uintptr
@@ -78,6 +78,7 @@ package godevice
 	func (@"math/rand".rÂ·2 *@"math/rand".Rand "esc:0x9") Intn (@"math/rand".nÂ·3 int) (? int)
 	func (@"math/rand".rÂ·2 *@"math/rand".Rand "esc:0x9") NormFloat64 () (? float64)
 	func (@"math/rand".rÂ·2 *@"math/rand".Rand "esc:0x9") Perm (@"math/rand".nÂ·3 int) (? []int)
+	func (@"math/rand".rÂ·3 *@"math/rand".Rand "esc:0x9") Read (@"math/rand".pÂ·4 []byte "esc:0x1") (@"math/rand".nÂ·1 int, @"math/rand".errÂ·2 error)
 	func (@"math/rand".rÂ·1 *@"math/rand".Rand "esc:0x9") Seed (@"math/rand".seedÂ·2 int64)
 	func (@"math/rand".rÂ·2 *@"math/rand".Rand "esc:0x9") Uint32 () (? uint32)
 	type @"io".ByteScanner interface { ReadByte() (@"io".c byte, @"io".err error); UnreadByte() (? error) }
@@ -85,13 +86,12 @@ package godevice
 	func (@"math/big".zÂ·2 @"math/big".nat) @"math/big".add (@"math/big".xÂ·3 @"math/big".nat, @"math/big".yÂ·4 @"math/big".nat) (? @"math/big".nat)
 	func (@"math/big".zÂ·2 @"math/big".nat "esc:0x12") @"math/big".and (@"math/big".xÂ·3 @"math/big".nat "esc:0x1", @"math/big".yÂ·4 @"math/big".nat "esc:0x1") (? @"math/big".nat)
 	func (@"math/big".zÂ·2 @"math/big".nat "esc:0x12") @"math/big".andNot (@"math/big".xÂ·3 @"math/big".nat "esc:0x9", @"math/big".yÂ·4 @"math/big".nat "esc:0x1") (? @"math/big".nat)
-	func (@"math/big".xÂ·2 @"math/big".nat "esc:0x1") @"math/big".bit (@"math/big".iÂ·3 uint) (? uint) { var @"math/big".jÂ·4 uint; ; @"math/big".jÂ·4 = @"math/big".iÂ·3 / 0x40; if @"math/big".jÂ·4 >= uint(len(@"math/big".xÂ·2)) { return 0x0 }; return uint(@"math/big".xÂ·2[@"math/big".jÂ·4] >> (@"math/big".iÂ·3 % 0x40) & @"math/big".Word(0x1)) }
+	func (@"math/big".xÂ·2 @"math/big".nat "esc:0x1") @"math/big".bit (@"math/big".iÂ·3 uint) (? uint) { var @"math/big".jÂ·4 uint; ; @"math/big".jÂ·4 = @"math/big".iÂ·3 / uint(0x40); if @"math/big".jÂ·4 >= uint(len(@"math/big".xÂ·2)) { return uint(0x0) }; return uint(@"math/big".xÂ·2[@"math/big".jÂ·4] >> (@"math/big".iÂ·3 % uint(0x40)) & @"math/big".Word(0x1)) }
 	func (@"math/big".xÂ·2 @"math/big".nat "esc:0x1") @"math/big".bitLen () (? int)
 	func (@"math/big".zÂ·2 @"math/big".nat "esc:0x1") @"math/big".bytes (@"math/big".bufÂ·3 []byte "esc:0x1") (@"math/big".iÂ·1 int)
 	func (@"math/big".zÂ·1 @"math/big".nat "esc:0x1") @"math/big".clear ()
 	func (@"math/big".xÂ·2 @"math/big".nat "esc:0x1") @"math/big".cmp (@"math/big".yÂ·3 @"math/big".nat "esc:0x1") (@"math/big".rÂ·1 int)
-	func (@"math/big".qÂ·1 @"math/big".nat) @"math/big".convertWords (@"math/big".sÂ·2 []byte "esc:0x1", @"math/big".charsetÂ·3 string "esc:0x1", @"math/big".bÂ·4 @"math/big".Word, @"math/big".ndigitsÂ·5 int, @"math/big".bbÂ·6 @"math/big".Word, @"math/big".tableÂ·7 []@"math/big".divisor "esc:0x9")
-	func (@"math/big".xÂ·2 @"math/big".nat "esc:0x9") @"math/big".decimalString () (? string)
+	func (@"math/big".qÂ·1 @"math/big".nat) @"math/big".convertWords (@"math/big".sÂ·2 []byte "esc:0x1", @"math/big".bÂ·3 @"math/big".Word, @"math/big".ndigitsÂ·4 int, @"math/big".bbÂ·5 @"math/big".Word, @"math/big".tableÂ·6 []@"math/big".divisor "esc:0x9")
 	func (@"math/big".zÂ·3 @"math/big".nat) @"math/big".div (@"math/big".z2Â·4 @"math/big".nat, @"math/big".uÂ·5 @"math/big".nat, @"math/big".vÂ·6 @"math/big".nat) (@"math/big".qÂ·1 @"math/big".nat, @"math/big".rÂ·2 @"math/big".nat)
 	func (@"math/big".zÂ·3 @"math/big".nat "esc:0x12") @"math/big".divLarge (@"math/big".uÂ·4 @"math/big".nat, @"math/big".uInÂ·5 @"math/big".nat, @"math/big".vÂ·6 @"math/big".nat) (@"math/big".qÂ·1 @"math/big".nat, @"math/big".rÂ·2 @"math/big".nat)
 	func (@"math/big".zÂ·3 @"math/big".nat) @"math/big".divW (@"math/big".xÂ·4 @"math/big".nat, @"math/big".yÂ·5 @"math/big".Word) (@"math/big".qÂ·1 @"math/big".nat, @"math/big".rÂ·2 @"math/big".Word)
@@ -99,7 +99,7 @@ package godevice
 	func (@"math/big".zÂ·2 @"math/big".nat) @"math/big".expNNMontgomery (@"math/big".xÂ·3 @"math/big".nat, @"math/big".yÂ·4 @"math/big".nat "esc:0x1", @"math/big".mÂ·5 @"math/big".nat) (? @"math/big".nat)
 	func (@"math/big".zÂ·2 @"math/big".nat) @"math/big".expNNWindowed (@"math/big".xÂ·3 @"math/big".nat, @"math/big".yÂ·4 @"math/big".nat "esc:0x1", @"math/big".mÂ·5 @"math/big".nat) (? @"math/big".nat)
 	func (@"math/big".zÂ·2 @"math/big".nat) @"math/big".expWW (@"math/big".xÂ·3 @"math/big".Word, @"math/big".yÂ·4 @"math/big".Word) (? @"math/big".nat)
-	func (@"math/big".xÂ·2 @"math/big".nat "esc:0x9") @"math/big".hexString () (? string)
+	func (@"math/big".xÂ·2 @"math/big".nat "esc:0x9") @"math/big".itoa (@"math/big".negÂ·3 bool, @"math/big".baseÂ·4 int) (? []byte)
 	func (@"math/big".zÂ·2 @"math/big".nat "esc:0x12") @"math/big".make (@"math/big".nÂ·3 int) (? @"math/big".nat)
 	func (@"math/big".xÂ·2 @"math/big".nat) @"math/big".modW (@"math/big".dÂ·3 @"math/big".Word) (@"math/big".rÂ·1 @"math/big".Word)
 	func (@"math/big".zÂ·2 @"math/big".nat) @"math/big".montgomery (@"math/big".xÂ·3 @"math/big".nat, @"math/big".yÂ·4 @"math/big".nat "esc:0x1", @"math/big".mÂ·5 @"math/big".nat, @"math/big".kÂ·6 @"math/big".Word, @"math/big".nÂ·7 int) (? @"math/big".nat)
@@ -119,9 +119,9 @@ package godevice
 	func (@"math/big".zÂ·2 @"math/big".nat) @"math/big".shl (@"math/big".xÂ·3 @"math/big".nat, @"math/big".sÂ·4 uint) (? @"math/big".nat)
 	func (@"math/big".zÂ·2 @"math/big".nat) @"math/big".shr (@"math/big".xÂ·3 @"math/big".nat, @"math/big".sÂ·4 uint) (? @"math/big".nat)
 	func (@"math/big".xÂ·2 @"math/big".nat "esc:0x1") @"math/big".sticky (@"math/big".iÂ·3 uint) (? uint)
-	func (@"math/big".xÂ·2 @"math/big".nat "esc:0x9") @"math/big".string (@"math/big".charsetÂ·3 string "esc:0x1") (? string)
 	func (@"math/big".zÂ·2 @"math/big".nat) @"math/big".sub (@"math/big".xÂ·3 @"math/big".nat, @"math/big".yÂ·4 @"math/big".nat) (? @"math/big".nat)
 	func (@"math/big".xÂ·2 @"math/big".nat "esc:0x1") @"math/big".trailingZeroBits () (? uint)
+	func (@"math/big".xÂ·2 @"math/big".nat "esc:0x9") @"math/big".utoa (@"math/big".baseÂ·3 int) (? []byte)
 	func (@"math/big".zÂ·2 @"math/big".nat "esc:0x12") @"math/big".xor (@"math/big".xÂ·3 @"math/big".nat "esc:0x9", @"math/big".yÂ·4 @"math/big".nat "esc:0x9") (? @"math/big".nat)
 	import fmt "fmt" // indirect
 	type @"fmt".State interface { Flag(@"fmt".c int) (? bool); Precision() (@"fmt".prec int, @"fmt".ok bool); Width() (@"fmt".wid int, @"fmt".ok bool); Write(@"fmt".b []byte) (@"fmt".ret int, @"fmt".err error) }
@@ -131,6 +131,7 @@ package godevice
 	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x1a") Add (@"math/big".xÂ·3 *@"math/big".Int "esc:0x9", @"math/big".yÂ·4 *@"math/big".Int "esc:0x9") (? *@"math/big".Int)
 	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x1a") And (@"math/big".xÂ·3 *@"math/big".Int "esc:0x9", @"math/big".yÂ·4 *@"math/big".Int "esc:0x9") (? *@"math/big".Int)
 	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x1a") AndNot (@"math/big".xÂ·3 *@"math/big".Int "esc:0x9", @"math/big".yÂ·4 *@"math/big".Int "esc:0x9") (? *@"math/big".Int)
+	func (@"math/big".xÂ·2 *@"math/big".Int "esc:0x9") Append (@"math/big".bufÂ·3 []byte "esc:0x1a", @"math/big".baseÂ·4 int) (? []byte)
 	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x1a") Binomial (@"math/big".nÂ·3 int64, @"math/big".kÂ·4 int64) (? *@"math/big".Int)
 	func (@"math/big".xÂ·2 *@"math/big".Int "esc:0x9") Bit (@"math/big".iÂ·3 int) (? uint)
 	func (@"math/big".xÂ·2 *@"math/big".Int "esc:0x1") BitLen () (? int)
@@ -146,8 +147,8 @@ package godevice
 	func (@"math/big".xÂ·3 *@"math/big".Int "esc:0x1") GobEncode () (? []byte, ? error)
 	func (@"math/big".xÂ·2 *@"math/big".Int "esc:0x1") Int64 () (? int64) { var @"math/big".vÂ·3 int64; ; @"math/big".vÂ·3 = int64(@"math/big".low64(@"math/big".xÂ·2.@"math/big".abs)); if @"math/big".xÂ·2.@"math/big".neg { @"math/big".vÂ·3 = -@"math/big".vÂ·3 }; return @"math/big".vÂ·3 }
 	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x1a") Lsh (@"math/big".xÂ·3 *@"math/big".Int "esc:0x9", @"math/big".nÂ·4 uint) (? *@"math/big".Int)
-	func (@"math/big".zÂ·3 *@"math/big".Int "esc:0x9") MarshalJSON () (? []byte, ? error)
-	func (@"math/big".zÂ·3 *@"math/big".Int "esc:0x9") MarshalText () (@"math/big".textÂ·1 []byte, @"math/big".errÂ·2 error)
+	func (@"math/big".xÂ·3 *@"math/big".Int "esc:0x9") MarshalJSON () (? []byte, ? error)
+	func (@"math/big".xÂ·3 *@"math/big".Int "esc:0x9") MarshalText () (@"math/big".textÂ·1 []byte, @"math/big".errÂ·2 error)
 	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x1a") Mod (@"math/big".xÂ·3 *@"math/big".Int "esc:0x9", @"math/big".yÂ·4 *@"math/big".Int "esc:0x9") (? *@"math/big".Int)
 	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x1a") ModInverse (@"math/big".gÂ·3 *@"math/big".Int "esc:0x9", @"math/big".nÂ·4 *@"math/big".Int "esc:0x9") (? *@"math/big".Int)
 	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x1a") ModSqrt (@"math/big".xÂ·3 *@"math/big".Int "esc:0x9", @"math/big".pÂ·4 *@"math/big".Int) (? *@"math/big".Int)
@@ -170,14 +171,17 @@ package godevice
 	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x1a") SetInt64 (@"math/big".xÂ·3 int64) (? *@"math/big".Int)
 	func (@"math/big".zÂ·3 *@"math/big".Int "esc:0x1a") SetString (@"math/big".sÂ·4 string, @"math/big".baseÂ·5 int) (? *@"math/big".Int, ? bool)
 	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x1a") SetUint64 (@"math/big".xÂ·3 uint64) (? *@"math/big".Int)
-	func (@"math/big".xÂ·2 *@"math/big".Int "esc:0x1") Sign () (? int) { if len(@"math/big".xÂ·2.@"math/big".abs) == 0x0 { return 0x0 }; if @"math/big".xÂ·2.@"math/big".neg { return -0x1 }; return 0x1 }
+	func (@"math/big".xÂ·2 *@"math/big".Int "esc:0x1") Sign () (? int) { if len(@"math/big".xÂ·2.@"math/big".abs) == int(0x0) { return int(0x0) }; if @"math/big".xÂ·2.@"math/big".neg { return int(-0x1) }; return int(0x1) }
 	func (@"math/big".xÂ·2 *@"math/big".Int "esc:0x9") String () (? string)
 	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x1a") Sub (@"math/big".xÂ·3 *@"math/big".Int "esc:0x9", @"math/big".yÂ·4 *@"math/big".Int "esc:0x9") (? *@"math/big".Int)
+	func (@"math/big".xÂ·2 *@"math/big".Int "esc:0x9") Text (@"math/big".baseÂ·3 int) (? string)
 	func (@"math/big".xÂ·2 *@"math/big".Int "esc:0x1") Uint64 () (? uint64) { return @"math/big".low64(@"math/big".xÂ·2.@"math/big".abs) }
 	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x9") UnmarshalJSON (@"math/big".textÂ·3 []byte) (? error)
 	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x9") UnmarshalText (@"math/big".textÂ·3 []byte) (? error)
 	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x1a") Xor (@"math/big".xÂ·3 *@"math/big".Int "esc:0x9", @"math/big".yÂ·4 *@"math/big".Int "esc:0x9") (? *@"math/big".Int)
 	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x1a") @"math/big".binaryGCD (@"math/big".aÂ·3 *@"math/big".Int "esc:0x9", @"math/big".bÂ·4 *@"math/big".Int "esc:0x9") (? *@"math/big".Int)
+	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x1a") @"math/big".modSqrt3Mod4Prime (@"math/big".xÂ·3 *@"math/big".Int "esc:0x9", @"math/big".pÂ·4 *@"math/big".Int "esc:0x9") (? *@"math/big".Int)
+	func (@"math/big".zÂ·2 *@"math/big".Int "esc:0x1a") @"math/big".modSqrtTonelliShanks (@"math/big".xÂ·3 *@"math/big".Int "esc:0x9", @"math/big".pÂ·4 *@"math/big".Int) (? *@"math/big".Int)
 	func (@"math/big".zÂ·4 *@"math/big".Int "esc:0x1a") @"math/big".scan (@"math/big".rÂ·5 @"io".ByteScanner, @"math/big".baseÂ·6 int) (? *@"math/big".Int, ? int, ? error)
 	import pkix "crypto/x509/pkix" // indirect
 	import asn1 "encoding/asn1" // indirect
@@ -202,17 +206,17 @@ package godevice
 	func (@"time".lÂ·2 *@"time".Location "esc:0x1") @"time".lookupFirstZone () (? int)
 	func (@"time".lÂ·4 *@"time".Location "esc:0x1") @"time".lookupName (@"time".nameÂ·5 string "esc:0x1", @"time".unixÂ·6 int64) (@"time".offsetÂ·1 int, @"time".isDSTÂ·2 bool, @"time".okÂ·3 bool)
 	type @"time".Duration int64
-	func (@"time".dÂ·2 @"time".Duration) Hours () (? float64) { var @"time".hourÂ·3 @"time".Duration; ; @"time".hourÂ·3 = @"time".dÂ·2 / @"time".Duration(0x34630b8a000); var @"time".nsecÂ·4 @"time".Duration; ; @"time".nsecÂ·4 = @"time".dÂ·2 % @"time".Duration(0x34630b8a000); return float64(@"time".hourÂ·3) + float64(@"time".nsecÂ·4) * 8190022623310637111963488201822504381538623676021880892417778544696899264837610290203272971060556344039023584360473938041055625214280336402169897364226048p-553 }
-	func (@"time".dÂ·2 @"time".Duration) Minutes () (? float64) { var @"time".minÂ·3 @"time".Duration; ; @"time".minÂ·3 = @"time".dÂ·2 / @"time".Duration(0xdf8475800); var @"time".nsecÂ·4 @"time".Duration; ; @"time".nsecÂ·4 = @"time".dÂ·2 % @"time".Duration(0xdf8475800); return float64(@"time".minÂ·3) + float64(@"time".nsecÂ·4) * 7678146209353722106395056769533233877065564876941352542109479049699919628723768656821910653339403201031675627614471533358284117434246264392176261853609984p-547 }
+	func (@"time".dÂ·2 @"time".Duration) Hours () (? float64) { var @"time".hourÂ·3 @"time".Duration; ; @"time".hourÂ·3 = @"time".dÂ·2 / @"time".Duration(0x34630b8a000); var @"time".nsecÂ·4 @"time".Duration; ; @"time".nsecÂ·4 = @"time".dÂ·2 % @"time".Duration(0x34630b8a000); return float64(@"time".hourÂ·3) + float64(@"time".nsecÂ·4) * float64(8190022623310637111963488201822504381538623676021880892417778544696899264837610290203272971060556344039023584360473938041055625214280336402169897364226048p-553) }
+	func (@"time".dÂ·2 @"time".Duration) Minutes () (? float64) { var @"time".minÂ·3 @"time".Duration; ; @"time".minÂ·3 = @"time".dÂ·2 / @"time".Duration(0xdf8475800); var @"time".nsecÂ·4 @"time".Duration; ; @"time".nsecÂ·4 = @"time".dÂ·2 % @"time".Duration(0xdf8475800); return float64(@"time".minÂ·3) + float64(@"time".nsecÂ·4) * float64(7678146209353722106395056769533233877065564876941352542109479049699919628723768656821910653339403201031675627614471533358284117434246264392176261853609984p-547) }
 	func (@"time".dÂ·2 @"time".Duration) Nanoseconds () (? int64) { return int64(@"time".dÂ·2) }
-	func (@"time".dÂ·2 @"time".Duration) Seconds () (? float64) { var @"time".secÂ·3 @"time".Duration; ; @"time".secÂ·3 = @"time".dÂ·2 / @"time".Duration(0x3b9aca00); var @"time".nsecÂ·4 @"time".Duration; ; @"time".nsecÂ·4 = @"time".dÂ·2 % @"time".Duration(0x3b9aca00); return float64(@"time".secÂ·3) + float64(@"time".nsecÂ·4) * 7198262071269114660816079141112770740375861891461678802759824945047098083990024106014198994535558872472104883612039846078596891298747423852523262413111296p-541 }
+	func (@"time".dÂ·2 @"time".Duration) Seconds () (? float64) { var @"time".secÂ·3 @"time".Duration; ; @"time".secÂ·3 = @"time".dÂ·2 / @"time".Duration(0x3b9aca00); var @"time".nsecÂ·4 @"time".Duration; ; @"time".nsecÂ·4 = @"time".dÂ·2 % @"time".Duration(0x3b9aca00); return float64(@"time".secÂ·3) + float64(@"time".nsecÂ·4) * float64(7198262071269114660816079141112770740375861891461678802759824945047098083990024106014198994535558872472104883612039846078596891298747423852523262413111296p-541) }
 	func (@"time".dÂ·2 @"time".Duration) String () (? string)
 	type @"time".Month int
 	func (@"time".mÂ·2 @"time".Month) String () (? string) { return @"time".months[@"time".mÂ·2 - @"time".Month(0x1)] }
 	type @"time".Weekday int
 	func (@"time".dÂ·2 @"time".Weekday) String () (? string) { return @"time".days[@"time".dÂ·2] }
 	type @"time".Time struct { @"time".sec int64; @"time".nsec int32; @"time".loc *@"time".Location }
-	func (@"time".tÂ·2 @"time".Time "esc:0x12") Add (@"time".dÂ·3 @"time".Duration) (? @"time".Time) { @"time".tÂ·2.@"time".sec += int64(@"time".dÂ·3 / @"time".Duration(0x3b9aca00)); var @"time".nsecÂ·4 int32; ; @"time".nsecÂ·4 = int32(@"time".tÂ·2.@"time".nsec) + int32(@"time".dÂ·3 % @"time".Duration(0x3b9aca00)); if @"time".nsecÂ·4 >= 0x3b9aca00 { @"time".tÂ·2.@"time".sec++; @"time".nsecÂ·4 -= 0x3b9aca00 } else { if @"time".nsecÂ·4 < 0x0 { @"time".tÂ·2.@"time".sec--; @"time".nsecÂ·4 += 0x3b9aca00 } }; @"time".tÂ·2.@"time".nsec = @"time".nsecÂ·4; return @"time".tÂ·2 }
+	func (@"time".tÂ·2 @"time".Time "esc:0x12") Add (@"time".dÂ·3 @"time".Duration) (? @"time".Time) { @"time".tÂ·2.@"time".sec += int64(@"time".dÂ·3 / @"time".Duration(0x3b9aca00)); var @"time".nsecÂ·4 int32; ; @"time".nsecÂ·4 = int32(@"time".tÂ·2.@"time".nsec) + int32(@"time".dÂ·3 % @"time".Duration(0x3b9aca00)); if @"time".nsecÂ·4 >= int32(0x3b9aca00) { @"time".tÂ·2.@"time".sec++; @"time".nsecÂ·4 -= int32(0x3b9aca00) } else { if @"time".nsecÂ·4 < int32(0x0) { @"time".tÂ·2.@"time".sec--; @"time".nsecÂ·4 += int32(0x3b9aca00) } }; @"time".tÂ·2.@"time".nsec = @"time".nsecÂ·4; return @"time".tÂ·2 }
 	func (@"time".tÂ·2 @"time".Time "esc:0x12") AddDate (@"time".yearsÂ·3 int, @"time".monthsÂ·4 int, @"time".daysÂ·5 int) (? @"time".Time)
 	func (@"time".tÂ·2 @"time".Time "esc:0x1") After (@"time".uÂ·3 @"time".Time "esc:0x1") (? bool) { return @"time".tÂ·2.@"time".sec > @"time".uÂ·3.@"time".sec || @"time".tÂ·2.@"time".sec == @"time".uÂ·3.@"time".sec && @"time".tÂ·2.@"time".nsec > @"time".uÂ·3.@"time".nsec }
 	func (@"time".tÂ·2 @"time".Time "esc:0x9") AppendFormat (@"time".bÂ·3 []byte "esc:0x1a", @"time".layoutÂ·4 string "esc:0x9") (? []byte)
@@ -227,7 +231,7 @@ package godevice
 	func (@"time".tÂ·2 @"time".Time "esc:0x1") Hour () (? int)
 	func (@"time".tÂ·3 @"time".Time "esc:0x1") ISOWeek () (@"time".yearÂ·1 int, @"time".weekÂ·2 int)
 	func (@"time".tÂ·2 @"time".Time "esc:0x12") In (@"time".locÂ·3 *@"time".Location "esc:0x12") (? @"time".Time)
-	func (@"time".tÂ·2 @"time".Time "esc:0x1") IsZero () (? bool) { return @"time".tÂ·2.@"time".sec == 0x0 && @"time".tÂ·2.@"time".nsec == 0x0 }
+	func (@"time".tÂ·2 @"time".Time "esc:0x1") IsZero () (? bool) { return @"time".tÂ·2.@"time".sec == int64(0x0) && @"time".tÂ·2.@"time".nsec == int32(0x0) }
 	func (@"time".tÂ·2 @"time".Time "esc:0x12") Local () (? @"time".Time) { @"time".tÂ·2.@"time".loc = @"time".Local; return @"time".tÂ·2 }
 	func (@"time".tÂ·2 @"time".Time "esc:0x12") Location () (? *@"time".Location) { var @"time".lÂ·3 *@"time".Location; ; @"time".lÂ·3 = @"time".tÂ·2.@"time".loc; if @"time".lÂ·3 == nil { @"time".lÂ·3 = @"time".UTC }; return @"time".lÂ·3 }
 	func (@"time".tÂ·3 @"time".Time "esc:0x1") MarshalBinary () (? []byte, ? error)
@@ -242,8 +246,8 @@ package godevice
 	func (@"time".tÂ·2 @"time".Time "esc:0x1") Sub (@"time".uÂ·3 @"time".Time "esc:0x1") (? @"time".Duration)
 	func (@"time".tÂ·2 @"time".Time "esc:0x12") Truncate (@"time".dÂ·3 @"time".Duration) (? @"time".Time)
 	func (@"time".tÂ·2 @"time".Time "esc:0x12") UTC () (? @"time".Time) { @"time".tÂ·2.@"time".loc = @"time".UTC; return @"time".tÂ·2 }
-	func (@"time".tÂ·2 @"time".Time "esc:0x1") Unix () (? int64) { return @"time".tÂ·2.@"time".sec + -0xe7791f700 }
-	func (@"time".tÂ·2 @"time".Time "esc:0x1") UnixNano () (? int64) { return (@"time".tÂ·2.@"time".sec + -0xe7791f700) * 0x3b9aca00 + int64(@"time".tÂ·2.@"time".nsec) }
+	func (@"time".tÂ·2 @"time".Time "esc:0x1") Unix () (? int64) { return @"time".tÂ·2.@"time".sec + int64(-0xe7791f700) }
+	func (@"time".tÂ·2 @"time".Time "esc:0x1") UnixNano () (? int64) { return (@"time".tÂ·2.@"time".sec + int64(-0xe7791f700)) * int64(0x3b9aca00) + int64(@"time".tÂ·2.@"time".nsec) }
 	func (@"time".tÂ·2 *@"time".Time "esc:0x1") UnmarshalBinary (@"time".dataÂ·3 []byte "esc:0x1") (? error)
 	func (@"time".tÂ·2 *@"time".Time "esc:0x1") UnmarshalJSON (@"time".dataÂ·3 []byte "esc:0x1") (@"time".errÂ·1 error)
 	func (@"time".tÂ·2 *@"time".Time "esc:0x1") UnmarshalText (@"time".dataÂ·3 []byte "esc:0x1") (@"time".errÂ·1 error)
@@ -265,7 +269,7 @@ package godevice
 	func (@"net".ipÂ·2 @"net".IP "esc:0x1") DefaultMask () (? @"net".IPMask)
 	func (@"net".ipÂ·2 @"net".IP "esc:0x1") Equal (@"net".xÂ·3 @"net".IP "esc:0x1") (? bool)
 	func (@"net".ipÂ·2 @"net".IP "esc:0x1") IsGlobalUnicast () (? bool)
-	func (@"net".ipÂ·2 @"net".IP "esc:0x1") IsInterfaceLocalMulticast () (? bool) { return len(@"net".ipÂ·2) == 0x10 && @"net".ipÂ·2[0x0] == byte(0xff) && @"net".ipÂ·2[0x1] & byte(0xf) == byte(0x1) }
+	func (@"net".ipÂ·2 @"net".IP "esc:0x1") IsInterfaceLocalMulticast () (? bool) { return len(@"net".ipÂ·2) == int(0x10) && @"net".ipÂ·2[int(0x0)] == byte(0xff) && @"net".ipÂ·2[int(0x1)] & byte(0xf) == byte(0x1) }
 	func (@"net".ipÂ·2 @"net".IP "esc:0x1") IsLinkLocalMulticast () (? bool)
 	func (@"net".ipÂ·2 @"net".IP "esc:0x1") IsLinkLocalUnicast () (? bool)
 	func (@"net".ipÂ·2 @"net".IP "esc:0x1") IsLoopback () (? bool)
@@ -274,7 +278,7 @@ package godevice
 	func (@"net".ipÂ·3 @"net".IP "esc:0x1") MarshalText () (? []byte, ? error)
 	func (@"net".ipÂ·2 @"net".IP "esc:0x1") Mask (@"net".maskÂ·3 @"net".IPMask "esc:0x1") (? @"net".IP)
 	func (@"net".ipÂ·2 @"net".IP "esc:0x1") String () (? string)
-	func (@"net".ipÂ·2 @"net".IP "esc:0x12") To16 () (? @"net".IP) { if len(@"net".ipÂ·2) == 0x4 { return @"net".IPv4(@"net".ipÂ·2[0x0], @"net".ipÂ·2[0x1], @"net".ipÂ·2[0x2], @"net".ipÂ·2[0x3]) }; if len(@"net".ipÂ·2) == 0x10 { return @"net".ipÂ·2 }; return nil }
+	func (@"net".ipÂ·2 @"net".IP "esc:0x12") To16 () (? @"net".IP) { if len(@"net".ipÂ·2) == int(0x4) { return @"net".IPv4(@"net".ipÂ·2[int(0x0)], @"net".ipÂ·2[int(0x1)], @"net".ipÂ·2[int(0x2)], @"net".ipÂ·2[int(0x3)]) }; if len(@"net".ipÂ·2) == int(0x10) { return @"net".ipÂ·2 }; return nil }
 	func (@"net".ipÂ·2 @"net".IP "esc:0x12") To4 () (? @"net".IP)
 	func (@"net".ipÂ·2 *@"net".IP "esc:0x1") UnmarshalText (@"net".textÂ·3 []byte "esc:0x1") (? error)
 	type @"encoding/asn1".RawContent []byte
@@ -283,7 +287,7 @@ package godevice
 	type @"crypto/x509/pkix".RevokedCertificate struct { SerialNumber *@"math/big".Int; RevocationTime @"time".Time; Extensions []@"crypto/x509/pkix".Extension "asn1:\"optional\"" }
 	type @"crypto/x509/pkix".TBSCertificateList struct { Raw @"encoding/asn1".RawContent; Version int "asn1:\"optional,default:1\""; Signature @"crypto/x509/pkix".AlgorithmIdentifier; Issuer @"crypto/x509/pkix".RDNSequence; ThisUpdate @"time".Time; NextUpdate @"time".Time "asn1:\"optional\""; RevokedCertificates []@"crypto/x509/pkix".RevokedCertificate "asn1:\"optional\""; Extensions []@"crypto/x509/pkix".Extension "asn1:\"tag:0,optional,explicit\"" }
 	type @"encoding/asn1".BitString struct { Bytes []byte; BitLength int }
-	func (@"encoding/asn1".bÂ·2 @"encoding/asn1".BitString "esc:0x1") At (@"encoding/asn1".iÂ·3 int) (? int) { if @"encoding/asn1".iÂ·3 < 0x0 || @"encoding/asn1".iÂ·3 >= @"encoding/asn1".bÂ·2.BitLength { return 0x0 }; var @"encoding/asn1".xÂ·4 int; ; @"encoding/asn1".xÂ·4 = @"encoding/asn1".iÂ·3 / 0x8; var @"encoding/asn1".yÂ·5 uint; ; @"encoding/asn1".yÂ·5 = 0x7 - uint(@"encoding/asn1".iÂ·3 % 0x8); return int(@"encoding/asn1".bÂ·2.Bytes[@"encoding/asn1".xÂ·4] >> @"encoding/asn1".yÂ·5) & 0x1 }
+	func (@"encoding/asn1".bÂ·2 @"encoding/asn1".BitString "esc:0x1") At (@"encoding/asn1".iÂ·3 int) (? int) { if @"encoding/asn1".iÂ·3 < int(0x0) || @"encoding/asn1".iÂ·3 >= @"encoding/asn1".bÂ·2.BitLength { return int(0x0) }; var @"encoding/asn1".xÂ·4 int; ; @"encoding/asn1".xÂ·4 = @"encoding/asn1".iÂ·3 / int(0x8); var @"encoding/asn1".yÂ·5 uint; ; @"encoding/asn1".yÂ·5 = uint(0x7) - uint(@"encoding/asn1".iÂ·3 % int(0x8)); return int(@"encoding/asn1".bÂ·2.Bytes[@"encoding/asn1".xÂ·4] >> @"encoding/asn1".yÂ·5) & int(0x1) }
 	func (@"encoding/asn1".bÂ·2 @"encoding/asn1".BitString "esc:0x12") RightAlign () (? []byte)
 	type @"crypto/x509/pkix".CertificateList struct { TBSCertList @"crypto/x509/pkix".TBSCertificateList; SignatureAlgorithm @"crypto/x509/pkix".AlgorithmIdentifier; SignatureValue @"encoding/asn1".BitString }
 	func (@"crypto/x509/pkix".certListÂ·2 *@"crypto/x509/pkix".CertificateList "esc:0x1") HasExpired (@"crypto/x509/pkix".nowÂ·3 @"time".Time "esc:0x1") (? bool) { return @"crypto/x509/pkix".nowÂ·3.After(@"crypto/x509/pkix".certListÂ·2.TBSCertList.NextUpdate) }
@@ -321,12 +325,12 @@ package godevice
 	func (@"bufio".bÂ·3 *@"bufio".Reader "esc:0x12a") ReadSlice (@"bufio".delimÂ·4 byte) (@"bufio".lineÂ·1 []byte, @"bufio".errÂ·2 error)
 	func (@"bufio".bÂ·3 *@"bufio".Reader "esc:0x10a") ReadString (@"bufio".delimÂ·4 byte) (@"bufio".lineÂ·1 string, @"bufio".errÂ·2 error)
 	func (@"bufio".bÂ·1 *@"bufio".Reader "esc:0x9") Reset (@"bufio".rÂ·2 @"io".Reader) { @"bufio".bÂ·1.@"bufio".reset(@"bufio".bÂ·1.@"bufio".buf, @"bufio".rÂ·2) }
-	func (@"bufio".bÂ·2 *@"bufio".Reader "esc:0x1") UnreadByte () (? error) { if @"bufio".bÂ·2.@"bufio".lastByte < 0x0 || @"bufio".bÂ·2.@"bufio".r == 0x0 && @"bufio".bÂ·2.@"bufio".w > 0x0 { return @"bufio".ErrInvalidUnreadByte }; if @"bufio".bÂ·2.@"bufio".r > 0x0 { @"bufio".bÂ·2.@"bufio".r-- } else { @"bufio".bÂ·2.@"bufio".w = 0x1 }; @"bufio".bÂ·2.@"bufio".buf[@"bufio".bÂ·2.@"bufio".r] = byte(@"bufio".bÂ·2.@"bufio".lastByte); @"bufio".bÂ·2.@"bufio".lastByte = -0x1; @"bufio".bÂ·2.@"bufio".lastRuneSize = -0x1; return nil }
-	func (@"bufio".bÂ·2 *@"bufio".Reader "esc:0x1") UnreadRune () (? error) { if @"bufio".bÂ·2.@"bufio".lastRuneSize < 0x0 || @"bufio".bÂ·2.@"bufio".r < @"bufio".bÂ·2.@"bufio".lastRuneSize { return @"bufio".ErrInvalidUnreadRune }; @"bufio".bÂ·2.@"bufio".r -= @"bufio".bÂ·2.@"bufio".lastRuneSize; @"bufio".bÂ·2.@"bufio".lastByte = -0x1; @"bufio".bÂ·2.@"bufio".lastRuneSize = -0x1; return nil }
+	func (@"bufio".bÂ·2 *@"bufio".Reader "esc:0x1") UnreadByte () (? error) { if @"bufio".bÂ·2.@"bufio".lastByte < int(0x0) || @"bufio".bÂ·2.@"bufio".r == int(0x0) && @"bufio".bÂ·2.@"bufio".w > int(0x0) { return @"bufio".ErrInvalidUnreadByte }; if @"bufio".bÂ·2.@"bufio".r > int(0x0) { @"bufio".bÂ·2.@"bufio".r-- } else { @"bufio".bÂ·2.@"bufio".w = int(0x1) }; @"bufio".bÂ·2.@"bufio".buf[@"bufio".bÂ·2.@"bufio".r] = byte(@"bufio".bÂ·2.@"bufio".lastByte); @"bufio".bÂ·2.@"bufio".lastByte = int(-0x1); @"bufio".bÂ·2.@"bufio".lastRuneSize = int(-0x1); return nil }
+	func (@"bufio".bÂ·2 *@"bufio".Reader "esc:0x1") UnreadRune () (? error) { if @"bufio".bÂ·2.@"bufio".lastRuneSize < int(0x0) || @"bufio".bÂ·2.@"bufio".r < @"bufio".bÂ·2.@"bufio".lastRuneSize { return @"bufio".ErrInvalidUnreadRune }; @"bufio".bÂ·2.@"bufio".r -= @"bufio".bÂ·2.@"bufio".lastRuneSize; @"bufio".bÂ·2.@"bufio".lastByte = int(-0x1); @"bufio".bÂ·2.@"bufio".lastRuneSize = int(-0x1); return nil }
 	func (@"bufio".bÂ·3 *@"bufio".Reader "esc:0x10a") WriteTo (@"bufio".wÂ·4 @"io".Writer) (@"bufio".nÂ·1 int64, @"bufio".errÂ·2 error)
 	func (@"bufio".bÂ·1 *@"bufio".Reader "esc:0x9") @"bufio".fill ()
 	func (@"bufio".bÂ·2 *@"bufio".Reader "esc:0x22") @"bufio".readErr () (? error) { var @"bufio".errÂ·3 error; ; @"bufio".errÂ·3 = @"bufio".bÂ·2.@"bufio".err; @"bufio".bÂ·2.@"bufio".err = nil; return @"bufio".errÂ·3 }
-	func (@"bufio".bÂ·1 *@"bufio".Reader "esc:0x1") @"bufio".reset (@"bufio".bufÂ·2 []byte, @"bufio".rÂ·3 @"io".Reader) { *@"bufio".bÂ·1 = (@"bufio".Reader{ @"bufio".buf:@"bufio".bufÂ·2, @"bufio".rd:@"bufio".rÂ·3, @"bufio".lastByte:-0x1, @"bufio".lastRuneSize:-0x1 }) }
+	func (@"bufio".bÂ·1 *@"bufio".Reader "esc:0x1") @"bufio".reset (@"bufio".bufÂ·2 []byte, @"bufio".rÂ·3 @"io".Reader) { *@"bufio".bÂ·1 = (@"bufio".Reader{ @"bufio".buf:@"bufio".bufÂ·2, @"bufio".rd:@"bufio".rÂ·3, @"bufio".lastByte:int(-0x1), @"bufio".lastRuneSize:int(-0x1) }) }
 	func (@"bufio".bÂ·3 *@"bufio".Reader "esc:0x9") @"bufio".writeBuf (@"bufio".wÂ·4 @"io".Writer) (? int64, ? error)
 	import bytes "bytes" // indirect
 	type @"bytes".readOp int
@@ -335,7 +339,7 @@ package godevice
 	func (@"bytes".bÂ·2 *@"bytes".Buffer "esc:0x1") Cap () (? int) { return cap(@"bytes".bÂ·2.@"bytes".buf) }
 	func (@"bytes".bÂ·1 *@"bytes".Buffer) Grow (@"bytes".nÂ·2 int)
 	func (@"bytes".bÂ·2 *@"bytes".Buffer "esc:0x1") Len () (? int) { return len(@"bytes".bÂ·2.@"bytes".buf) - @"bytes".bÂ·2.@"bytes".off }
-	func (@"bytes".bÂ·2 *@"bytes".Buffer "esc:0x22") Next (@"bytes".nÂ·3 int) (? []byte) { @"bytes".bÂ·2.@"bytes".lastRead = @"bytes".readOp(0x0); var @"bytes".mÂ·4 int; ; @"bytes".mÂ·4 = @"bytes".bÂ·2.Len(); if @"bytes".nÂ·3 > @"bytes".mÂ·4 { @"bytes".nÂ·3 = @"bytes".mÂ·4 }; var @"bytes".dataÂ·5 []byte; ; @"bytes".dataÂ·5 = @"bytes".bÂ·2.@"bytes".buf[@"bytes".bÂ·2.@"bytes".off:@"bytes".bÂ·2.@"bytes".off + @"bytes".nÂ·3]; @"bytes".bÂ·2.@"bytes".off += @"bytes".nÂ·3; if @"bytes".nÂ·3 > 0x0 { @"bytes".bÂ·2.@"bytes".lastRead = @"bytes".readOp(0x2) }; return @"bytes".dataÂ·5 }
+	func (@"bytes".bÂ·2 *@"bytes".Buffer "esc:0x22") Next (@"bytes".nÂ·3 int) (? []byte) { @"bytes".bÂ·2.@"bytes".lastRead = @"bytes".readOp(0x0); var @"bytes".mÂ·4 int; ; @"bytes".mÂ·4 = @"bytes".bÂ·2.Len(); if @"bytes".nÂ·3 > @"bytes".mÂ·4 { @"bytes".nÂ·3 = @"bytes".mÂ·4 }; var @"bytes".dataÂ·5 []byte; ; @"bytes".dataÂ·5 = @"bytes".bÂ·2.@"bytes".buf[@"bytes".bÂ·2.@"bytes".off:@"bytes".bÂ·2.@"bytes".off + @"bytes".nÂ·3]; @"bytes".bÂ·2.@"bytes".off += @"bytes".nÂ·3; if @"bytes".nÂ·3 > int(0x0) { @"bytes".bÂ·2.@"bytes".lastRead = @"bytes".readOp(0x2) }; return @"bytes".dataÂ·5 }
 	func (@"bytes".bÂ·3 *@"bytes".Buffer "esc:0x9") Read (@"bytes".pÂ·4 []byte "esc:0x1") (@"bytes".nÂ·1 int, @"bytes".errÂ·2 error)
 	func (@"bytes".bÂ·3 *@"bytes".Buffer "esc:0x1") ReadByte () (@"bytes".cÂ·1 byte, @"bytes".errÂ·2 error)
 	func (@"bytes".bÂ·3 *@"bytes".Buffer "esc:0x9") ReadBytes (@"bytes".delimÂ·4 byte) (@"bytes".lineÂ·1 []byte, @"bytes".errÂ·2 error)
@@ -343,9 +347,9 @@ package godevice
 	func (@"bytes".bÂ·4 *@"bytes".Buffer "esc:0x1") ReadRune () (@"bytes".rÂ·1 rune, @"bytes".sizeÂ·2 int, @"bytes".errÂ·3 error)
 	func (@"bytes".bÂ·3 *@"bytes".Buffer "esc:0x1") ReadString (@"bytes".delimÂ·4 byte) (@"bytes".lineÂ·1 string, @"bytes".errÂ·2 error)
 	func (@"bytes".bÂ·1 *@"bytes".Buffer "esc:0x1") Reset ()
-	func (@"bytes".bÂ·2 *@"bytes".Buffer "esc:0x1") String () (? string) { if @"bytes".bÂ·2 == nil { return "<nil>" }; return string(@"bytes".bÂ·2.@"bytes".buf[@"bytes".bÂ·2.@"bytes".off:]) }
+	func (@"bytes".bÂ·2 *@"bytes".Buffer "esc:0x1") String () (? string) { if @"bytes".bÂ·2 == nil { return string("<nil>") }; return string(@"bytes".bÂ·2.@"bytes".buf[@"bytes".bÂ·2.@"bytes".off:]) }
 	func (@"bytes".bÂ·1 *@"bytes".Buffer "esc:0x1") Truncate (@"bytes".nÂ·2 int)
-	func (@"bytes".bÂ·2 *@"bytes".Buffer "esc:0x1") UnreadByte () (? error) { if @"bytes".bÂ·2.@"bytes".lastRead != @"bytes".readOp(0x1) && @"bytes".bÂ·2.@"bytes".lastRead != @"bytes".readOp(0x2) { return @"errors".New("bytes.Buffer: UnreadByte: previous operation was not a read") }; @"bytes".bÂ·2.@"bytes".lastRead = @"bytes".readOp(0x0); if @"bytes".bÂ·2.@"bytes".off > 0x0 { @"bytes".bÂ·2.@"bytes".off-- }; return nil }
+	func (@"bytes".bÂ·2 *@"bytes".Buffer "esc:0x1") UnreadByte () (? error) { if @"bytes".bÂ·2.@"bytes".lastRead != @"bytes".readOp(0x1) && @"bytes".bÂ·2.@"bytes".lastRead != @"bytes".readOp(0x2) { return @"errors".New(string("bytes.Buffer: UnreadByte: previous operation was not a read")) }; @"bytes".bÂ·2.@"bytes".lastRead = @"bytes".readOp(0x0); if @"bytes".bÂ·2.@"bytes".off > int(0x0) { @"bytes".bÂ·2.@"bytes".off-- }; return nil }
 	func (@"bytes".bÂ·2 *@"bytes".Buffer "esc:0x1") UnreadRune () (? error)
 	func (@"bytes".bÂ·3 *@"bytes".Buffer) Write (@"bytes".pÂ·4 []byte "esc:0x9") (@"bytes".nÂ·1 int, @"bytes".errÂ·2 error)
 	func (@"bytes".bÂ·2 *@"bytes".Buffer) WriteByte (@"bytes".cÂ·3 byte) (? error)
@@ -373,12 +377,12 @@ package godevice
 	func (@"net/http".rÂ·4 *@"net/http".Request "esc:0x1") BasicAuth () (@"net/http".usernameÂ·1 string, @"net/http".passwordÂ·2 string, @"net/http".okÂ·3 bool)
 	func (@"net/http".rÂ·3 *@"net/http".Request "esc:0x1") Cookie (@"net/http".nameÂ·4 string "esc:0x1") (? *@"net/http".Cookie, ? error)
 	func (@"net/http".rÂ·2 *@"net/http".Request "esc:0x1") Cookies () (? []*@"net/http".Cookie)
-	func (@"net/http".rÂ·4 *@"net/http".Request "esc:0x9") FormFile (@"net/http".keyÂ·5 string "esc:0x1") (? @"mime/multipart".File, ? *@"mime/multipart".FileHeader, ? error)
-	func (@"net/http".rÂ·2 *@"net/http".Request "esc:0x9") FormValue (@"net/http".keyÂ·3 string "esc:0x1") (? string)
-	func (@"net/http".rÂ·3 *@"net/http".Request "esc:0x9") MultipartReader () (? *@"mime/multipart".Reader, ? error)
+	func (@"net/http".rÂ·4 *@"net/http".Request) FormFile (@"net/http".keyÂ·5 string "esc:0x1") (? @"mime/multipart".File, ? *@"mime/multipart".FileHeader, ? error)
+	func (@"net/http".rÂ·2 *@"net/http".Request) FormValue (@"net/http".keyÂ·3 string "esc:0x1") (? string)
+	func (@"net/http".rÂ·3 *@"net/http".Request) MultipartReader () (? *@"mime/multipart".Reader, ? error)
 	func (@"net/http".rÂ·2 *@"net/http".Request "esc:0x9") ParseForm () (? error)
-	func (@"net/http".rÂ·2 *@"net/http".Request "esc:0x9") ParseMultipartForm (@"net/http".maxMemoryÂ·3 int64) (? error)
-	func (@"net/http".rÂ·2 *@"net/http".Request "esc:0x9") PostFormValue (@"net/http".keyÂ·3 string "esc:0x1") (? string)
+	func (@"net/http".rÂ·2 *@"net/http".Request) ParseMultipartForm (@"net/http".maxMemoryÂ·3 int64) (? error)
+	func (@"net/http".rÂ·2 *@"net/http".Request) PostFormValue (@"net/http".keyÂ·3 string "esc:0x1") (? string)
 	func (@"net/http".rÂ·2 *@"net/http".Request "esc:0x1") ProtoAtLeast (@"net/http".majorÂ·3 int, @"net/http".minorÂ·4 int) (? bool) { return @"net/http".rÂ·2.ProtoMajor > @"net/http".majorÂ·3 || @"net/http".rÂ·2.ProtoMajor == @"net/http".majorÂ·3 && @"net/http".rÂ·2.ProtoMinor >= @"net/http".minorÂ·4 }
 	func (@"net/http".rÂ·2 *@"net/http".Request "esc:0x1") Referer () (? string)
 	func (@"net/http".rÂ·1 *@"net/http".Request "esc:0x1") SetBasicAuth (@"net/http".usernameÂ·2 string "esc:0x1", @"net/http".passwordÂ·3 string "esc:0x1")
@@ -387,18 +391,19 @@ package godevice
 	func (@"net/http".rÂ·2 *@"net/http".Request "esc:0x9") WriteProxy (@"net/http".wÂ·3 @"io".Writer) (? error)
 	func (@"net/http".rÂ·1 *@"net/http".Request "esc:0x9") @"net/http".closeBody ()
 	func (@"net/http".rÂ·2 *@"net/http".Request "esc:0x1") @"net/http".expectsContinue () (? bool)
-	func (@"net/http".rÂ·3 *@"net/http".Request "esc:0xa") @"net/http".multipartReader () (? *@"mime/multipart".Reader, ? error)
+	func (@"net/http".rÂ·2 *@"net/http".Request "esc:0x1") @"net/http".isReplayable () (? bool)
+	func (@"net/http".rÂ·3 *@"net/http".Request) @"net/http".multipartReader () (? *@"mime/multipart".Reader, ? error)
 	func (@"net/http".rÂ·2 *@"net/http".Request "esc:0x1") @"net/http".wantsClose () (? bool)
 	func (@"net/http".rÂ·2 *@"net/http".Request "esc:0x1") @"net/http".wantsHttp10KeepAlive () (? bool)
-	func (@"net/http".reqÂ·2 *@"net/http".Request "esc:0x9") @"net/http".write (@"net/http".wÂ·3 @"io".Writer, @"net/http".usingProxyÂ·4 bool, @"net/http".extraHeadersÂ·5 @"net/http".Header "esc:0x9") (? error)
+	func (@"net/http".reqÂ·2 *@"net/http".Request "esc:0x9") @"net/http".write (@"net/http".wÂ·3 @"io".Writer, @"net/http".usingProxyÂ·4 bool, @"net/http".extraHeadersÂ·5 @"net/http".Header "esc:0x9", @"net/http".waitForContinueÂ·6 func() (? bool) "esc:0x1") (? error)
 	func @"".GetType (@"".rÂ·2 *@"net/http".Request "esc:0x1") (? string)
 	func @"".init ()
-	func @"math/big".low64 (@"math/big".zÂ·2 @"math/big".nat "esc:0x1") (? uint64) { if len(@"math/big".zÂ·2) == 0x0 { return 0x0 }; var @"math/big".vÂ·3 uint64; ; @"math/big".vÂ·3 = uint64(@"math/big".zÂ·2[0x0]); if false && len(@"math/big".zÂ·2) > 0x1 { @"math/big".vÂ·3 |= uint64(@"math/big".zÂ·2[0x1]) << 0x20 }; return @"math/big".vÂ·3 }
+	func @"math/big".low64 (@"math/big".zÂ·2 @"math/big".nat "esc:0x1") (? uint64) { if len(@"math/big".zÂ·2) == int(0x0) { return uint64(0x0) }; var @"math/big".vÂ·3 uint64; ; @"math/big".vÂ·3 = uint64(@"math/big".zÂ·2[int(0x0)]); if false && len(@"math/big".zÂ·2) > int(0x1) { @"math/big".vÂ·3 |= uint64(@"math/big".zÂ·2[int(0x1)]) << uint(0x20) }; return @"math/big".vÂ·3 }
 	var @"time".months [12]string
 	var @"time".days [7]string
 	var @"time".Local *@"time".Location
 	var @"time".UTC *@"time".Location
-	func @"net".IPv4 (@"net".aÂ·2 byte, @"net".bÂ·3 byte, @"net".cÂ·4 byte, @"net".dÂ·5 byte) (? @"net".IP) { var @"net".pÂ·6 @"net".IP; ; @"net".pÂ·6 = make(@"net".IP, 0x10); copy(@"net".pÂ·6, @"net".v4InV6Prefix); @"net".pÂ·6[0xc] = @"net".aÂ·2; @"net".pÂ·6[0xd] = @"net".bÂ·3; @"net".pÂ·6[0xe] = @"net".cÂ·4; @"net".pÂ·6[0xf] = @"net".dÂ·5; return @"net".pÂ·6 }
+	func @"net".IPv4 (@"net".aÂ·2 byte, @"net".bÂ·3 byte, @"net".cÂ·4 byte, @"net".dÂ·5 byte) (? @"net".IP) { var @"net".pÂ·6 @"net".IP; ; @"net".pÂ·6 = make(@"net".IP, 0x10); copy(@"net".pÂ·6, @"net".v4InV6Prefix); @"net".pÂ·6[int(0xc)] = @"net".aÂ·2; @"net".pÂ·6[int(0xd)] = @"net".bÂ·3; @"net".pÂ·6[int(0xe)] = @"net".cÂ·4; @"net".pÂ·6[int(0xf)] = @"net".dÂ·5; return @"net".pÂ·6 }
 	var @"bufio".ErrInvalidUnreadByte error
 	var @"bufio".ErrInvalidUnreadRune error
 	import errors "errors" // indirect
@@ -408,48 +413,19 @@ package godevice
 	func (@"errors".eÂ·2 *@"errors".errorString "esc:0x22") Error () (? string) { return @"errors".eÂ·2.@"errors".s }
 
 $$
-_go_.o          0           0     0     644     8842      `
-go object linux amd64 go1.5.3 X:none
+_go_.o          0           0     0     644     8641      `
+go object linux amd64 go1.6.2 X:none
 
 !
-  go13ldnet/http.astrings.a ş"".GetType     ŒdH‹%    H;a†©  Hƒì`1ÛH‰\$pH‰\$xH‹\$hHƒû „ƒ  H‹k8H‰,$H    H‰\$HÇD$
+  go13ldnet/http.astrings.a ş"".GetType      dH‹%    H;a†©  Hƒì`1ÛH‰\$pH‰\$xH‹\$hHƒû „ƒ  H‹k8H‰,$H    H‰\$HÇD$
    è    H‹\$H‰\$@H‹\$ H‰\$HH    H‰\$PHÇD$X   H‹\$@H‰$H‹\$HH‰\$H    H‰\$HÇD$   è    Š\$ ˆ\$?€|$? …Ş  H‹\$@H‰$H‹\$HH‰\$H    H‰\$HÇD$   è    Š\$ ˆ\$>€|$> …  H‹\$@H‰$H‹\$HH‰\$H    H‰\$HÇD$   è    Š\$ ˆ\$=€|$= …^  H‹\$@H‰$H‹\$HH‰\$H    H‰\$HÇD$
-   è    Š\$ ˆ\$<€|$< …  H‹\$@H‰$H‹\$HH‰\$H    H‰\$HÇD$   è    Š\$ ˆ\$;€|$; …Ş  H‹\$@H‰$H‹\$HH‰\$H    H‰\$HÇD$   è    Š\$ ˆ\$:€|$: …À  H‹\$@H‰$H‹\$HH‰\$H    H‰\$HÇD$   è    Š\$ ˆ\$9€|$9 …€  H‹\$@H‰$H‹\$HH‰\$H    H‰\$HÇD$   è    Š\$ ˆ\$8€|$8 …@  H‹\$@H‰$H‹\$HH‰\$H    H‰\$HÇD$   è    Š\$ ˆ\$7€|$7 …   H‹\$@H‰$H‹\$HH‰\$H    H‰\$HÇD$   è    Š\$ ˆ\$6€|$6 …À   H‹\$@H‰$H‹\$HH‰\$H    H‰\$HÇD$   è    Š\$ ˆ\$5€|$5 …€   H‹\$@H‰$H‹\$HH‰\$H    H‰\$HÇD$   è    Š\$ ˆ\$4€|$4 „  H‹\$@H‰$H‹\$HH‰\$H    H‰\$HÇD$   è    Š\$ ˆ\$3€|$3 „Ğ   H    H‰\$PHÇD$X   H‹\$@H‰$H‹\$HH‰\$H    H‰\$HÇD$	   è    Š\$ ˆ\$*€|$* tH    H‰\$PHÇD$X   H‹\$@H‰$H‹\$HH‰\$H    H‰\$HÇD$   è    Š\$ ˆ\$)€|$) tH    H‰\$PHÇD$X   H‹\$PH‰\$pH‹\$XH‰\$xHƒÄ`ÃH‹\$@H‰$H‹\$HH‰\$H    H‰\$HÇD$   è    Š\$ ˆ\$2€|$2 t@H‹\$@H‰$H‹\$HH‰\$H    H‰\$HÇD$   è    Š\$ ˆ\$1€|$1 …´şÿÿH‹\$@H‰$H‹\$HH‰\$H    H‰\$HÇD$   è    Š\$ ˆ\$0€|$0 …8  H‹\$@H‰$H‹\$HH‰\$H    H‰\$HÇD$   è    Š\$ ˆ\$/€|$/ …ø   H‹\$@H‰$H‹\$HH‰\$H    H‰\$HÇD$   è    Š\$ ˆ\$.€|$. …¸   H‹\$@H‰$H‹\$HH‰\$H    H‰\$HÇD$   è    Š\$ ˆ\$-€|$- u|H‹\$@H‰$H‹\$HH‰\$H    H‰\$HÇD$   è    Š\$ ˆ\$,€|$, u@H‹\$@H‰$H‹\$HH‰\$H    H‰\$HÇD$   è    Š\$ ˆ\$+€|$+ „QıÿÿH    H‰\$PHÇD$X   é7ıÿÿH    H‰\$PHÇD$X   éıÿÿ‰évùÿÿè    é:ùÿÿp
-      z  ,go.string."User-Agent"    
-  &net/http.Header.Get   Ö  go.string."Web"   ¦  &go.string."Android"   Ì
-   strings.Contains   ¦  "go.string."webOS"   Ì
-   strings.Contains   ¦  $go.string."iPhone"   Ì
-   strings.Contains   ¦  ,go.string."BlackBerry"   Ì
-   strings.Contains   ¦  2go.string."Windows Phone"   Ì
-   strings.Contains   ¦   go.string."iPad"   Ì
-   strings.Contains   ¦   go.string."iPod"   Ì
-   strings.Contains   ¦	  $go.string."tablet"   Ì	
-   strings.Contains   ¦
-  "go.string."RX-34"   Ì
-
-   strings.Contains   ¦  "go.string."FOLIO"   Ì
-   strings.Contains   ¦  $go.string."Kindle"   Ì
-   strings.Contains   ¦  $go.string."Mac OS"   Ì
-   strings.Contains   ¦   go.string."Silk"   Ì
-   strings.Contains   €  go.string."Tab"   Ğ  *go.string."Googlebot"   ö
-   strings.Contains   ¢  go.string."Web"   ò  Bgo.string."Google Search Console"   ˜
-   strings.Contains   Ä  go.string."Web"   Æ  .go.string."AppleWebKit"   ì
-   strings.Contains   ¾   go.string."Silk"   ä
-   strings.Contains   ¾  go.string."TV"   ä
-   strings.Contains   ¾  &go.string."NetCast"   ä
-   strings.Contains   ¾  "go.string."boxee"   ä
-   strings.Contains   ¾   go.string."Kylo"   ä
-   strings.Contains   ¶   go.string."Roku"   Ü
-   strings.Contains   ®  &go.string."DLNADOC"   Ô
-   strings.Contains   ˆ  go.string."TV"   ¼  $go.string."Mobile"   ú
-  0runtime.morestack_noctxt   0À  6"".autotmp_0022 mtype.bool "".autotmp_0021 ktype.bool "".autotmp_0020 itype.bool "".autotmp_0019 gtype.bool "".autotmp_0018 etype.bool "".autotmp_0017 ctype.bool "".autotmp_0016 atype.bool "".autotmp_0015 _type.bool "".autotmp_0014 ]type.bool "".autotmp_0013 [type.bool "".autotmp_0012 Ytype.bool "".autotmp_0011 Wtype.bool "".autotmp_0010 Utype.bool "".autotmp_0009 Stype.bool "".autotmp_0008 Qtype.bool "".autotmp_0007 Otype.bool "".autotmp_0006 Mtype.bool "".autotmp_0005 Ktype.bool "".autotmp_0004 Itype.bool "".autotmp_0003 Gtype.bool "".autotmp_0002 Etype.bool "".autotmp_0001 Ctype.bool "".autotmp_0000 Atype.bool "".deviceType type.string "".userAgent ?type.string "".~r1 type.string "".r  ,type.*net/http.Request Àõ¿ÀÃ Ğ Î#E5555K5555	5
+   è    Š\$ ˆ\$<€|$< …  H‹\$@H‰$H‹\$HH‰\$H    H‰\$HÇD$   è    Š\$ ˆ\$;€|$; …Ş  H‹\$@H‰$H‹\$HH‰\$H    H‰\$HÇD$   è    Š\$ ˆ\$:€|$: …À  H‹\$@H‰$H‹\$HH‰\$H    H‰\$HÇD$   è    Š\$ ˆ\$9€|$9 …€  H‹\$@H‰$H‹\$HH‰\$H    H‰\$HÇD$   è    Š\$ ˆ\$8€|$8 …@  H‹\$@H‰$H‹\$HH‰\$H    H‰\$HÇD$   è    Š\$ ˆ\$7€|$7 …   H‹\$@H‰$H‹\$HH‰\$H    H‰\$HÇD$   è    Š\$ ˆ\$6€|$6 …À   H‹\$@H‰$H‹\$HH‰\$H    H‰\$HÇD$   è    Š\$ ˆ\$5€|$5 …€   H‹\$@H‰$H‹\$HH‰\$H    H‰\$HÇD$   è    Š\$ ˆ\$4€|$4 „  H‹\$@H‰$H‹\$HH‰\$H    H‰\$HÇD$   è    Š\$ ˆ\$3€|$3 „Ğ   H    H‰\$PHÇD$X   H‹\$@H‰$H‹\$HH‰\$H    H‰\$HÇD$	   è    Š\$ ˆ\$*€|$* tH    H‰\$PHÇD$X   H‹\$@H‰$H‹\$HH‰\$H    H‰\$HÇD$   è    Š\$ ˆ\$)€|$) tH    H‰\$PHÇD$X   H‹\$PH‰\$pH‹\$XH‰\$xHƒÄ`ÃH‹\$@H‰$H‹\$HH‰\$H    H‰\$HÇD$   è    Š\$ ˆ\$2€|$2 t@H‹\$@H‰$H‹\$HH‰\$H    H‰\$HÇD$   è    Š\$ ˆ\$1€|$1 …´şÿÿH‹\$@H‰$H‹\$HH‰\$H    H‰\$HÇD$   è    Š\$ ˆ\$0€|$0 …8  H‹\$@H‰$H‹\$HH‰\$H    H‰\$HÇD$   è    Š\$ ˆ\$/€|$/ …ø   H‹\$@H‰$H‹\$HH‰\$H    H‰\$HÇD$   è    Š\$ ˆ\$.€|$. …¸   H‹\$@H‰$H‹\$HH‰\$H    H‰\$HÇD$   è    Š\$ ˆ\$-€|$- u|H‹\$@H‰$H‹\$HH‰\$H    H‰\$HÇD$   è    Š\$ ˆ\$,€|$, u@H‹\$@H‰$H‹\$HH‰\$H    H‰\$HÇD$   è    Š\$ ˆ\$+€|$+ „QıÿÿH    H‰\$PHÇD$X   é7ıÿÿH    H‰\$PHÇD$X   éıÿÿ‰évùÿÿè    é:ùÿÿÌÌÌÌÌÌÌÌÌÌp
+      z  ,go.string."User-Agent"      &net/http.Header.Get   Ö  go.string."Web"   ¦  &go.string."Android"   Ì   strings.Contains   ¦  "go.string."webOS"   Ì   strings.Contains   ¦  $go.string."iPhone"   Ì   strings.Contains   ¦  ,go.string."BlackBerry"   Ì   strings.Contains   ¦  2go.string."Windows Phone"   Ì   strings.Contains   ¦   go.string."iPad"   Ì   strings.Contains   ¦   go.string."iPod"   Ì   strings.Contains   ¦	  $go.string."tablet"   Ì	   strings.Contains   ¦
+  "go.string."RX-34"   Ì
+   strings.Contains   ¦  "go.string."FOLIO"   Ì   strings.Contains   ¦  $go.string."Kindle"   Ì   strings.Contains   ¦  $go.string."Mac OS"   Ì   strings.Contains   ¦   go.string."Silk"   Ì   strings.Contains   €  go.string."Tab"   Ğ  *go.string."Googlebot"   ö   strings.Contains   ¢  go.string."Web"   ò  Bgo.string."Google Search Console"   ˜   strings.Contains   Ä  go.string."Web"   Æ  .go.string."AppleWebKit"   ì   strings.Contains   ¾   go.string."Silk"   ä   strings.Contains   ¾  go.string."TV"   ä   strings.Contains   ¾  &go.string."NetCast"   ä   strings.Contains   ¾  "go.string."boxee"   ä   strings.Contains   ¾   go.string."Kylo"   ä   strings.Contains   ¶   go.string."Roku"   Ü   strings.Contains   ®  &go.string."DLNADOC"   Ô   strings.Contains   ˆ  go.string."TV"   ¼  $go.string."Mobile"   ú  0runtime.morestack_noctxt   0À  6"".autotmp_0022 mtype.bool "".autotmp_0021 ktype.bool "".autotmp_0020 itype.bool "".autotmp_0019 gtype.bool "".autotmp_0018 etype.bool "".autotmp_0017 ctype.bool "".autotmp_0016 atype.bool "".autotmp_0015 _type.bool "".autotmp_0014 ]type.bool "".autotmp_0013 [type.bool "".autotmp_0012 Ytype.bool "".autotmp_0011 Wtype.bool "".autotmp_0010 Utype.bool "".autotmp_0009 Stype.bool "".autotmp_0008 Qtype.bool "".autotmp_0007 Otype.bool "".autotmp_0006 Mtype.bool "".autotmp_0005 Ktype.bool "".autotmp_0004 Itype.bool "".autotmp_0003 Gtype.bool "".autotmp_0002 Etype.bool "".autotmp_0001 Ctype.bool "".autotmp_0000 Atype.bool "".deviceType type.string "".userAgent ?type.string "".~r1 type.string "".r  ,type.*net/http.Request "Àõ¿À¯¿ Ğ Î#E5555K5555	5
 555<<!5G5
-5555G'(7  OV¦j› TgclocalsÂ·cb395d89503762333b1bfb09ba74eb12 TgclocalsÂ·e6f95c7db36fc3c11f9f6e70a9b2f440   p/home/juno/git/go_cv/version_00/src/godevice/godevice.goş"".init     šdH‹%    H;av7Š    €û tŠ    €ûuÃè    Æ    è    è    Æ    Ãè    ë³
-      "  "".initdoneÂ·   8  "".initdoneÂ·   N
-  "runtime.throwinit   ^ "".initdoneÂ·   j
-  net/http.init   t
-  strings.init   € "".initdoneÂ·   
-  0runtime.morestack_noctxt        P P ZP 
+5555G'(7  OV¦j› TgclocalsÂ·cb395d89503762333b1bfb09ba74eb12 TgclocalsÂ·e6f95c7db36fc3c11f9f6e70a9b2f440   p/home/juno/git/go_cv/version_00/src/godevice/godevice.goş"".init      dH‹%    H;av7Š    €û tŠ    €ûuÃè    Æ    è    è    Æ    Ãè    ë³ÌÌÌ
+      "  "".initdoneÂ·   8  "".initdoneÂ·   N  "runtime.throwinit   ^ "".initdoneÂ·   j  net/http.init   t  strings.init   € "".initdoneÂ·     0runtime.morestack_noctxt        P P ZP 
  &* TgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb TgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb   p/home/juno/git/go_cv/version_00/src/godevice/godevice.goş4go.string.hdr."User-Agent"             
           ,go.string."User-Agent"   ş,go.string."User-Agent"    User-Agent  ş&go.string.hdr."Web"                       go.string."Web"   şgo.string."Web"   Web  ş.go.string.hdr."Android"                       &go.string."Android"   ş&go.string."Android"   Android  ş*go.string.hdr."webOS"                       "go.string."webOS"   ş"go.string."webOS"   webOS  ş,go.string.hdr."iPhone"                       $go.string."iPhone"   ş$go.string."iPhone"   iPhone  ş4go.string.hdr."BlackBerry"             
           ,go.string."BlackBerry"   ş,go.string."BlackBerry"    BlackBerry  ş:go.string.hdr."Windows Phone"                       2go.string."Windows Phone"   ş2go.string."Windows Phone"    Windows Phone  ş,go.string.hdr."Mobile"                       $go.string."Mobile"   ş$go.string."Mobile"   Mobile  ş(go.string.hdr."iPad"                        go.string."iPad"   ş go.string."iPad"   
@@ -457,4 +433,4 @@ iPad  ş(go.string.hdr."iPod"                        go.string."iPod"   ş 
 iPod  ş,go.string.hdr."tablet"                       $go.string."tablet"   ş$go.string."tablet"   tablet  ş*go.string.hdr."RX-34"                       "go.string."RX-34"   ş"go.string."RX-34"   RX-34  ş*go.string.hdr."FOLIO"                       "go.string."FOLIO"   ş"go.string."FOLIO"   FOLIO  ş,go.string.hdr."Kindle"                       $go.string."Kindle"   ş$go.string."Kindle"   Kindle  ş,go.string.hdr."Mac OS"                       $go.string."Mac OS"   ş$go.string."Mac OS"   Mac OS  ş(go.string.hdr."Silk"                        go.string."Silk"   ş go.string."Silk"   
 Silk  ş6go.string.hdr."AppleWebKit"                       .go.string."AppleWebKit"   ş.go.string."AppleWebKit"    AppleWebKit  ş&go.string.hdr."Tab"                       go.string."Tab"   şgo.string."Tab"   Tab  ş$go.string.hdr."TV"                       go.string."TV"   şgo.string."TV"   TV  ş.go.string.hdr."NetCast"                       &go.string."NetCast"   ş&go.string."NetCast"   NetCast  ş*go.string.hdr."boxee"                       "go.string."boxee"   ş"go.string."boxee"   boxee  ş(go.string.hdr."Kylo"                        go.string."Kylo"   ş go.string."Kylo"   
 Kylo  ş(go.string.hdr."Roku"                        go.string."Roku"   ş go.string."Roku"   
-Roku  ş.go.string.hdr."DLNADOC"                       &go.string."DLNADOC"   ş&go.string."DLNADOC"   DLNADOC  ş2go.string.hdr."Googlebot"             	          *go.string."Googlebot"   ş*go.string."Googlebot"    Googlebot  şJgo.string.hdr."Google Search Console"                       Bgo.string."Google Search Console"   şBgo.string."Google Search Console" 0  ,Google Search Console  şTgclocalsÂ·e6f95c7db36fc3c11f9f6e70a9b2f440 (  (                 şTgclocalsÂ·cb395d89503762333b1bfb09ba74eb12 (  (                şTgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb           şTgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb           ş0"".initdoneÂ·  type.uint8   ş"".GetTypeÂ·f              "".GetType   ş"".initÂ·f              "".init   ş.go.string.hdr."runtime"                       &go.string."runtime"   ş&go.string."runtime"   runtime  ş,go.importpath.runtime.                       &go.string."runtime"   ş0go.string.hdr."net/http"                       (go.string."net/http"   ş(go.string."net/http"    net/http  ş.go.importpath.net/http.                       (go.string."net/http"   ş.go.string.hdr."strings"                       &go.string."strings"   ş&go.string."strings"   strings  ş,go.importpath.strings.                       &go.string."strings"   ş"runtime.zerovalue      ÿÿgo13ld
+Roku  ş.go.string.hdr."DLNADOC"                       &go.string."DLNADOC"   ş&go.string."DLNADOC"   DLNADOC  ş2go.string.hdr."Googlebot"             	          *go.string."Googlebot"   ş*go.string."Googlebot"    Googlebot  şJgo.string.hdr."Google Search Console"                       Bgo.string."Google Search Console"   şBgo.string."Google Search Console" 0  ,Google Search Console  şTgclocalsÂ·e6f95c7db36fc3c11f9f6e70a9b2f440 (  (                 şTgclocalsÂ·cb395d89503762333b1bfb09ba74eb12 (  (                şTgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb           şTgclocalsÂ·33cdeccccebe80329f1fdbee7f5874cb           ş>"".initdoneÂ·  type.uint8   ş"".GetTypeÂ·f              "".GetType   ş"".initÂ·f              "".init   ş0go.string.hdr."net/http"                       (go.string."net/http"   ş(go.string."net/http"    net/http  ş.go.importpath.net/http.                       (go.string."net/http"   ş.go.string.hdr."strings"                       &go.string."strings"   ş&go.string."strings"   strings  ş,go.importpath.strings.                       &go.string."strings"   ÿÿgo13ld 

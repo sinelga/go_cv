@@ -17,6 +17,9 @@ create table pr.phrases  as select * from phrases where Themes='programming'
 create table pr.keywords  as select * from keywords where Themes='programming'
 
 
+ db.cv.update({"site":"remotejob.work"},{$set:{"site":"remotejob.eu"}},{multi:true})
+
+
 
 
 
